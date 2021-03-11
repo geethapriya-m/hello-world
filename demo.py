@@ -1,4 +1,5 @@
 message = 'GIEWIVrGMTLIVrHIQS' #encrypted message
+print("Program starts here")
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 for key in range(len(LETTERS)):
    translated = ''
