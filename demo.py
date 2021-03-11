@@ -1,4 +1,5 @@
 message = 'GIEWIVrGMTLIVrHIQS' #encrypted message
+print("Program starts here")
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 for key in range(len(LETTERS)):
    translated = ''
@@ -12,3 +13,4 @@ for key in range(len(LETTERS)):
       else:
          translated = translated + symbol
    print('Hacking key #%s: %s' % (key, translated))
+   print("completeed")
