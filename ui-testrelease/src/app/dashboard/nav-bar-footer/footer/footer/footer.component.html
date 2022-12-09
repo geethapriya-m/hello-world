@@ -1,0 +1,26 @@
+<ion-footer class="footer  ion-no-border" style="border-top: 1px solid rgb(245, 237, 237);">
+  <ion-toolbar class="footer ion-no-border" >
+
+    <ion-row class="ion-text-center ion-no-margin ion-no-padding ion-justify-content-center">
+      <ion-col size="1"></ion-col>
+      <ion-col size="2">
+        <ion-icon name="home-outline" [class]="checkhomebuttonCss()" (click)="home()"></ion-icon><br>
+        <b  [class]="checkhomeLabelCss()">Home</b>
+      </ion-col>
+      <ion-col size="1" class="ion-text-center ion-justify-content-center"></ion-col>
+      <ion-col size="4" class="ion-text-center ion-justify-content-center">
+        <ion-icon name="person-outline"></ion-icon><br>
+        <b class="data">{{user}}</b>
+      </ion-col>
+      <ion-col size="1" class="ion-text-center ion-justify-content-center"></ion-col>
+      <ion-col size="2">
+        <ion-icon name="log-out-outline" [class]="logoutbutton()" (click)="logOut()"></ion-icon><br>
+        <b  [class]="logoutlabelbutton()" >Log out</b>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-footer>
+
+

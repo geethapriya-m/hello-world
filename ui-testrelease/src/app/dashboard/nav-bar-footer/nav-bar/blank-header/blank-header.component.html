@@ -1,0 +1,54 @@
+
+
+<ion-header  class="ion-no-border " *ngIf="title!='Welcome!'">
+  <ion-toolbar  style="--border-width:0px;--opacity:0">
+    <ion-row style="margin-top: 1px;" *ngIf="defaultTimer!='biddingheader'">
+      <ion-col size="1.5" >
+        <ion-icon *ngIf="hideGoBack==false" style="font-size: 16px !important;"  name="caret-back-outline"  (click)="goBack()"></ion-icon>
+        <!-- <ion-img  *ngIf="hideGoBack==false" style="height:14px;width: 100%;animation-direction:reverse;"  alt="Go Back" src="assets/img/go-back.png" ></ion-img> -->
+      </ion-col>
+      <ion-col >
+        <p class="ion-header-title app-font-style app-font-primary-color" style="text-align: center;">
+          {{title}}
+        </p>
+      </ion-col>
+      <ion-col size="1.5" style="text-align: right;">
+        <ion-icon style="font-size: 16px !important; " *ngIf="hideForward==false" name="caret-forward-outline" (click)="forwardOldGeneratedShiftLines()"></ion-icon>
+        <!-- <ion-img  style="text-align: right;height: 14px;transform: rotate(180deg);" alt="Next" src="assets/img/go-back.png" ></ion-img> -->
+      </ion-col>
+  </ion-row>
+  <ion-row style="margin-top: 3%;" *ngIf="defaultTimer=='biddingheader'">
+    <ion-col size="1.5" >
+      <!-- <ion-img  *ngIf="hideGoBack==false" style="height:14px;width: 100%;animation-direction:reverse;" class="go-back" alt="Go Back" src="assets/img/go-back.png" (click)="goBack()"></ion-img> -->
+    </ion-col>
+
+    <ion-col size="10.5" style="font-size: 12px;text-align: right;">
+      <p *ngIf="distance>0">
+        Time Remaining to Bid:
+        <b id="timer-alert" class="content-data timer-alert"  *ngIf="distance>0 && (convertNumber(minutes)<5 && convertNumber(hours)<1)">{{hours}}:{{minutes}}:{{seconds}}</b>
+        <b class="content-data "  *ngIf="distance>0 && (convertNumber(minutes)>4 || convertNumber(hours)>0)">{{hours}}:{{minutes}}:{{seconds}}</b></p>
+
+    </ion-col>
+</ion-row>
+  </ion-toolbar>
+</ion-header>
+
+
+<!-- <ion-header *ngIf="defaultHeader==false" class="ion-no-border app-background-primary-color" style="border-bottom-left-radius: 50%;border-bottom-right-radius: 50%;">
+  <ion-toolbar  style="--border-width:0px;--opacity:0">
+    <ion-row style="margin-top: 3%;">
+      <ion-col size="1.5" >
+        <ion-img  *ngIf="hideGoBack==false" style="height:14px;width: 100%;animation-direction:reverse;" class="go-back" alt="Go Back" src="assets/img/go-back.png" (click)="goBack()"></ion-img>
+      </ion-col>
+      <ion-col>
+        <p class="ion-header-title app-font-style app-font-primary-color" style="text-align: center;">
+          {{title}}
+        </p>
+      </ion-col>
+      <ion-col size="2" >
+        <ion-img class="go-back" *ngIf="hideForward==false" style="text-align: right;height: 14px;transform: rotate(180deg);" alt="Next" src="assets/img/go-back.png" (click)="forwardOldGeneratedShiftLines()"></ion-img>
+      </ion-col>
+  </ion-row>
+  </ion-toolbar>
+  <ion-row style="height: 10px;"></ion-row>
+</ion-header> -->

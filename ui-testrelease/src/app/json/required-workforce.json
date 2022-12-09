@@ -1,0 +1,40 @@
+{
+  "required": {
+    "SUN": {
+      "DAY": 10,
+      "EVE": 9,
+      "MID": 3
+    },
+    "MON": {
+      "DAY": 10,
+      "EVE": 9,
+      "MID": 3
+    },
+    "TUE": {
+      "DAY": 12,
+      "EVE": 9,
+      "MID": 3
+    },
+    "WED": {
+      "DAY": 9,
+      "EVE": 9,
+      "MID": 3
+    },
+    "THU": {
+      "DAY": 11,
+      "EVE": 9,
+      "MID": 3
+    },
+    "FRI": {
+      "DAY": 11,
+      "EVE": 9,
+      "MID": 3
+    },
+    "SAT": {
+      "DAY": 9,
+      "EVE": 9,
+      "MID": 3
+    }
+  },
+  "Schedule": []
+}

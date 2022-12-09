@@ -1,0 +1,25 @@
+pipeline {
+    agent  any
+    environment {
+            BRANCH = "${env.BRANCH_NAME == "development" ? "dev" : "test"}"
+            EC2_HOST = "${env.BRANCH_NAME == "development" ? "3.13.254.87" : "ec2-52-14-8-217.us-east-2.compute.amazonaws.com"}"
+        }
+
+    stages {
+        stage("DEPLOY")
+        {
+            steps {
+                slackSend message: "Starting build number ${env.BUILD_NUMBER} of Angular-${BRANCH}"
+                echo "transferring files to DEV EC2 instance"
+                withCredentials([sshUserPrivateKey(credentialsId: "23b415d8-23c3-458c-9a32-c1cdd2b427d3", keyFileVariable: 'keyfile')]) {
+                    sh 'scp -i ${keyfile} -r ./src/html/ ubuntu@${EC2_HOST}:/usr/share/nginx'
+                    }
+            }
+        }
+    }
+    post {
+        always {
+            slackSend message: "Angular-${BRANCH} build result: ${currentBuild.currentResult}"
+        }
+    }
+}

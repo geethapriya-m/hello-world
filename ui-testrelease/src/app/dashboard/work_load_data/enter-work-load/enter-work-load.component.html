@@ -1,0 +1,943 @@
+<!-- <app-blank-header></app-blank-header> -->
+<!-- <ion-content class="ion-no-padding ion-no-margin" style="background-color: gray;height:auto 101%;padding-bottom: 36px;"> -->
+
+<!-- Work Pattern Prefrence -->
+<ion-grid>
+  <ion-row>
+    <ion-col size="1"></ion-col>
+    <ion-col size="10" style="border-radius:10px;" class="ion-text-center  ion-justify-content-center">
+  <ion-segment class="ion-text-center ion-justify-content-center" (ionChange)="segmentChanged($event)"  value="8">
+    <ion-segment-button class="ion-text-center ion-justify-content-center"  value="8">
+      8-Hours Shift
+    </ion-segment-button>
+    <ion-segment-button  class="ion-text-center ion-justify-content-center" value="10">
+      10-Hours Shift
+    </ion-segment-button>
+
+  </ion-segment>
+</ion-col>
+    <ion-col size="1"></ion-col>
+  </ion-row>
+</ion-grid>
+<ion-card id="work-pattern-prefrence-card" >
+  <ion-row class="app-font-black-color font-size-14px font-bold-size  ion-no-margin-bottom" >
+    <ion-col size="8.5"  class="app-font-primary-color ion-no-margin ion-no-padding-top ion-no-padding-bottom">
+    <b style="margin-left:5px">Work Pattern Preference</b></ion-col>
+  <ion-col size="3.5"  class="app-font-primary-color ion-no-margin ion-text-center ion-no-padding-top ion-no-padding-bottom">
+    <!-- <ion-col size="3.5" class="ion-no-padding-bottom"> -->
+      <ion-row class=" ion-no-padding ion-no-margin ion-text-center ion-justify-content-center" >
+        <!-- <ion-col size="1"></ion-col>
+        <ion-col size="1.8" style="border: 1px solid;" class=" ion-no-padding ion-no-margin"> -->
+          <ion-label >{{updatedWorkPattern[0][0]}}</ion-label>
+        <!-- </ion-col>
+        <ion-col size="1.8" class=" ion-no-padding ion-no-margin"> -->
+          <ion-label >{{updatedWorkPattern[1][0]}}</ion-label>
+        <!-- </ion-col>
+        <ion-col size="1.8" class=" ion-no-padding ion-no-margin"> -->
+          <ion-label >{{updatedWorkPattern[2][0]}}</ion-label>
+        <!-- </ion-col>
+        <ion-col size="1.8" class=" ion-no-padding ion-no-margin"> -->
+          <ion-label >{{updatedWorkPattern[3][0]}}</ion-label>
+        <!-- </ion-col>
+        <ion-col size="1.8" class=" ion-no-padding ion-no-margin"> -->
+          <ion-label *ngIf="selected_shift_duration==8">{{updatedWorkPattern[4][0]}}</ion-label>
+        <!-- </ion-col > -->
+        <!-- <ion-col size="1"></ion-col> -->
+      </ion-row>
+    <!-- </ion-col> -->
+
+
+  </ion-col>
+
+  </ion-row>
+
+<ion-grid class="content-data ion-no-margin-bottom ion-no-padding-top ion-no-padding-bottom">
+
+<ion-row  *ngIf="selected_shift_duration==8;else tenHourstitle" class=" ion-no-margin-top ion-no-margin-bottom ion-no-padding-top ion-no-padding-bottom" >
+<ion-col size="2.4"  class="app-font-black-color ion-no-margin ion-text-center ion-no-padding-top ion-no-padding-bottom">D1 </ion-col>
+<ion-col size="2.4"  class="app-font-black-color ion-no-margin ion-text-center ion-no-padding-top ion-no-padding-bottom">D2 </ion-col>
+<ion-col size="2.4"  class="app-font-black-color ion-no-margin ion-text-center ion-no-padding-top ion-no-padding-bottom">D3 </ion-col>
+<ion-col size="2.4"  class="app-font-black-color ion-no-margin ion-text-center ion-no-padding-top ion-no-padding-bottom">D4 </ion-col>
+<ion-col size="2.4"  class="app-font-black-color ion-no-margin ion-text-center ion-no-padding-top ion-no-padding-bottom">D5 </ion-col>
+</ion-row>
+<ng-template #tenHourstitle>
+<ion-row class=" ion-no-margin-top ion-no-margin-bottom ion-no-padding-top ion-no-padding-bottom" >
+<ion-col size="1.2"></ion-col>
+  <ion-col size="2.4"  class="app-font-black-color ion-no-margin ion-text-center ion-no-padding-top ion-no-padding-bottom">D1 </ion-col>
+  <ion-col size="2.4"  class="app-font-black-color ion-no-margin ion-text-center ion-no-padding-top ion-no-padding-bottom">D2 </ion-col>
+  <ion-col size="2.4"  class="app-font-black-color ion-no-margin ion-text-center ion-no-padding-top ion-no-padding-bottom">D3 </ion-col>
+  <ion-col size="2.4"  class="app-font-black-color ion-no-margin ion-text-center ion-no-padding-top ion-no-padding-bottom">D4 </ion-col>
+  <ion-col size="1.2"></ion-col>
+  </ion-row>
+</ng-template>
+<form [formGroup]="workPatternDayForm">
+    <ion-row *ngIf="selected_shift_duration==8;else tenHours" class="  ion-justify-content-center ion-text-center ion-no-margin ion-no-padding " id="work-pattern-prefrence-details">
+      <ion-col size="2.4"  id="work-col"  class="ion-no-margin " >
+        <ion-select (ionChange)="updateWorkPattern(true)" class="form-control app-border-mercurius-secondary-color app-font-secondary-color" id="work-prefrence-day"     formControlName="day1"  interface="popover">
+          <ion-select-option  *ngFor="let sn of allShiftName" value="{{sn.shiftPattern}}">{{sn.shift_name}} - {{sn.startTime}} - {{sn.shift_category}}</ion-select-option>
+      </ion-select>
+      </ion-col>
+          <ion-col size="2.4"  id="work-col"  class="ion-no-margin " >
+            <ion-select (ionChange)="updateWorkPattern(true)" class="form-control app-border-mercurius-secondary-color app-font-secondary-color" id="work-prefrence-day"     formControlName="day2"  interface="popover">
+              <ion-select-option  *ngFor="let sn of allShiftName" value="{{sn.shiftPattern}}">{{sn.shift_name}} - {{sn.startTime}} - {{sn.shift_category}}</ion-select-option>
+          </ion-select>
+          </ion-col>
+          <ion-col size="2.4"  id="work-col"  class="ion-no-margin " >
+            <ion-select (ionChange)="updateWorkPattern(true)" class="form-control app-border-mercurius-secondary-color app-font-secondary-color" id="work-prefrence-day"     formControlName="day3"  interface="popover">
+              <ion-select-option  *ngFor="let sn of allShiftName" value="{{sn.shiftPattern}}">{{sn.shift_name}} - {{sn.startTime}} - {{sn.shift_category}}</ion-select-option>
+          </ion-select>
+          </ion-col>
+          <ion-col size="2.4"  id="work-col"  class="ion-no-margin " >
+            <ion-select (ionChange)="updateWorkPattern(true)"  class="form-control app-border-mercurius-secondary-color app-font-secondary-color" id="work-prefrence-day"     formControlName="day4"  interface="popover">
+              <ion-select-option  *ngFor="let sn of allShiftName" value="{{sn.shiftPattern}}">{{sn.shift_name}} - {{sn.startTime}} - {{sn.shift_category}}</ion-select-option>
+          </ion-select>
+         </ion-col>
+          <ion-col size="2.4"  id="work-col"  class="ion-no-margin " >
+            <ion-select (ionChange)="updateWorkPattern(true)"  class="form-control app-border-mercurius-secondary-color app-font-secondary-color" id="work-prefrence-day"    formControlName="day5"  interface="popover">
+              <ion-select-option  *ngFor="let sn of allShiftName" value="{{sn.shiftPattern}}">{{sn.shift_name}} - {{sn.startTime}} - {{sn.shift_category}}</ion-select-option>
+        </ion-select>
+       </ion-col>
+    </ion-row>
+    <ng-template #tenHours>
+      <ion-row  class="  ion-justify-content-center ion-text-center ion-no-margin ion-no-padding " id="work-pattern-prefrence-details">
+        <ion-col size="1.2"></ion-col>
+        <ion-col size="2.4"  id="work-col"  class="ion-no-margin " >
+          <ion-select (ionChange)="updateWorkPattern(true)" class="form-control app-border-mercurius-secondary-color app-font-secondary-color" id="work-prefrence-day"     formControlName="day1"  interface="popover">
+            <ion-select-option  *ngFor="let sn of allShiftName" value="{{sn.shiftPattern}}">{{sn.shift_name}} - {{sn.startTime}} - {{sn.shift_category}}</ion-select-option>
+        </ion-select>
+        </ion-col>
+            <ion-col size="2.4"  id="work-col"  class="ion-no-margin " >
+              <ion-select (ionChange)="updateWorkPattern(true)" class="form-control app-border-mercurius-secondary-color app-font-secondary-color" id="work-prefrence-day"     formControlName="day2"  interface="popover">
+                <ion-select-option  *ngFor="let sn of allShiftName" value="{{sn.shiftPattern}}">{{sn.shift_name}} - {{sn.startTime}} - {{sn.shift_category}}</ion-select-option>
+            </ion-select>
+            </ion-col>
+            <ion-col size="2.4"  id="work-col"  class="ion-no-margin " >
+              <ion-select (ionChange)="updateWorkPattern(true)" class="form-control app-border-mercurius-secondary-color app-font-secondary-color" id="work-prefrence-day"     formControlName="day3"  interface="popover">
+                <ion-select-option  *ngFor="let sn of allShiftName" value="{{sn.shiftPattern}}">{{sn.shift_name}} - {{sn.startTime}} - {{sn.shift_category}}</ion-select-option>
+            </ion-select>
+            </ion-col>
+            <ion-col size="2.4"  id="work-col"  class="ion-no-margin " >
+              <ion-select (ionChange)="updateWorkPattern(true)"  class="form-control app-border-mercurius-secondary-color app-font-secondary-color" id="work-prefrence-day"     formControlName="day4"  interface="popover">
+                <ion-select-option  *ngFor="let sn of allShiftName" value="{{sn.shiftPattern}}">{{sn.shift_name}} - {{sn.startTime}} - {{sn.shift_category}}</ion-select-option>
+            </ion-select>
+           </ion-col>
+           <ion-col size="1.2"></ion-col>
+      </ion-row>
+    </ng-template>
+  </form>
+</ion-grid>
+</ion-card>
+
+
+
+
+
+
+
+<!-- Work Load -->
+<ion-card id="work-load-card" >
+  <!-- <ion-row class="app-font-black-color font-size-14px ion-text-center font-bold-size ion-justify-content-center ion-no-margin-bottom" >
+    Enter Shift Numbers
+</ion-row> -->
+<ion-row  class="app-font-primary-color font-bold-size  ion-no-margin-top ion-no-margin-bottom ion-no-padding-bottom" style="margin-top:1%" >
+
+  <ion-col size="11.7"  style="padding-top: 0%;padding-bottom:0%;margin-top: 0%;margin-bottom: 0%;padding-right:0% ;">
+    <!-- <p class="  ion-header-title" style="padding-left: 2%;"> -->
+      <!-- Enter Shift Numbers -->
+      <div style="float:left">
+        <b style="margin-left:5px;">   Enter Shift Details</b>
+      </div>
+
+      <!-- </p> -->
+      <div style="float: right;"> <mat-icon style="font-size: 28px;" (click)="addNewShiftDefinition()">add_circle</mat-icon></div><div style="float: right;padding-top: 3px;"> <b class="font-normal text-normal" style="font-size: 14px;"> Add New </b></div>
+      <!-- <mat-icon   style="float:right;font-size: 28px;height: 100%;" (click)="addNewShiftDefinition()">add_circle</mat-icon> -->
+      <!-- <ion-icon name="add-circle-outline"  class=" app-font-primary-color" style="float:right;font-size: 32px;height: 100%;" ></ion-icon> -->
+  <!-- </ion-col><ion-col size="1" class=" app-font-primary-color" style="padding-top: 0%;padding-bottom:0%;margin-top: 0% ;margin-bottom: 0%;"> -->
+
+  </ion-col>
+<ion-col size="0.3"></ion-col>
+</ion-row>
+
+<ion-grid id="work-load-data" class="content-data app-font-primary-color ion-no-padding-top  ion-no-margin-bottom ion-no-margin-top ion-no-padding-bottom ">
+      <ion-grid id="workload-details" class="ion-no-margin-top ion-no-padding-top ion-no-padding-bottom ion-no-margin-bottom">
+              <ion-row class="ion-no-padding ion-no-padding-bottom ion-no-margin-bottom ion-justify-content-center ion-text-center"   >
+                <ion-col id=" day-title" class="ion-no-padding-bottom ion-no-margin-bottom  ion-justify-content-center ion-text-center " size="1.2" style="padding-left: 0%;">
+                  <ion-img    class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-top ion-no-margin-bottom" ></ion-img>
+                </ion-col>
+                 <ion-col  class="ion-no-margin ion-no-padding-top ion-no-padding-bottom " id="day-title" >
+                  <ion-input value="S" id="input-title" class="ion-no-padding-top ion-no-padding-bottom ion-border-round "   [readonly]="true" > </ion-input>
+                </ion-col>
+                 <ion-col  class="ion-no-margin ion-no-padding-top ion-no-padding-bottom" id="day-title">
+                  <ion-input value="M" id="input-title" class="ion-no-padding-top ion-no-padding-bottom ion-border-round"   [readonly]="true" > </ion-input>
+                </ion-col>
+                 <ion-col  class="ion-no-margin ion-no-padding-top ion-no-padding-bottom" id="day-title">
+                  <ion-input value="T" id="input-title" class="ion-no-padding-top ion-no-padding-bottom ion-border-round"   [readonly]="true" > </ion-input>
+                </ion-col>
+                 <ion-col  class="ion-no-margin ion-no-padding-top ion-no-padding-bottom" id="day-title">
+                  <ion-input value="W" id="input-title" class="ion-no-padding-top ion-no-padding-bottom ion-border-round"   [readonly]="true" > </ion-input>
+                </ion-col>
+                 <ion-col  class="ion-no-margin ion-no-padding-top ion-no-padding-bottom" id="day-title">
+                  <ion-input value="T" id="input-title" class="ion-no-padding-top ion-no-padding-bottom ion-border-round"   [readonly]="true" > </ion-input>
+                </ion-col>
+                 <ion-col  class="ion-no-margin ion-no-padding-top ion-no-padding-bottom" id="day-title">
+                  <ion-input value="F" id="input-title" class="ion-no-padding-top ion-no-padding-bottom ion-border-round"   [readonly]="true" > </ion-input>
+                </ion-col>
+                 <ion-col  class="ion-no-margin ion-no-padding-top ion-no-padding-bottom" id="day-title">
+                  <ion-input value="S" id="input-title" class="ion-no-padding-top ion-no-padding-bottom ion-border-round"   [readonly]="true" > </ion-input>
+                </ion-col>
+                <ion-col    size="1">
+                  <!-- <ion-label  class="ion-no-padding-top ion-no-padding-bottom"  position="stacked" >M</ion-label> -->
+                      </ion-col>
+
+              </ion-row>
+            </ion-grid>
+          </ion-grid>
+            <!-- <ion-card id="workload-details" class="data ion-no-padding ion-no-margin app-font-secondary-color" *ngFor="let d of workD" (click)="open(d)">
+               -->
+
+               <ion-content style="height:77%;">
+               <ion-grid id="work-load-data" style="padding-top: 1%;padding-bottom: 0.5%;">
+
+                      <form [formGroup]="workLoadForm">
+
+                        <ion-card id="workload-details"  class="ion-no-padding-top ion-no-margin-top ion-no-margin-bottom  ion-no-padding ion-no-margin app-font-secondary-color" formArrayName="allWorkLoadData" *ngFor="let wD of allWorkLoadData.controls; let i=index">
+                          <ion-item-sliding *ngIf="wD.value.shift_created_by=='system' " class=" ion-no-padding ion-no-margin ion-text-center "  style="--inner-padding-top:0%;">
+                            <ion-item class="data ion-no-padding ion-no-margin" style="--inner-padding-end: 0%;--inner-padding-start: 0% !important;--inner-padding-top:0%;" [formGroupName]="i">
+                        <!-- <ion-row style="border: 1px solid;height: 80%;" class="data ion-no-padding ion-no-padding-bottom ion-no-margin-bottom "> -->
+                          <ion-col size="1.2" id=" day" class="ion-no-padding-bottom ion-no-padding-top ion-no-margin-bottom  ion-justify-content-center ion-text-center img" >
+                            <!-- <ion-img id="home-page-header" alt="night" src="assets/img/night.png"></ion-img> -->
+                            <!-- <ion-img id="home-page-header" *ngIf="wD.value.startTime>2200 || wD.value.startTime<600"  class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-top ion-no-margin-bottom"  alt="Mid" src="assets/img/night.png" ></ion-img>
+                            <ion-img id="home-page-header" *ngIf="wD.value.startTime>500 && wD.value.startTime<1300"  class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-top ion-no-margin-bottom"  alt="Day" src="assets/img/morning.png" ></ion-img>
+                            <ion-img id="home-page-header" *ngIf="wD.value.startTime>1200 && wD.value.startTime<2300"  class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-top ion-no-margin-bottom"  alt="Eve" src="assets/img/evening.png" ></ion-img>
+                             -->
+                             <ion-img *ngIf="wD.value.shiftCategory==1 || wD.value.shiftCategory=='1' " id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Mid" src="assets/img/night.png"></ion-img>
+                             <ion-img *ngIf="wD.value.shiftCategory==2 || wD.value.shiftCategory=='2' " id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Eve" src="assets/img/evening.png"></ion-img>
+                             <ion-img *ngIf="wD.value.shiftCategory==3 || wD.value.shiftCategory=='3'" id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Day"  src="assets/img/morning.png"></ion-img>
+                             <ion-img *ngIf="wD.value.shiftCategory==5 || wD.value.shiftCategory=='5'"  id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Day-Eve" src="assets/img/morning-evening.png"></ion-img>
+                             <ion-img *ngIf="wD.value.shiftCategory==6 || wD.value.shiftCategory=='6'" id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Eve-Mid"  src="assets/img/evening-night.png"></ion-img>
+                             <ion-img *ngIf="wD.value.shiftCategory==4 || wD.value.shiftCategory=='4'" id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Mid-Day"  src="assets/img/night-morning.png"></ion-img>
+                            <p class="ion-no-margin-bottom ion-no-margin-top ion-no-padding" style="width: 110%;">{{wD.value.startTime}}</p>
+                          </ion-col>
+                          <ion-col  class="ion-no-margin "   id="day" >
+                            <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude==='E'" *ngIf="wD.value.sunOutlier==true" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus   type="number" (ionChange)="updateWorkLoad()" (click)="changeSun(i)" (focusout)="onFocusOutSun(i)" (ionLoad)="testT(i)" formControlName="Sun" name="Sun" [class.is-invalid]="allWorkLoadData[i]?.controls?.Sun?.invalid"></ion-input>
+                               <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude==='E'"  *ngIf="wD.value.sunOutlier==false" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus   type="number" (ionChange)="updateWorkLoad()" (click)="changeSun(i)" (focusout)="onFocusOutSun(i)" (ionLoad)="testT(i)" formControlName="Sun" name="Sun" [class.is-invalid]="allWorkLoadData[i]?.controls?.Sun?.invalid"></ion-input>
+<!--
+                               <ion-input id="input-box" *ngIf="outliers==null " class="ion-no-padding-top ion-no-padding-bottom"  select=focus   type="number"
+                               (ionChange)="updateWorkLoad()"
+                                 (click)="changeSun(i)"
+                                  (focusout)="onFocusOutSun(i)"
+
+                                  formControlName="Sun"
+                                  name="Sun"
+                                  [class.is-invalid]="allWorkLoadData[i]?.controls?.Sun?.invalid"></ion-input> -->
+
+                          </ion-col>
+
+                          <ion-col  class="ion-no-margin " id="day" >
+                            <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude=='E'" *ngIf="wD.value.monOutlier==true" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus  type="number" [class.is-invalid]="allWorkLoadData[i]?.controls?.Mon?.invalid" (ionChange)="updateWorkLoad()" (click)="changeMon(i)" (focusout)="onFocusOutMon(i)"  formControlName="Mon"  name="{{'Mon'+wD.value.startTime}}Mon"></ion-input>
+                            <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude=='E'" *ngIf="wD.value.monOutlier==false"  class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus  type="number" [class.is-invalid]="allWorkLoadData[i]?.controls?.Mon?.invalid" (ionChange)="updateWorkLoad()" (click)="changeMon(i)" (focusout)="onFocusOutMon(i)"  formControlName="Mon"  name="{{'Mon'+wD.value.startTime}}Mon"></ion-input>
+                          </ion-col>
+                          <ion-col  class="ion-no-margin " id="day" >
+                            <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude=='E'" *ngIf="wD.value.tueOutlier==true" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Tue?.invalid"   type="number" (ionChange)="updateWorkLoad()" (click)="changeTue(i)" (focusout)="onFocusOutTue(i)"  formControlName="Tue" name="{{'Tue'+wD.value.startTime}}Tue" ></ion-input>
+                            <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude=='E'" *ngIf="wD.value.tueOutlier==false" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Tue?.invalid"   type="number" (ionChange)="updateWorkLoad()" (click)="changeTue(i)" (focusout)="onFocusOutTue(i)"  formControlName="Tue" name="{{'Tue'+wD.value.startTime}}Tue" ></ion-input>
+                          </ion-col>
+                          <ion-col  class="ion-no-margin " id="day" >
+                            <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude=='E'" *ngIf="wD.value.wedOutlier==true" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Wed?.invalid"  type="number" (ionChange)="updateWorkLoad()" (click)="changeWed(i)" (focusout)="onFocusOutWed(i)"  formControlName="Wed"  name="{{'Wed'+i}}Wed"></ion-input>
+                            <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude=='E'"  *ngIf="wD.value.wedOutlier==false" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Wed?.invalid"  type="number" (ionChange)="updateWorkLoad()" (click)="changeWed(i)" (focusout)="onFocusOutWed(i)"  formControlName="Wed"  name="{{'Wed'+i}}Wed"></ion-input>
+                          </ion-col>
+                          <ion-col  class="ion-no-margin " id="day" >
+                            <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude=='E'" *ngIf="wD.value.thuOutlier==true" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Thu?.invalid" type="number" (ionChange)="updateWorkLoad()" (click)="changeThu(i)" (focusout)="onFocusOutThu(i)"  formControlName="Thu"  name="{{'Thu'+i}}Thu"></ion-input>
+                            <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude=='E'" *ngIf="wD.value.thuOutlier==false" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Thu?.invalid" type="number" (ionChange)="updateWorkLoad()" (click)="changeThu(i)" (focusout)="onFocusOutThu(i)"  formControlName="Thu"  name="{{'Thu'+i}}Thu"></ion-input>
+                          </ion-col>
+                          <ion-col  class="ion-no-margin " id="day" >
+                            <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude=='E'" *ngIf="wD.value.friOutlier==true" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Fri?.invalid" type="number"  (ionChange)="updateWorkLoad()" (click)="changeFri(i)" (focusout)="onFocusOutFri(i)"  formControlName="Fri"  name="{{'Fri'+i}}Fri"></ion-input>
+                            <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude=='E'" *ngIf="wD.value.friOutlier==false" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Fri?.invalid" type="number"  (ionChange)="updateWorkLoad()" (click)="changeFri(i)" (focusout)="onFocusOutFri(i)"  formControlName="Fri"  name="{{'Fri'+i}}Fri"></ion-input>
+                          </ion-col>
+                          <ion-col  class="ion-no-margin " id="day" >
+                            <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude=='E'" *ngIf="wD.value.satOutlier==true" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" select=focus  [class.is-invalid]="allWorkLoadData[i]?.controls?.Sat?.invalid" type="number"  (ionChange)="updateWorkLoad()" (click)="changeSat(i)" (focusout)="onFocusOutSat(i)"  formControlName="Sat"  name="{{'Sat'+i}}Sat"></ion-input>
+                            <ion-input id="input-box" [attr.disabled]="wD.value.sh_include_exclude=='E'" *ngIf="wD.value.satOutlier==false"  class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" select=focus  [class.is-invalid]="allWorkLoadData[i]?.controls?.Sat?.invalid" type="number"  (ionChange)="updateWorkLoad()" (click)="changeSat(i)" (focusout)="onFocusOutSat(i)"  formControlName="Sat"  name="{{'Sat'+i}}Sat"></ion-input>
+                          </ion-col>
+                          <ion-col *ngIf="wD.value.sh_include_exclude=='I'" class="app-font-primary-color app-background-mercurius-primary-color ion-no-margin" id="correct-time" size="1" >
+                                <div id="alias">
+                                  <ion-label   ><b>{{wD.value.shiftName}}</b></ion-label>
+                                </div>
+                                </ion-col>
+                                <ion-col *ngIf="wD.value.sh_include_exclude=='E'" class="title-background-color ion-no-margin" id="correct-time" size="1" >
+                                  <div id="alias">
+                                    <ion-label   ><b>{{wD.value.shiftName}}</b></ion-label>
+                                  </div>
+                                  </ion-col>
+
+                      </ion-item>
+
+
+                      <ion-item-options side="start">
+                        <button ion-button *ngIf="wD.value.sh_include_exclude=='E'" (click)="includeExcludeShift(wD.value)" class="app-background-primary-color app-font-primary-color">Include</button>
+                        <button ion-button  *ngIf="wD.value.sh_include_exclude=='I'" (click)="includeExcludeShift(wD.value)" class="app-background-primary-color app-font-primary-color">Exclude</button>
+                      </ion-item-options>
+                    </ion-item-sliding >
+
+
+
+
+                          <!-- <ion-list lines="none"> -->
+                            <ion-item-sliding *ngIf="wD.value.shift_created_by=='user' " class=" ion-no-padding ion-no-margin ion-text-center "  style="--inner-padding-top:0%;">
+                              <ion-item *ngIf="wD.value.shiftName!=newShiftDefinition.sh_name ||newShiftDefinition==null" class="data ion-no-padding ion-no-margin" style="--inner-padding-end: 0%;--inner-padding-start: 0% !important;--inner-padding-top:0%;" [formGroupName]="i">
+                                <!-- <ion-row style="border: 1px solid;height: 80%;" class="data ion-no-padding ion-no-padding-bottom ion-no-margin-bottom "> -->
+                                  <ion-col size="1.2"  id=" day" class="ion-no-padding-bottom ion-no-padding-top ion-no-margin-bottom  ion-justify-content-center ion-text-center img" >
+                                    <!-- <ion-img id="home-page-header" alt="night" src="assets/img/night.png"></ion-img> -->
+                                    <!-- <ion-img id="home-page-header" *ngIf="wD.value.startTime>2200 || wD.value.startTime<600"  class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-top ion-no-margin-bottom"  alt="Mid" src="assets/img/night.png" ></ion-img>
+                                    <ion-img id="home-page-header" *ngIf="wD.value.startTime>500 && wD.value.startTime<1300"  class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-top ion-no-margin-bottom"  alt="Day" src="assets/img/morning.png" ></ion-img>
+                                    <ion-img id="home-page-header" *ngIf="wD.value.startTime>1200 && wD.value.startTime<2300"  class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-top ion-no-margin-bottom"  alt="Eve" src="assets/img/evening.png" ></ion-img>
+                                     -->
+                                     <ion-img  *ngIf="wD.value.shiftCategory==1 || wD.value.shiftCategory=='1' " id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Mid" src="assets/img/night.png"></ion-img>
+                                     <ion-img *ngIf="wD.value.shiftCategory==2 || wD.value.shiftCategory=='2' " id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Eve" src="assets/img/evening.png"></ion-img>
+                                     <ion-img *ngIf="wD.value.shiftCategory==3 || wD.value.shiftCategory=='3'" id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Day"  src="assets/img/morning.png"></ion-img>
+                                     <ion-img *ngIf="wD.value.shiftCategory==5 || wD.value.shiftCategory=='5'"  id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Day-Eve" src="assets/img/morning-evening.png"></ion-img>
+                                     <ion-img *ngIf="wD.value.shiftCategory==6 || wD.value.shiftCategory=='6'" id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Eve-Mid"  src="assets/img/evening-night.png"></ion-img>
+                                     <ion-img *ngIf="wD.value.shiftCategory==4 || wD.value.shiftCategory=='4'" id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Mid-Day"  src="assets/img/night-morning.png"></ion-img>
+                                    <p class="ion-no-margin-bottom ion-no-margin-top ion-no-padding" style="width: 110%;">{{wD.value.startTime}}</p>
+                                  </ion-col>
+                                  <ion-col  class="ion-no-margin "   id="day" >
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E'"  *ngIf="wD.value.sunOutlier==true" style="color: red;" select=focus   type="number" (ionChange)="updateWorkLoad()" (click)="changeSun(i)" (focusout)="onFocusOutSun(i)" formControlName="Sun" name="Sun" [class.is-invalid]="allWorkLoadData[i]?.controls?.Sun?.invalid"></ion-input>
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E' " *ngIf="wD.value.sunOutlier==false"   select=focus   type="number" (ionChange)="updateWorkLoad()" (click)="changeSun(i)" (focusout)="onFocusOutSun(i)" formControlName="Sun" name="Sun" [class.is-invalid]="allWorkLoadData[i]?.controls?.Sun?.invalid"></ion-input>
+
+                                  </ion-col>
+
+                                  <ion-col  class="ion-no-margin " id="day" >
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E'"  *ngIf="wD.value.monOutlier==true" style="color: red;"  select=focus  type="number" [class.is-invalid]="allWorkLoadData[i]?.controls?.Mon?.invalid" (ionChange)="updateWorkLoad()" (click)="changeMon(i)" (focusout)="onFocusOutMon(i)"  formControlName="Mon"  name="{{'Mon'+wD.value.startTime}}Mon"></ion-input>
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E'"  *ngIf="wD.value.monOutlier==false"  select=focus  type="number" [class.is-invalid]="allWorkLoadData[i]?.controls?.Mon?.invalid" (ionChange)="updateWorkLoad()" (click)="changeMon(i)" (focusout)="onFocusOutMon(i)"  formControlName="Mon"  name="{{'Mon'+wD.value.startTime}}Mon"></ion-input>
+                                  </ion-col>
+                                  <ion-col  class="ion-no-margin " id="day" >
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E'"  *ngIf="wD.value.tueOutlier==true" style="color: red;" select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Tue?.invalid"   type="number" (ionChange)="updateWorkLoad()" (click)="changeTue(i)" (focusout)="onFocusOutTue(i)"  formControlName="Tue" name="{{'Tue'+wD.value.startTime}}Tue" ></ion-input>
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E'"  *ngIf="wD.value.tueOutlier==false"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Tue?.invalid"   type="number" (ionChange)="updateWorkLoad()" (click)="changeTue(i)" (focusout)="onFocusOutTue(i)"  formControlName="Tue" name="{{'Tue'+wD.value.startTime}}Tue" ></ion-input>
+                                  </ion-col>
+                                  <ion-col  class="ion-no-margin " id="day" >
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E'" *ngIf="wD.value.wedOutlier==true" style="color: red;" select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Wed?.invalid"  type="number" (ionChange)="updateWorkLoad()" (click)="changeWed(i)" (focusout)="onFocusOutWed(i)"  formControlName="Wed"  name="{{'Wed'+i}}Wed"></ion-input>
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E'"  *ngIf="wD.value.wedOutlier==false"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Wed?.invalid"  type="number" (ionChange)="updateWorkLoad()" (click)="changeWed(i)" (focusout)="onFocusOutWed(i)"  formControlName="Wed"  name="{{'Wed'+i}}Wed"></ion-input>
+                                  </ion-col>
+                                  <ion-col  class="ion-no-margin " id="day" >
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E'" *ngIf="wD.value.thuOutlier==true" style="color: red;" select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Thu?.invalid" type="number" (ionChange)="updateWorkLoad()" (click)="changeThu(i)" (focusout)="onFocusOutThu(i)"  formControlName="Thu"  name="{{'Thu'+i}}Thu"></ion-input>
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E'"  *ngIf="wD.value.thuOutlier==false"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Thu?.invalid" type="number" (ionChange)="updateWorkLoad()" (click)="changeThu(i)" (focusout)="onFocusOutThu(i)"  formControlName="Thu"  name="{{'Thu'+i}}Thu"></ion-input>
+                                  </ion-col>
+                                  <ion-col  class="ion-no-margin " id="day" >
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E'"  *ngIf="wD.value.friOutlier==true" style="color: red;" select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Fri?.invalid" type="number"  (ionChange)="updateWorkLoad()" (click)="changeFri(i)" (focusout)="onFocusOutFri(i)"  formControlName="Fri"  name="{{'Fri'+i}}Fri"></ion-input>
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E'"  *ngIf="wD.value.friOutlier==false"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Fri?.invalid" type="number"  (ionChange)="updateWorkLoad()" (click)="changeFri(i)" (focusout)="onFocusOutFri(i)"  formControlName="Fri"  name="{{'Fri'+i}}Fri"></ion-input>
+                                  </ion-col>
+                                  <ion-col  class="ion-no-margin " id="day" >
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E'"  *ngIf="wD.value.satOutlier==true" style="color: red;" select=focus  [class.is-invalid]="allWorkLoadData[i]?.controls?.Sat?.invalid" type="number"  (ionChange)="updateWorkLoad()" (click)="changeSat(i)" (focusout)="onFocusOutSat(i)"  formControlName="Sat"  name="{{'Sat'+i}}Sat"></ion-input>
+                                    <ion-input id="input-box" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" [attr.disabled]="wD.value.sh_include_exclude=='E'"  *ngIf="wD.value.satOutlier==false"  select=focus  [class.is-invalid]="allWorkLoadData[i]?.controls?.Sat?.invalid" type="number"  (ionChange)="updateWorkLoad()" (click)="changeSat(i)" (focusout)="onFocusOutSat(i)"  formControlName="Sat"  name="{{'Sat'+i}}Sat"></ion-input>
+
+                                  </ion-col>
+                                  <ion-col *ngIf="wD.value.sh_include_exclude=='E'" class="title-background-color ion-no-margin" id="correct-time" size="1" >
+                                        <div id="alias">
+                                          <ion-label   ><b>{{wD.value.shiftName}}</b></ion-label>
+                                        </div>
+                                        </ion-col>
+                                        <ion-col *ngIf="wD.value.sh_include_exclude=='I'" class="app-font-primary-color gray-background-color ion-no-margin" id="correct-time" size="1" >
+                                          <div id="alias">
+                                            <ion-label   ><b>{{wD.value.shiftName}}</b></ion-label>
+                                          </div>
+                                          </ion-col>
+                              </ion-item>
+                              <ion-item *ngIf="wD.value.shiftName==newShiftDefinition.sh_name " class="data ion-no-padding ion-no-margin" style="--inner-padding-end: 0%;--inner-padding-start: 0% !important;--inner-padding-top:0%;border:1px solid green;border-radius: 8px;box-shadow: 1px;" [formGroupName]="i">
+                          <!-- <ion-row style="border: 1px solid;height: 80%;" class="data ion-no-padding ion-no-padding-bottom ion-no-margin-bottom "> -->
+                            <ion-col size="1.2" id=" day" class="ion-no-padding-bottom ion-no-padding-top ion-no-margin-bottom  ion-justify-content-center ion-text-center img" >
+                              <!-- <ion-img id="home-page-header" alt="night" src="assets/img/night.png"></ion-img> -->
+                              <!-- <ion-img id="home-page-header" *ngIf="wD.value.startTime>2200 || wD.value.startTime<600"  class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-top ion-no-margin-bottom"  alt="Mid" src="assets/img/night.png" ></ion-img>
+                              <ion-img id="home-page-header" *ngIf="wD.value.startTime>500 && wD.value.startTime<1300"  class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-top ion-no-margin-bottom"  alt="Day" src="assets/img/morning.png" ></ion-img>
+                              <ion-img id="home-page-header" *ngIf="wD.value.startTime>1200 && wD.value.startTime<2300"  class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-top ion-no-margin-bottom"  alt="Eve" src="assets/img/evening.png" ></ion-img>
+                               -->
+                              <ion-img *ngIf="wD.value.shiftCategory==1 || wD.value.shiftCategory=='1' " id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Mid" src="assets/img/night.png"></ion-img>
+                                      <ion-img *ngIf="wD.value.shiftCategory==2 || wD.value.shiftCategory=='2' " id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Eve" src="assets/img/evening.png"></ion-img>
+                                      <ion-img *ngIf="wD.value.shiftCategory==3 || wD.value.shiftCategory=='3'" id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Day"  src="assets/img/morning.png"></ion-img>
+                                      <ion-img *ngIf="wD.value.shiftCategory==5 || wD.value.shiftCategory=='5'"  id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Day-Eve" src="assets/img/morning-evening.png"></ion-img>
+                                      <ion-img *ngIf="wD.value.shiftCategory==6 || wD.value.shiftCategory=='6'" id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Eve-Mid"  src="assets/img/evening-night.png"></ion-img>
+                                      <ion-img *ngIf="wD.value.shiftCategory==4 || wD.value.shiftCategory=='4'" id="home-page-header" class="ion-no-padding-top ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Mid-Day"  src="assets/img/night-morning.png"></ion-img>
+                              <p class="ion-no-margin-bottom ion-no-margin-top ion-no-padding" style="width: 110%;">{{wD.value.startTime}}</p>
+                            </ion-col>
+                            <ion-col  class="ion-no-margin "   id="day" >
+                              <ion-input id="input-box" *ngIf="wD.value.sunOutlier==true" [attr.disabled]="wD.value.sh_include_exclude=='E'" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus   type="number"(ionChange)="updateWorkLoad()" (click)="changeSun(i)" (focusout)="onFocusOutSun(i)" formControlName="Sun" name="Sun" [class.is-invalid]="allWorkLoadData[i]?.controls?.Sun?.invalid"></ion-input>
+                              <ion-input id="input-box" *ngIf="wD.value.sunOutlier==false" [attr.disabled]="wD.value.sh_include_exclude=='E'"  class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus   type="number"(ionChange)="updateWorkLoad()" (click)="changeSun(i)" (focusout)="onFocusOutSun(i)" formControlName="Sun" name="Sun" [class.is-invalid]="allWorkLoadData[i]?.controls?.Sun?.invalid"></ion-input>
+                            </ion-col>
+                            <ion-col  class="ion-no-margin " id="day" >
+                              <ion-input id="input-box" *ngIf="wD.value.monOutlier==true" [attr.disabled]="wD.value.sh_include_exclude=='E'" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus  type="number" [class.is-invalid]="allWorkLoadData[i]?.controls?.Mon?.invalid" (ionChange)="updateWorkLoad()" (click)="changeMon(i)" (focusout)="onFocusOutMon(i)"  formControlName="Mon"  name="{{'Mon'+wD.value.startTime}}Mon"></ion-input>
+                              <ion-input id="input-box" *ngIf="wD.value.monOutlier==false" [attr.disabled]="wD.value.sh_include_exclude=='E'" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus  type="number" [class.is-invalid]="allWorkLoadData[i]?.controls?.Mon?.invalid" (ionChange)="updateWorkLoad()" (click)="changeMon(i)" (focusout)="onFocusOutMon(i)"  formControlName="Mon"  name="{{'Mon'+wD.value.startTime}}Mon"></ion-input>
+                            </ion-col>
+                            <ion-col  class="ion-no-margin " id="day" >
+                              <ion-input id="input-box" *ngIf="wD.value.tueOutlier==true" [attr.disabled]="wD.value.sh_include_exclude=='E'" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Tue?.invalid"   type="number" (ionChange)="updateWorkLoad()" (click)="changeTue(i)" (focusout)="onFocusOutTue(i)"  formControlName="Tue" name="{{'Tue'+wD.value.startTime}}Tue" ></ion-input>
+                              <ion-input id="input-box" *ngIf="wD.value.tueOutlier==false" [attr.disabled]="wD.value.sh_include_exclude=='E'" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Tue?.invalid"   type="number" (ionChange)="updateWorkLoad()" (click)="changeTue(i)" (focusout)="onFocusOutTue(i)"  formControlName="Tue" name="{{'Tue'+wD.value.startTime}}Tue" ></ion-input>
+                            </ion-col>
+                            <ion-col  class="ion-no-margin " id="day" >
+                              <ion-input id="input-box" *ngIf="wD.value.wedOutlier==true" [attr.disabled]="wD.value.sh_include_exclude=='E'" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Wed?.invalid"  type="number" (ionChange)="updateWorkLoad()" (click)="changeWed(i)" (focusout)="onFocusOutWed(i)"  formControlName="Wed"  name="{{'Wed'+i}}Wed"></ion-input>
+                              <ion-input id="input-box" *ngIf="wD.value.wedOutlier==false" [attr.disabled]="wD.value.sh_include_exclude=='E'"  class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Wed?.invalid"  type="number" (ionChange)="updateWorkLoad()" (click)="changeWed(i)" (focusout)="onFocusOutWed(i)"  formControlName="Wed"  name="{{'Wed'+i}}Wed"></ion-input>
+                            </ion-col>
+                            <ion-col  class="ion-no-margin " id="day" >
+                              <ion-input id="input-box" *ngIf="wD.value.thuOutlier==true" [attr.disabled]="wD.value.sh_include_exclude=='E'" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Thu?.invalid" type="number" (ionChange)="updateWorkLoad()" (click)="changeThu(i)" (focusout)="onFocusOutThu(i)"  formControlName="Thu"  name="{{'Thu'+i}}Thu"></ion-input>
+                              <ion-input id="input-box"*ngIf="wD.value.thuOutlier==false" [attr.disabled]="wD.value.sh_include_exclude=='E'" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Thu?.invalid" type="number" (ionChange)="updateWorkLoad()" (click)="changeThu(i)" (focusout)="onFocusOutThu(i)"  formControlName="Thu"  name="{{'Thu'+i}}Thu"></ion-input>
+                            </ion-col>
+                            <ion-col  class="ion-no-margin " id="day" >
+                              <ion-input id="input-box" *ngIf="wD.value.friOutlier==true" [attr.disabled]="wD.value.sh_include_exclude=='E'" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Fri?.invalid" type="number"  (ionChange)="updateWorkLoad()" (click)="changeFri(i)" (focusout)="onFocusOutFri(i)"  formControlName="Fri"  name="{{'Fri'+i}}Fri"></ion-input>
+                              <ion-input id="input-box" *ngIf="wD.value.friOutlier==false" [attr.disabled]="wD.value.sh_include_exclude=='E'" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom"  select=focus [class.is-invalid]="allWorkLoadData[i]?.controls?.Fri?.invalid" type="number"  (ionChange)="updateWorkLoad()" (click)="changeFri(i)" (focusout)="onFocusOutFri(i)"  formControlName="Fri"  name="{{'Fri'+i}}Fri"></ion-input>
+                            </ion-col>
+                            <ion-col  class="ion-no-margin " id="day" >
+                              <ion-input id="input-box" *ngIf="wD.value.satOutlier==true" [attr.disabled]="wD.value.sh_include_exclude=='E'" style="color: red;" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" select=focus  [class.is-invalid]="allWorkLoadData[i]?.controls?.Sat?.invalid" type="number"  (ionChange)="updateWorkLoad()" (click)="changeSat(i)" (focusout)="onFocusOutSat(i)"  formControlName="Sat"  name="{{'Sat'+i}}Sat"></ion-input>
+                              <ion-input id="input-box" *ngIf="wD.value.satOutlier==false" [attr.disabled]="wD.value.sh_include_exclude=='E'" class="ion-no-padding-top app-border-bottom-mercurius-secondary-color ion-no-padding-bottom" select=focus  [class.is-invalid]="allWorkLoadData[i]?.controls?.Sat?.invalid" type="number"  (ionChange)="updateWorkLoad()" (click)="changeSat(i)" (focusout)="onFocusOutSat(i)"  formControlName="Sat"  name="{{'Sat'+i}}Sat"></ion-input>
+                            </ion-col>
+                            <ion-col *ngIf="wD.value.sh_include_exclude=='E'" class="title-background-color ion-no-margin" id="correct-time" size="1" >
+                              <div id="alias">
+                                <ion-label   ><b>{{wD.value.shiftName}}</b></ion-label>
+                              </div>
+                              </ion-col>
+                              <ion-col *ngIf="wD.value.sh_include_exclude=='I'" class="app-font-primary-color gray-background-color ion-no-margin" id="correct-time" size="1" >
+                                <div id="alias">
+                                  <ion-label   ><b>{{wD.value.shiftName}}</b></ion-label>
+                                </div>
+                                </ion-col>
+                        </ion-item>
+
+                      <ion-item-options side="start">
+                        <button ion-button *ngIf="wD.value.sh_include_exclude=='E'" (click)="includeExcludeShift(wD.value)" class="app-green-background-color app-font-primary-color">Include</button>
+                        <button ion-button *ngIf="wD.value.sh_include_exclude=='I'" (click)="includeExcludeShift(wD.value)" class="app-green-background-color app-font-primary-color">Exclude</button>
+                      </ion-item-options>
+                        <ion-item-options side="end">
+                          <button ion-button (click)="removeItem(wD.value)"  style="background-color:red;color:white">Delete</button>
+                        </ion-item-options>
+                      </ion-item-sliding >
+                        </ion-card>
+                      </form>
+          </ion-grid>
+
+        </ion-content>
+
+
+      </ion-card>
+      <!-- <ion-grid *ngIf="allWorkLoadData?.invalid || (countSunOutlier>0 || countMonOutlier>0 || countTueOutlier>0 || countWedOutlier>0 || countThuOutlier>0 || countFriOutlier>0 || countSatOutlier>0) || shiftValidation==false">
+        <p class="alert alert-danger font-normal ion-no-margin" style="width:100%;margin: 0%;padding-top: 0%;bottom:0% !important;font-size:11px;padding-bottom:2%;"><b *ngIf="allWorkLoadData?.invalid " class="font-normal"  > <ion-icon name="alert-circle-outline"></ion-icon><b class="font-normal"> Please enter an integer number! </b></b>   <b class="font-normal" *ngIf="countSunOutlier>0 || countMonOutlier>0 || countTueOutlier>0 || countWedOutlier>0 || countThuOutlier>0 || countFriOutlier>0 || countSatOutlier>0" >  <ion-icon name="alert-circle-outline"></ion-icon>Please change the outlier from the dataset.</b> <b class="font-normal" *ngIf="shiftValidation==false" >  <ion-icon name="alert-circle-outline"></ion-icon>Please include minimum one shift in each shift category.</b></p>
+
+       </ion-grid> -->
+       <ion-grid *ngIf="allWorkLoadData?.invalid || (countSunOutlier>0 || countMonOutlier>0 || countTueOutlier>0 || countWedOutlier>0 || countThuOutlier>0 || countFriOutlier>0 || countSatOutlier>0)">
+        <p class="alert alert-danger font-normal ion-no-margin" style="width:100%;margin: 0%;padding-top: 0%;bottom:0% !important;font-size:11px;padding-bottom:2%;"><b *ngIf="allWorkLoadData?.invalid " class="font-normal"  > <ion-icon name="alert-circle-outline"></ion-icon><b class="font-normal"> Please enter an integer number! </b></b>   <b class="font-normal" *ngIf="countSunOutlier>0 || countMonOutlier>0 || countTueOutlier>0 || countWedOutlier>0 || countThuOutlier>0 || countFriOutlier>0 || countSatOutlier>0" >  <ion-icon name="alert-circle-outline"></ion-icon>Please change the outlier from the dataset.</b> </p>
+
+       </ion-grid>
+          <!-- Summary -->
+          <!-- <form> -->
+            <ion-card id="summary-card">
+              <ion-row class="app-font-primary-color font-size-14px  font-bold-size ion-no-margin-bottom" >
+                <ion-col size="12"><b style="margin-left:5px">Summary</b></ion-col>
+
+          </ion-row>
+
+          <ion-grid id="work-load-data" class="content-data ion-no-padding-top  ion-no-margin-bottom ion-no-margin-top ion-no-padding-bottom ">
+            <ion-grid id="workload-details" class="ion-no-margin-top ion-no-padding-top ion-no-padding-bottom ion-no-margin-bottom">
+              <ion-row class="ion-no-padding ion-no-padding-bottom ion-no-margin-bottom ion-justify-content-center ion-text-center"  >
+                <ion-col  class="ion-no-padding-bottom ion-no-margin-bottom  ion-justify-content-center ion-text-center " style="padding: 0%;" size="0.9">
+                  <ion-row id="summary-data-title" class="ion-no-margin ion-no-padding">
+                    <ion-img  ></ion-img>
+                  </ion-row>
+                </ion-col>
+                <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+                  <ion-row id="summary-data-title" class="app-font-primary-color " >
+                    <div class="ion-border-round-width-75 colors-sat-sun week-day-title" (click)="daySummary(summary_days[0])">S</div>
+                  </ion-row>
+                </ion-col>
+                <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+                  <ion-row id="summary-data-title" class="app-font-primary-color " >
+                    <div class="ion-border-round-width-75 colors-sun-mon  week-day-title" (click)="daySummary(summary_days[1])">M</div>
+                  </ion-row>
+                </ion-col>
+                <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+                  <ion-row id="summary-data-title" class="app-font-primary-color " >
+                    <div class="ion-border-round-width-75 colors-mon-tue week-day-title" (click)="daySummary(summary_days[2])">T</div>
+                  </ion-row>
+                </ion-col>
+                <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+                  <ion-row id="summary-data-title" class="app-font-primary-color " >
+                    <div class="ion-border-round-width-75 colors-tue-wed week-day-title" (click)="daySummary(summary_days[3])">W</div>
+                  </ion-row>
+                </ion-col>
+                <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+                  <ion-row id="summary-data-title" class="app-font-primary-color " >
+                    <div class="ion-border-round-width-75 colors-wed-thu week-day-title" (click)="daySummary(summary_days[4])">T</div>
+                  </ion-row>
+                </ion-col>
+                <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+                  <ion-row id="summary-data-title" class="app-font-primary-color " >
+                    <div class="ion-border-round-width-75 colors-thu-fri week-day-title" (click)="daySummary(summary_days[5])">F</div>
+                  </ion-row>
+                </ion-col>
+                <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+                  <ion-row id="summary-data-title" class="app-font-primary-color " >
+                    <div class="ion-border-round-width-75 colors-fri-sat week-day-title" (click)="daySummary(summary_days[6])">S</div>
+                  </ion-row>
+                </ion-col>
+                <ion-col size="0.2"></ion-col>
+                <!-- <ion-col size="0.8" class="ion-no-margin  ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+                  <ion-row id="summary-data-title" >
+                    <ion-label></ion-label>
+                  </ion-row>
+                  </ion-col> -->
+                </ion-row>
+              <ion-row class="ion-no-padding ion-no-padding-bottom ion-no-margin-bottom ion-justify-content-center ion-text-center"  >
+
+                      <ion-col  class="ion-no-padding-bottom ion-no-margin-bottom  ion-justify-content-center ion-text-center " style="padding: 0%;" size="0.9">
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                          <ion-img style="height: 100%;width: 100%;" (click)="midShiftsDetails()" class=" ion-no-margin-top ion-no-margin-bottom"  alt="MID" src="assets/img/night.png" ></ion-img>
+                        </ion-row>
+                        <ion-row *ngIf="hideSplitShiftMidDay" id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                          <!-- <ion-img style="height: 100%;width: 100%;"  class=" ion-no-margin-top ion-no-margin-bottom"  alt="DAY-EVE" src="assets/img/morning-evening.png" ></ion-img> -->
+                          <ion-img style="height: 100%;width: 100%;"  class=" ion-no-margin-top ion-no-margin-bottom"  alt="MID-DAY" src="assets/img/night-morning.png" ></ion-img>
+                        </ion-row>
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                          <ion-img style="height: 100%;width: 100%;" (click)="dayShiftsDetails()"  class=" ion-no-margin-top ion-no-margin-bottom"  alt="DAY" src="assets/img/morning.png" ></ion-img>
+                          <!-- <ion-img style="height: 100%;width: 100%;"  class=" ion-no-margin-top ion-no-margin-bottom"  alt="MID-DAY" src="assets/img/night-morning.png" ></ion-img> -->
+                        </ion-row>
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftDayEve"  class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                          <ion-img style="height: 100%;width: 100%;"  class=" ion-no-margin-top ion-no-margin-bottom"  alt="DAY-EVE" src="assets/img/morning-evening.png" ></ion-img>
+                          <!-- <ion-img style="height: 100%;width: 100%;"  class=" ion-no-margin-top ion-no-margin-bottom"  alt="EVE" src="assets/img/evening.png" ></ion-img>  -->
+                        </ion-row>
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          <ion-img style="height: 100%;width: 100%;" (click)="eveShiftsDetails()" class=" ion-no-margin-top ion-no-margin-bottom"  alt="EVE" src="assets/img/evening.png" ></ion-img>
+                          <!-- <ion-img style="height: 100%;width: 100%;"  class=" ion-no-margin-top ion-no-margin-bottom"  alt="DAY" src="assets/img/morning.png" ></ion-img>  -->
+                        </ion-row>
+
+
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftEveMid" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          <ion-img style="height: 100%;width: 100%;"  class=" ion-no-margin-top ion-no-margin-bottom"  alt="EVE-MID" src="assets/img/evening-night.png" ></ion-img>
+                        </ion-row>
+                        <ion-row id="summary-data" class="ion-no-margin-ion-no-padding">
+                          <ion-img  ></ion-img>
+                        </ion-row>
+
+                      </ion-col>
+
+
+                      <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+
+                        <div class="border-05-lightgray " >
+                          <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                              {{totalSunMid}}
+                            </ion-row>
+                            <ion-row id="summary-data" *ngIf="hideSplitShiftMidDay" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                              {{totalSunMidDay}}
+                            </ion-row>
+                            <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                              {{totalSunDay}}
+                            </ion-row>
+                            <ion-row id="summary-data" *ngIf="hideSplitShiftDayEve" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                              {{totalSunDayEve}}
+                            </ion-row>
+                            <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                              {{totalSunEve}}
+                            </ion-row>
+                            <ion-row id="summary-data" *ngIf="hideSplitShiftEveMid" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                              {{totalSunEveMid}}
+                            </ion-row>
+                          </div>
+                          <ion-row id="summary-data" class="app-font-primary-color ion-no-margin-bottom ion-no-padding ion-justify-content-center ion-text-center ">
+                            <div class=" margin-top-10-per"  ><b>{{totalSun}}</b></div>
+                          </ion-row>
+                      </ion-col>
+                    <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+
+                      <div class="border-05-lightgray">
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                            {{totalMonMid}}
+                          </ion-row>
+                          <ion-row id="summary-data" *ngIf="hideSplitShiftMidDay" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                            {{totalMonMidDay}}
+                          </ion-row>
+                          <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                            {{totalMonDay}}
+                          </ion-row>
+                          <ion-row id="summary-data" *ngIf="hideSplitShiftDayEve" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                            {{totalMonDayEve}}
+                          </ion-row>
+                          <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                            {{totalMonEve}}
+                          </ion-row>
+                          <ion-row id="summary-data" *ngIf="hideSplitShiftEveMid" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                            {{totalMonEveMid}}
+                          </ion-row>
+                        </div>
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding app-font-primary-color ion-justify-content-center ion-text-center ">
+                          <div class=" margin-top-10-per " ><b>{{totalMon}}</b></div>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+
+                      <div class="border-05-lightgray">
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                          {{totalTueMid}}
+                        </ion-row>
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftMidDay" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                          {{totalTueMidDay}}
+                        </ion-row>
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalTueDay}}
+                        </ion-row>
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftDayEve" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalTueDayEve}}
+                        </ion-row>
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalTueEve}}
+                        </ion-row>
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftEveMid" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalTueEveMid}}
+                        </ion-row>
+                      </div>
+                      <ion-row id="summary-data" class="ion-no-margin ion-no-padding app-font-primary-color ion-justify-content-center ion-text-center ">
+                        <div class=" margin-top-10-per" ><b>{{totalTue}}</b></div>
+                      </ion-row>
+                    </ion-col>
+                    <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+
+                      <div class="border-05-lightgray">
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                          {{totalWedMid}}
+                        </ion-row>
+                        <ion-row *ngIf="hideSplitShiftMidDay" id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                          {{totalWedMidDay}}
+                        </ion-row>
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalWedDay}}
+                        </ion-row>
+                        <ion-row *ngIf="hideSplitShiftDayEve" id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalWedDayEve}}
+                        </ion-row>
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalWedEve}}
+                        </ion-row>
+                        <ion-row *ngIf="hideSplitShiftEveMid" id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalWedEveMid}}
+                        </ion-row>
+                      </div>
+                      <ion-row id="summary-data" class="ion-no-margin ion-no-padding app-font-primary-color ion-justify-content-center ion-text-center ">
+                        <div class=" margin-top-10-per" ><b>{{totalWed}}</b></div>
+                      </ion-row>
+                    </ion-col>
+                    <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+
+                      <div class="border-05-lightgray">
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                          {{totalThuMid}}
+                        </ion-row>
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftMidDay" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                          {{totalThuMidDay}}
+                        </ion-row>
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalThuDay}}
+                        </ion-row>
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftDayEve" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalThuDayEve}}
+                        </ion-row>
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalThuEve}}
+                        </ion-row>
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftEveMid" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalThuEveMid}}
+                        </ion-row>
+                      </div>
+                      <ion-row id="summary-data" class="ion-no-margin ion-no-padding app-font-primary-color ion-justify-content-center ion-text-center ">
+                        <div class=" margin-top-10-per" ><b>{{totalThu}}</b></div>
+                      </ion-row>
+                    </ion-col>
+                    <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+
+                      <div class="border-05-lightgray">
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                            {{totalFriMid}}
+                          </ion-row>
+                          <ion-row id="summary-data" *ngIf="hideSplitShiftMidDay" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                            {{totalFriMidDay}}
+                          </ion-row>
+                          <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                            {{totalFriDay}}
+                          </ion-row>
+                          <ion-row id="summary-data" *ngIf="hideSplitShiftDayEve" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                            {{totalFriDayEve}}
+                          </ion-row>
+
+                          <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                            {{totalFriEve}}
+                          </ion-row>
+                          <ion-row id="summary-data" *ngIf="hideSplitShiftEveMid" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                            {{totalFriEveMid}}
+                          </ion-row>
+                        </div>
+                        <ion-row id="summary-data"  class="ion-no-margin ion-no-padding app-font-primary-color ion-justify-content-center ion-text-center ">
+                          <div class=" margin-top-10-per" ><b>{{totalFri}}</b></div>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col class="ion-no-margin ion-no-padding-top ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+
+                       <div class="border-05-lightgray">
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                          {{totalSatMid}}
+                        </ion-row>
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftMidDay" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center " >
+                          {{totalSatMidDay}}
+                        </ion-row>
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalSatDay}}
+                        </ion-row>
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftDayEve" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalSatDayEve}}
+                        </ion-row>
+                        <ion-row id="summary-data" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalSatEve}}
+                        </ion-row>
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftEveMid" class="ion-no-margin ion-no-padding ion-justify-content-center ion-text-center ">
+                          {{totalSatEveMid}}
+                        </ion-row>
+                      </div>
+                      <ion-row id="summary-data" class="ion-no-margin ion-no-padding app-font-primary-color ion-justify-content-center ion-text-center ">
+                        <div class=" margin-top-10-per" ><b>{{totalSat}}</b></div>
+                      </ion-row>
+
+                    </ion-col>
+                    <ion-col size="0.2"></ion-col>
+                    <!-- <ion-col size="0.8" class="ion-no-margin  ion-no-padding-bottom ion-justify-content-center ion-text-center " >
+
+                        <ion-row id="summary-data" class="ion-text-center ion-justify-content-center ion-no-padding">
+                          <div style="padding:2% 0% 2% 0%;" >
+                          <ion-icon name="chevron-forward-outline" (click)="midShiftsDetails()"></ion-icon>
+                        </div>
+                        </ion-row>
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftMidDay" class="ion-text-center ion-justify-content-center ion-no-padding">
+                          <div style="padding:2% 0% 2% 0%;" >
+                          <ion-icon name="chevron-forward-outline" ></ion-icon>
+                        </div>
+                        </ion-row>
+                        <ion-row id="summary-data" class="ion-text-center ion-justify-content-center ion-no-padding">
+                          <div style="padding:2% 0% 2% 0%;" >
+                            <ion-icon name="chevron-forward-outline" (click)="dayShiftsDetails()"></ion-icon>
+                          </div>
+                        </ion-row>
+
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftDayEve" class="ion-text-center ion-justify-content-center ion-no-padding">
+                          <div style="padding:2% 0% 2% 0%;" >
+                            <ion-icon name="chevron-forward-outline" ></ion-icon>
+                          </div>
+                        </ion-row>
+                        <ion-row id="summary-data" class="ion-text-center ion-justify-content-center ion-no-padding">
+                          <div style="padding:2% 0% 2% 0%;">
+                            <ion-icon name="chevron-forward-outline" (click)="eveShiftsDetails()"></ion-icon>
+                          </div>
+                        </ion-row>
+
+                        <ion-row id="summary-data" *ngIf="hideSplitShiftEveMid" class="ion-text-center ion-justify-content-center ion-no-padding">
+                          <div style="padding:2% 0% 2% 0%;">
+                            <ion-icon name="chevron-forward-outline" ></ion-icon>
+                          </div>
+                        </ion-row>
+                      </ion-col>                 -->
+
+                    </ion-row>
+
+                  </ion-grid>
+                </ion-grid>
+                <!-- <ion-row class="data ion-text-center ion-justify-content-center ion-no-margin ion-no-padding ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom" style="margin: 0%;padding:0%;font-size:10px;margin-bottom: 0%;height: 20px;" >
+                  <mat-divider class="ion-no-margin ion-no-padding" style="width: 96%;"></mat-divider>
+                   <p class="ion-no-margin-bottom">MID</p><p class="app-font-black-color ion-no-margin-bottom"> - Shift Category</p><p style="margin-left:5% ;" class="ion-no-margin-bottom">  DAY </p><p class="app-font-black-color ion-no-margin-bottom"> - Shift Category</p><p style="margin-left:5% ;" class="ion-no-margin-bottom">  EVE </p><p class="app-font-black-color ion-no-margin-bottom"> - Shift Category</p>
+                </ion-row> -->
+
+
+        </ion-card>
+          <!-- <ion-row class="ion-text-center ion-justify-content-center ion-no-margin ion-no-padding ion-no-margin-top" style="margin: 0%;padding:0%;margin-bottom:1%;" >
+            <mat-divider class="ion-no-margin ion-no-padding" style="width: 96%;"></mat-divider>
+          </ion-row>
+ -->
+
+
+
+<!-- Required Workforce -->
+          <!-- <ion-row  class="title-background-color ion-no-margin" style="margin-top:3%" >
+            <p class="  ion-header-title " style="padding-left: 2%;padding-top:1%;padding-bottom: 1%;">
+              Workforce
+            </p>
+          </ion-row> -->
+
+<!-- <ion-grid> -->
+  <ion-row id="computed-workforce-generated-button-card" class="ion-no-margin ion-no-padding ion-no-margin-top ion-no-padding-top">
+    <ion-col class="ion-no-margin ion-no-padding ion-justify-content-center ion-no-margin-top ion-no-padding-top" >
+      <ion-card size="4" style="margin-right:1%; height: 100%;" class="ion-justify-content-center ion-no-margin">
+
+  <!-- <p  class="app-font-black-color bold ion-text-center font-bold-size ion-justify-content-center ion-no-margin-bottom" >
+    <ion-icon name="information-circle-outline" style="height: 16px;"></ion-icon> Computed Workforce
+  </p> -->
+
+        <ion-row class="ion-justify-content-center ion-text-center  " style="padding-bottom: 2%;margin: auto;" >
+
+        <form [formGroup]="totalRequireworkforceForm">
+          <!-- <ion-input  class="app-font-secondary-color  ion-no-padding title-background-color" style="border-radius: 50%;height: 40px;width: 100%;"  (ionChange)="updateRequiredWorkLoadData()" type="number" formControlName="TotalRequiredWorkForce"  id="total-workforce" value="{{totalRequiredWorkForce}}" ></ion-input> -->
+          <ion-label class="app-font-primary-color bold ion-text-center font-bold-size ion-justify-content-center ion-no-margin-bottom ion-no-padding-bottom ion-no-margin-top ion-no-padding-top" style="font-size: 11px;"><b>Computed Workforce</b></ion-label>
+          <!-- <div  id="header" class=" ion-text-center ion-justify-content-center  ion-no-margin-top ion-no-padding" style="margin-left: auto;margin-right:auto ;border: 1px soli;"> -->
+          <ion-input [readonly]="true" class="app-font-secondary-color title-background-color ion-no-padding " style="border-radius: 50%;height: 40px;width: 40px;margin: auto;border: 1px solid lightgray; "  (ionChange)="updateRequiredWorkLoadData()" type="number" formControlName="TotalRequiredWorkForce"  id="total-workforce" value="{{totalRequiredWorkForce}}" ></ion-input>
+        <!-- </div> -->
+        </form>
+
+        </ion-row>
+
+      </ion-card>
+    </ion-col>
+    <ion-col size="8" class="ion-no-margin ion-no-padding ion-no-margin-top ion-no-padding-top">
+      <ion-card class="ion-no-margin" style="margin-left:1%;height: 100%;padding:auto !important">
+
+
+
+        <ion-row  class="ion-justify-content-center" style="padding-top:auto;padding-bottom:auto;margin-top: auto;margin-bottom: auto;">
+<!-- {{allWorkLoadData?.invalid===true || ( countSunOutlier>0 || countMonOutlier>0 ||  countTueOutlier>0 ||  countWedOutlier>0 ||  countThuOutlier>0 ||  countFriOutlier>0 || countSatOutlier>0 )}}
+{{allWorkLoadData?.invalid===true || ( countSunOutlier>0 && countMonOutlier>0 &&  countTueOutlier>0 &&  countWedOutlier>0 &&  countThuOutlier>0 &&  countFriOutlier>0 &&  countSatOutlier>0 )}} -->
+<!--  || shiftValidation==false -->
+          <ion-button class="app-button-danger" style="width: 80%;margin-top: 6%;margin-bottom: auto;"
+          [disabled]="true" *ngIf="allWorkLoadData?.invalid || ( countSunOutlier>0 || countMonOutlier>0 || countTueOutlier>0 || countWedOutlier>0 || countThuOutlier>0 || countFriOutlier>0 || countSatOutlier>0 ) "
+          shape="round" id="generate" (click)="generate()">Generate</ion-button>
+          <!-- {{allWorkLoadData?.invalid===false || (countSunOutlier==0 || countMonOutlier==0 || countTueOutlier==0 || countWedOutlier==0 || countThuOutlier==0 || countFriOutlier==0 || countSatOutlier==0 )}} -->
+          <!-- {{}} -->
+          <!-- && shiftValidation==true -->
+          <ion-button class="app-button" style="width: 80%;margin-top: 6%;margin-bottom: auto;"
+
+          *ngIf="allWorkLoadData?.invalid===false  && (countSunOutlier==0 && countMonOutlier==0 && countTueOutlier==0 && countWedOutlier==0 && countThuOutlier==0 && countFriOutlier==0 &&countSatOutlier==0 ) "
+          shape="round"  (click)="generate()">Generate</ion-button>
+        </ion-row>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+<!-- </ion-content> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-grid id="work-load-data" class="content-data ion-no-padding-top  ion-no-margin-bottom ion-no-margin-top ion-no-padding-bottom ">
+  <ion-grid id="workload-details" class="ion-no-margin-top ion-no-padding-top ion-no-padding-bottom ion-no-margin-bottom">
+      -->
+<!--
+        <ion-row id="summary-data" class="ion-no-padding ion-no-padding-bottom ion-no-margin-bottom ion-justify-content-center ion-text-center"   >
+          <ion-col class="ion-no-padding-bottom ion-no-margin-bottom  ion-justify-content-center ion-text-center " style="padding-left: 0%;padding: 0%;">
+            <ion-img style="height: 80%;width: 100%;"   class="ion-no-margin-top ion-no-margin-bottom"  alt="eve" src="assets/img/evening.png" ></ion-img> -->
+          <!-- </ion-col>
+            <ion-col  class="ion-no-margin ion-no-padding-bottom" > -->
+           <!-- <p class="ion-no-margin "> -->
+             <!-- {{totalSunEve}} -->
+            <!-- </p> -->
+         <!-- </ion-col>
+          <ion-col  class="ion-no-margin ion-no-padding-bottom"> -->
+           <!-- <p class="ion-no-margin "> -->
+             <!-- {{totalMonEve}} -->
+            <!-- </p> -->
+         <!-- </ion-col>
+          <ion-col  class="ion-no-margin  ion-no-padding-bottom"> -->
+           <!-- <p class="ion-no-margin"> -->
+             <!-- {{totalTueEve}} -->
+            <!-- </p> -->
+         <!-- </ion-col>
+          <ion-col  class="ion-no-margin  ion-no-padding-bottom"> -->
+           <!-- <p class="ion-no-margin"> -->
+             <!-- {{totalWedEve}} -->
+            <!-- </p> -->
+         <!-- </ion-col>
+          <ion-col  class="ion-no-margin  ion-no-padding-bottom"> -->
+           <!-- <p class="ion-no-margin"> -->
+             <!-- {{totalThuEve}} -->
+            <!-- </p> -->
+         <!-- </ion-col>
+          <ion-col  class="ion-no-margin  ion-no-padding-bottom"> -->
+           <!-- <p class="ion-no-margin"> -->
+             <!-- {{totalFriEve}} -->
+            <!-- </p> -->
+         <!-- </ion-col>
+          <ion-col  class="ion-no-margin  ion-no-padding-bottom">
+           <p class="ion-no-margin"> -->
+             <!-- {{totalSatEve}} -->
+            <!-- </p> -->
+         <!-- </ion-col> -->
+          <!-- <ion-col class="ion-no-margin ion-no-padding-bottom"  style="padding-left: 0%;padding-right: 0%;"  size="1.1"> -->
+            <!-- <p class="ion-no-margin ion-no-padding"> -->
+              <!-- EVE -->
+            <!-- </p> -->
+            <!-- <ion-label  class="ion-no-padding-top ion-no-padding-bottom"  position="stacked" >M</ion-label> -->
+                <!-- </ion-col>
+        </ion-row>
+
+        <ion-row id="summary-data" class="ion-no-padding ion-no-padding-bottom ion-no-margin-bottom ion-justify-content-center ion-text-center"   >
+          <ion-col class="ion-no-padding-bottom ion-no-margin-bottom  ion-justify-content-center ion-text-center " style="padding: 0%;">
+            <ion-img   class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-top ion-no-margin-bottom"  ></ion-img>
+          </ion-col>
+          <ion-col  class="ion-no-margin  ion-no-padding-top" >
+            <div class="ion-border-round-width-80" >{{totalSun}}</div>
+          </ion-col>
+           <ion-col  class="ion-no-margin ion-no-padding-top">
+            <div class="ion-border-round-width-80" >{{totalMon}}</div>
+          </ion-col>
+           <ion-col  class="ion-no-margin ion-no-padding-top">
+            <div class="ion-border-round-width-80" >{{totalTue}}</div>
+          </ion-col>
+           <ion-col  class="ion-no-margin  ion-no-padding-top">
+            <div class="ion-border-round-width-80" >{{totalWed}}</div>
+          </ion-col>
+           <ion-col  class="ion-no-margin ion-no-padding-top">
+            <div class="ion-border-round-width-80" >{{totalThu}}</div>
+          </ion-col>
+           <ion-col  class="ion-no-margin ion-no-padding-top">
+            <div class="ion-border-round-width-80" >{{totalFri}}</div>
+          </ion-col>
+           <ion-col  class="ion-no-margin ion-no-padding-top" >
+            <div class="ion-border-round-width-80" >{{totalSat}}</div>
+          </ion-col>
+          <ion-col class="ion-no-margin ion-no-padding-bottom"  style="padding-left: 0%;padding-right: 0%;"  size="1.1">
+            <p class="ion-no-margin ion-no-padding"></p> -->
+            <!-- <ion-label  class="ion-no-padding-top ion-no-padding-bottom"  position="stacked" >M</ion-label> -->
+                <!-- </ion-col> -->
+        <!-- </ion-row>
+
+
+        <ion-row class="data ion-text-center ion-justify-content-center ion-no-margin ion-no-padding ion-no-margin-top ion-no-padding-bottom ion-no-margin-bottom" style="margin: 0%;padding:0%;font-size:10px;margin-bottom: 0%;height: 20px;" >
+          <mat-divider class="ion-no-margin ion-no-padding" style="width: 96%;"></mat-divider>
+<p class="ion-no-margin-bottom">MID</p><p class="app-font-black-color ion-no-margin-bottom"> - Shift Category</p><p style="margin-left:5% ;" class="ion-no-margin-bottom">  DAY </p><p class="app-font-black-color ion-no-margin-bottom"> - Shift Category</p><p style="margin-left:5% ;" class="ion-no-margin-bottom">  EVE </p><p class="app-font-black-color ion-no-margin-bottom"> - Shift Category</p>
+        </ion-row>
+        </ion-grid>
+      </ion-grid> -->
+

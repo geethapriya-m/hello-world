@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-row class="ion-no-margin-top ion-no-padding-top ion-no-margin-bottom ion-no-padding-bottom">
+    <ion-col size="2"></ion-col>
+    <ion-col size="8" class=" ion-text-center">
+      <ion-label  class="app-font-primary-color app-font-size-14px ion-text-center" ><b>Vacation Slots</b></ion-label>
+    </ion-col>
+    <ion-col size="2">
+      <ion-label class="app-font-mercurius-secondary-color data ion-text-center" (click)="close()"><b>Close</b></ion-label>
+    </ion-col>
+  </ion-row>
+
+  <mat-divider class="app-background-mercurius-secondary-color"></mat-divider>
+</ion-header>
+<ion-content>
+<ion-grid>
+
+  <form [formGroup]="scheduleListForm" >
+    <!-- <ion-grid  style="width: 100%;"  class="ion-no-margin app-font-secondary-color ion-no-margin-top ion-no-margin-bottom ion-no-padding-top ion-no-padding-bottom"  >
+      <ion-row  class="ion-no-margin-top ion-no-margin-bottom ion-no-padding-top ion-no-padding-bottom">
+        <ion-col size="7"  class=" data app-font-primary-color text-align-left ion-no-margin-top ion-no-margin-bottom ion-no-padding-top ion-no-padding-bottom">
+
+          </ion-col>
+          <ion-col size="3.5" class=" data app-font-primary-color ion-no-margin-top ion-no-margin-bottom ion-no-padding-top ion-no-padding-bottom">
+            <div class="data app-font-primary-color" style="margin: 0px !important;padding: 0px !important">
+              Slots
+            </div>
+          </ion-col>
+      </ion-row>
+    </ion-grid> -->
+    <ion-grid id="workload-details" style="width: 100%;"  class="ion-no-margin ion-no-padding-top  ion-no-padding-bottom app-font-secondary-color" formArrayName="allScheduleListData" *ngFor="let wD of allScheduleListData.controls; let i=index" >
+
+      <ion-row [formGroupName]="i" class="ion-no-margin-top  " style="width: 100%;border-bottom: 1px solid lightgray;">
+
+
+        <ion-col size="7" >
+
+    <ion-label *ngIf="i==0" position="stacked"class="app-font-primary-color data" style="font-size: 12px;" ><b>Vacation</b></ion-label>
+      <mat-date-range-input   id="sbp-input" style="font-size: 12px;" class="form-control  ion-border-1px-mercurius-secondary-color" [min]="minDate" [rangePicker]="select"(click)="select.open()" matSuffix  >
+        <input matStartDate  #dateRangeStart formControlName="startDate" name="startDate" placeholder="Start Date" />
+        <input matEndDate   #dateRangeEnd formControlName="endDate" (dateChange)="dateRangeChange()" name="endDate" placeholder="End Date" />
+      </mat-date-range-input >
+      <mat-date-range-picker color="primary" #select></mat-date-range-picker>
+        </ion-col>
+        <ion-col size="3.5" >
+          <ion-label *ngIf="i==0" position="stacked"class="app-font-primary-color data" style="font-size: 12px;" ><b>Slots</b></ion-label>
+            <input type="number" (focusout)="totalSlots()"  id="sbp-input" formControlName="SBP_slots" name="SBP_slots"  class="content-data form-control app-font-primary-color ion-border-1px-mercurius-secondary-color " style="border-radius: 5px;height: 33px;text-align: center;"
+
+            required />
+            </ion-col>
+            <ion-col size="1" >
+              <ion-label style="position: absolute;top: 25%;" >
+                <mat-icon *ngIf="i==0"  class=" app-font-mercurius-secondary-color " (click)="addNew()">add_box</mat-icon>
+                <mat-icon *ngIf="i!=0" class=" app-font-mercurius-secondary-color " (click)="remove(i)">remove_box</mat-icon>
+              </ion-label>
+          </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+
+</form>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-grid>
+  <ion-row style="margin-bottom: 2px;" class="ion-no-margin ion-no-padding">
+    <ion-col class="ion-no-margin ion-no-padding data">
+      <ion-row class="ion-no-margin ion-no-padding data text-align-left">
+        <ion-col size="7"><ion-label><b>Total Vacation Opportunities</b></ion-label></ion-col>
+        <ion-col size="5" class="text-align-right">{{totalHours}} <b class="font-normal" *ngIf="totalHours>1;else hourBlock">Hours</b><ng-template #hourBlock><b class="font-normal">Hour</b></ng-template></ion-col>
+        <!-- <ion-col size="1" class=" app-font-mercurius-secondary-color " style="padding-top: 5px;font-size: 16px;"><b><ion-icon name="information-circle-outline"></ion-icon></b></ion-col> -->
+        <ion-col size="7"><ion-label><b>Total Leave Accrued </b></ion-label></ion-col>
+        <ion-col size="5" class="text-align-right">{{totalAccuredHours}} <b class="font-normal" *ngIf="totalAccuredHours>1;else hourBlock">Hours</b><ng-template #hourBlock><b class="font-normal">Hour</b></ng-template></ion-col>
+        <!-- <ion-col size="1" class=" app-font-mercurius-secondary-color " style="padding-top: 5px;font-size: 16px;"><b><ion-icon name="information-circle-outline"></ion-icon></b></ion-col> -->
+        <ion-col size="7"><ion-label><b> Accrued Leave  Remaining</b></ion-label></ion-col>
+          <ion-col size="5" class="text-align-right">{{remainingAccuredHours}} <b class="font-normal" *ngIf="remainingAccuredHours>1;else hourBlock">Hours</b><ng-template #hourBlock><b class="font-normal">Hour</b></ng-template></ion-col>
+          <!-- <ion-col size="1" class=" app-font-mercurius-secondary-color " style="padding-top: 5px;font-size: 16px;"><b><ion-icon name="information-circle-outline"></ion-icon></b></ion-col> -->
+      </ion-row>
+    </ion-col>
+    </ion-row>
+
+  <ion-row style="padding-bottom: 2px;">
+    <ion-col size="2"></ion-col>
+    <ion-col size="8" class="ion-text-center">
+      <ion-button   shape="round"  *ngIf="checkEditBidSchedule==false" [disabled]="!checkDisable()" class="app-button-primary" (click)="submit()" >Save</ion-button>
+      <ion-button   shape="round"  *ngIf="checkEditBidSchedule==true" [disabled]="!checkDisable()" class="app-button-primary" (click)="update()" >Save</ion-button>
+      <!-- <ion-button *ngIf="checkShiftLineSchedule==true" [disabled]="disable==true"  shape="round"  class="app-button-primary" (click)="update()" >Update</ion-button> -->
+      </ion-col>
+      <ion-col size="2"></ion-col>
+
+  </ion-row>
+</ion-grid>
+</ion-footer>

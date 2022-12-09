@@ -1,0 +1,79 @@
+<ion-header class="header">
+  <ion-row>
+    <ion-col size="11" class="ion-text-center" >
+      <ion-title class="ion-text-center" style="margin-left:-3%;padding-right: 5%;">Edit Work Load</ion-title>
+    </ion-col>
+    <ion-col size="1">
+      <ion-icon name='close-circle' (click)='dismiss()'></ion-icon>
+    </ion-col>
+
+  </ion-row>
+</ion-header>
+
+
+
+  <ion-content class="mymodal">
+    <ion-card class="ion-padding content-data main-card" *ngIf="workLoadData" >
+      <p class="ion-header-sub-title">Shift Time: {{workLoadData.startTime}}</p>
+    <form #editWorkLoadForm="ngForm" class="ion-justify-content-center ion-text-center ion-no margin" (ngSubmit)="update()" >
+      <ion-row class="ion-no-padding">
+
+                    <ion-col  class="ion-no-margin">
+                      Sun
+                    </ion-col>
+                      <ion-col  class="ion-no-margin">
+                      Mon
+                    </ion-col>
+                      <ion-col  class="ion-no-margin">
+                      Tue
+                    </ion-col>
+                      <ion-col  class="ion-no-margin">
+                      Wed
+                    </ion-col>
+                      <ion-col  class="ion-no-margin">
+                      Thu
+                    </ion-col>
+                      <ion-col  class="ion-no-margin">
+                      Fri
+                    </ion-col>
+                      <ion-col  class="ion-no-margin">
+                      Sat
+                    </ion-col>
+
+                </ion-row>
+                <ion-row class="ion-no-padding ion-no-margin">
+                      <ion-col  class="ion-no-margin form-group">
+                          <ion-input id="day" class="form-control" type="text" name="Sun"  [(ngModel)]="workLoadData.Sun"></ion-input>
+                       </ion-col>
+                        <ion-col  class="ion-no-margin form-group">
+                            <ion-input id="day" class="form-control" type="text" name="Mon"  [(ngModel)]="workLoadData.Mon"></ion-input>
+                        </ion-col>
+                        <ion-col  class="ion-no-margin form-group">
+                            <ion-input id="day" class="form-control" type="text" name="Tue"  [(ngModel)]="workLoadData.Tue"></ion-input>
+                        </ion-col>
+                        <ion-col  class="ion-no-margin form-group">
+                            <ion-input id="day" class="form-control" type="text" name="Wed"  [(ngModel)]="workLoadData.Wed"></ion-input>
+                        </ion-col>
+                        <ion-col  class="ion-no-margin form-group">
+                            <ion-input id="day" class="form-control" type="text" name="Thu"  [(ngModel)]="workLoadData.Thu"></ion-input>
+                         </ion-col>
+                        <ion-col  class="ion-no-margin form-group">
+                            <ion-input id="day" class="form-control" type="text" name="Fri"  [(ngModel)]="workLoadData.Fri"></ion-input>
+                        </ion-col>
+                        <ion-col  class="ion-no-margin form-group">
+                            <ion-input id="day" class="form-control" type="text" name="Sat"  [(ngModel)]="workLoadData.Sat"></ion-input>
+                        </ion-col>
+                  </ion-row>
+                  <br>
+                  <ion-row class="ion-justify-content-center ion-text-center">
+                    <button class="  form-group form-control">Update</button>
+                  </ion-row>
+
+
+
+
+      </form>
+    </ion-card>
+  </ion-content>
+
+

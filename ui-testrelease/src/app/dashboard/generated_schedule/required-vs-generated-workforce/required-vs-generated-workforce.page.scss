@@ -1,0 +1,1239 @@
+
+#on-chart-card{
+  width: 100%;
+  // margin-top: 7%;
+  position: absolute;
+    z-index: 1;
+}
+
+#on-chart-text{
+  width: 100%;
+  text-align: center;
+  margin-top: 2%;
+}
+#chart-background-color{
+  background-color: rgb(175, 173, 173,0.4);
+
+  height:100%;
+  border-radius: 3px;
+}
+#green-text{
+  color: green;
+  padding-top: 17%;
+}
+
+#red-text{
+  color: red;
+  padding-top: 17%;
+}
+@media(min-height:568px) {
+  #chart-division{
+    margin-top: -1%;
+  }
+  #chart-height{
+    height: 9.2rem;
+  }
+  #chart-background-height{
+    height: 9.5rem;
+  }
+  #chart-division-height-left{
+    height: 100%;
+    margin-left: 1%;
+  }
+  #chart-division-height-center{
+    height: 100%;
+    margin-left:-1%
+  }
+  #chart-division-height-right{
+    height: 100%;
+    margin-left:-1.5%
+  }
+  #day-text-sun{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-mon{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-tue{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #day-text-wed{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -3%;
+    position: absolute;
+  }
+  #day-text-thu{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -1%;
+    position: absolute;
+  }
+  #day-text-fri{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 1.75%;
+    position: absolute;
+  }
+  #day-text-sat{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+}
+
+@media(min-height:640px) {
+  #day-text-sun{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-mon{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-tue{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #day-text-wed{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -3%;
+    position: absolute;
+  }
+  #day-text-thu{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -1%;
+    position: absolute;
+  }
+  #day-text-fri{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 1.75%;
+    position: absolute;
+  }
+  #day-text-sat{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #chart-height{
+    height: 9.2rem;
+  }
+  #chart-background-height{
+    height: 9.5rem;
+  }
+  #chart-division-height-left{
+    height: 100%;
+    margin-left: 0%;
+  }
+  #chart-division-height-center{
+    height: 100%;
+    margin-left:-1%
+  }
+  #chart-division-height-right{
+    height: 100%;
+    margin-left:-0.7%
+  }
+}
+@media (min-width:280px) {
+@media(max-width:281px){
+  @media(max-height:654px) {
+     @media(min-height:653px) {
+      #green-text{
+        color: green;
+        font-size: 16px;
+        padding-top: 17%;
+      }
+
+      #red-text{
+        color: red;
+       font-size: 16px;
+        padding-top: 17%;
+      }
+      #day-text-sun{
+        float:left;
+        margin-left: 0%;
+        margin-right: -3%;
+        margin-top:6%;
+        right: 0%;
+        font-size: 10px;
+        position: absolute;
+      }
+      #day-text-mon{
+        float:left;
+        margin-left: 0%;
+        margin-right: -3%;
+        margin-top:6%;
+        right: 0%;
+        font-size: 10px;
+        position: absolute;
+      }
+      #day-text-tue{
+        float:left;
+        margin-left: 0%;
+        margin-right: -3%;
+        margin-top:6%;
+        right: -0.5%;
+        font-size: 10px;
+        position: absolute;
+      }
+      #day-text-wed{
+        float:left;
+        margin-left: 0%;
+        margin-right: -3%;
+        margin-top:6%;
+        right: -3%;
+        font-size: 10px;
+        position: absolute;
+      }
+      #day-text-thu{
+        float:left;
+        margin-left: 0%;
+        margin-right: -3%;
+        margin-top:6%;
+        font-size: 10px;
+        right: -1%;
+        position: absolute;
+      }
+      #day-text-fri{
+        float:left;
+        margin-left: 0%;
+        margin-right: -3%;
+        margin-top:6%;
+        font-size: 10px;
+        right: 1.75%;
+        position: absolute;
+      }
+      #day-text-sat{
+        float:left;
+        margin-left: 0%;
+        margin-right: -3%;
+        margin-top:6%;
+        right: -0.5%;
+        font-size: 10px;
+        position: absolute;
+      }
+      #chart-height{
+        height: 9.2rem;
+      }
+      #chart-background-height{
+        height: 9.5rem;
+      }
+    #chart-division-height-left{
+      height: 100%;
+      margin-left:2%
+    }
+    #chart-division-height-center{
+      height: 100%;
+      margin-left:-1%
+    }
+    #chart-division-height-right{
+      height: 100%;
+      margin-left:-2%
+    }}
+  }
+
+}
+}
+
+@media(min-height:667px) {
+  #day-text-sun{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-mon{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-tue{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #day-text-wed{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -3%;
+    position: absolute;
+  }
+  #day-text-thu{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -1%;
+    position: absolute;
+  }
+  #day-text-fri{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 1.75%;
+    position: absolute;
+  }
+  #day-text-sat{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  // #chart-division{
+  //   margin-top: 1;
+  // }
+  #chart-height{
+    height: 9.2rem;
+  }
+  #chart-background-height{
+    height: 9.5rem;
+  }
+  #chart-division-height-left{
+    height: 100%;
+  }
+  #chart-division-height-center{
+    height: 100%;
+    margin-left:-1%
+  }
+  #chart-division-height-right{
+    height: 100%;
+    margin-left:-1%
+  }
+}
+@media(min-width:540px) {
+
+  #chart-division{
+    margin-top: -3%;
+  }
+  #chart-division-height-left{
+
+    margin-left: -2.5%;
+  }
+  #chart-division-height-center{
+
+    margin-left:0%
+  }
+  #chart-division-height-right{
+
+    margin-left:0%
+  }
+}
+@media(min-height:720px) {
+  #day-text-sun{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-mon{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-tue{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #day-text-wed{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -3%;
+    position: absolute;
+  }
+  #day-text-thu{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -1%;
+    position: absolute;
+  }
+  #day-text-fri{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 1.75%;
+    position: absolute;
+  }
+  #day-text-sat{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #chart-division{
+    margin-top: -1%;
+  }
+  #chart-height{
+    height: 9.2rem;
+  }
+  #chart-background-height{
+    height: 9.5rem;
+  }
+  #chart-division-height-left{
+    height: 100%;
+    // margin-left: -2.5%;
+  }
+  #chart-division-height-center{
+    height: 100%;
+    // margin-left:0%
+  }
+  #chart-division-height-right{
+    height:100%;
+    margin-left:0%
+  }
+}
+@media(min-height:731px) {
+
+  #day-text-sun{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-mon{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-tue{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #day-text-wed{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -3%;
+    position: absolute;
+  }
+  #day-text-thu{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -1%;
+    position: absolute;
+  }
+  #day-text-fri{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 1.75%;
+    position: absolute;
+  }
+  #day-text-sat{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #chart-division{
+    margin-top: -1%;
+  }
+  #chart-height{
+    height: 9.2rem;
+  }
+  #chart-background-height{
+    height: 9.5rem;
+  }
+  #chart-division-height-left{
+    height: 100%;
+  }
+  #chart-division-height-center{
+    height: 100%;
+    margin-left:-1%
+  }
+  #chart-division-height-right{
+    height: 100%;
+    margin-left:-1%
+  }
+}
+@media(min-height:736px) {
+  #day-text-sun{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-mon{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-tue{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #day-text-wed{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -3%;
+    position: absolute;
+  }
+  #day-text-thu{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -1%;
+    position: absolute;
+  }
+  #day-text-fri{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 1.75%;
+    position: absolute;
+  }
+  #day-text-sat{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #chart-division{
+    margin-top: -1%;
+  }
+  #chart-height{
+    height: 9.2rem;
+  }
+  #chart-background-height{
+    height: 9.5rem;
+  }
+  #chart-division-height-left{
+    height: 100%;
+  }
+  #chart-division-height-center{
+    height: 100%;
+    margin-left:-1%
+  }
+  #chart-division-height-right{
+    height: 100%;
+    margin-left:-1%
+  }
+}
+@media(min-height:812px) {
+  #day-text-sun{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-mon{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-tue{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #day-text-wed{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -3%;
+    position: absolute;
+  }
+  #day-text-thu{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -1%;
+    position: absolute;
+  }
+  #day-text-fri{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 1.75%;
+    position: absolute;
+  }
+  #day-text-sat{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #chart-division{
+    margin-top: -1%;
+  }
+  #chart-height{
+    height: 9.2rem;
+  }
+  #chart-background-height{
+    height: 9.5rem;
+  }
+  #chart-division-height-left{
+    height: 100%;
+  }
+  #chart-division-height-center{
+    height: 100%;
+    margin-left:-1%
+  }
+  #chart-division-height-right{
+    height: 100%;
+    margin-left:-1%
+  }
+}
+@media(min-height:823px) {
+  #day-text-sun{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-mon{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-tue{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #day-text-wed{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -3%;
+    position: absolute;
+  }
+  #day-text-thu{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -1%;
+    position: absolute;
+  }
+  #day-text-fri{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 1.75%;
+    position: absolute;
+  }
+  #day-text-sat{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #chart-height{
+    height: 9.2rem;
+  }
+  #chart-background-height{
+    height: 9.5rem;
+  }
+  #chart-division{
+    margin-top: -1%;
+  }
+  #chart-division-height-left{
+    height: 100%;
+  }
+  #chart-division-height-center{
+    height: 100%;
+    margin-left:-1%
+  }
+  #chart-division-height-right{
+    height: 100%;
+    margin-left:-1%
+  }
+}
+@media(min-height:844px) {
+//  @media(min-width:390px) {
+  #day-text-sun{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-mon{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-tue{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #day-text-wed{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -3%;
+    position: absolute;
+  }
+  #day-text-thu{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -1%;
+    position: absolute;
+  }
+  #day-text-fri{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 1.75% !important;
+    position: absolute;
+  }
+  #day-text-sat{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5% !important;
+    position: absolute;
+  }
+
+  #chart-height{
+    height: 9.2rem;
+  }
+  #chart-background-height{
+    height: 9.5rem;
+  }
+  #chart-division{
+    margin-top: 0%;
+  }
+  #chart-division-height-left{
+    height: 100%;
+  }
+  #chart-division-height-center{
+    height: 100%;
+    margin-left:-1%
+  }
+  #chart-division-height-right{
+    height: 100%;
+    margin-left:-1%
+  }
+// }
+}
+@media(min-height:914px) {
+  //  @media(min-width:390px) {
+    #day-text-sun{
+      float:left;
+      margin-left: 0%;
+      margin-right: 0%;
+      margin-top:8%;
+      right: 0%;
+      position: absolute;
+    }
+    #day-text-mon{
+      float:left;
+      margin-left: 0%;
+      margin-right: 0%;
+      margin-top:8%;
+      right: 0%;
+      position: absolute;
+    }
+    #day-text-tue{
+      float:left;
+      margin-left: 0%;
+      margin-right: 0%;
+      margin-top:8%;
+      right: -0.5%;
+      position: absolute;
+    }
+    #day-text-wed{
+      float:left;
+      margin-left: 0%;
+      margin-right: 0%;
+      margin-top:8%;
+      right: -3%;
+      position: absolute;
+    }
+    #day-text-thu{
+      float:left;
+      margin-left: 0%;
+      margin-right: 0%;
+      margin-top:8%;
+      right: -1%;
+      position: absolute;
+    }
+    #day-text-fri{
+      float:left;
+      margin-left: 0%;
+      margin-right: 0%;
+      margin-top:8%;
+      right: 1.75%;
+      position: absolute;
+    }
+    #day-text-sat{
+      float:left;
+      margin-left: 0%;
+      margin-right: 0%;
+      margin-top:8%;
+      right: -0.5%;
+      position: absolute;
+    }
+
+    #chart-division{
+      margin-top: 1%;
+    }
+    #chart-height{
+      height: 9.2rem;
+    }
+    #chart-background-height{
+      height: 9.5rem;
+    }
+    #chart-division-height-center{
+      height: 100%;
+      margin-left:-1%
+    }
+    #chart-division-height-right{
+      height: 100%;
+      margin-left:-1%
+    }
+  // }
+  }
+@media(min-width:768px) {
+
+  #chart-division{
+    margin-top: -3%;
+  }
+  #chart-division-height-left{
+
+    margin-left: -4%;
+  }
+  #chart-division-height-center{
+
+    margin-left:0.5%
+  }
+  #chart-division-height-right{
+
+    margin-left:5%
+  }
+}
+// @media(min-width:390px){
+// @media(min-height:844px) {
+//   #chart-division{
+//     margin-top: -4.5%;
+//   }
+//   #chart-division-height-left{
+//     height: 143px;
+//   }
+//   #chart-division-height-center{
+//     height: 143px;
+//     margin-left:-1%
+//   }
+//   #chart-division-height-right{
+//     height: 143px;
+//     margin-left:-1%
+//   }
+// }
+// }
+@media(min-height:1024px) {
+  #day-text-sun{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-mon{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-tue{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #day-text-wed{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -3%;
+    position: absolute;
+  }
+  #day-text-thu{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -1%;
+    position: absolute;
+  }
+  #day-text-fri{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 1.75%;
+    position: absolute;
+  }
+  #day-text-sat{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #chart-division{
+    margin-top: -1%;
+  }
+  #chart-height{
+    height: 9.2rem;
+  }
+  #chart-background-height{
+    height: 9.5rem;
+  }
+  #chart-division-height-left{
+    height: 100%;
+    // margin-left: -2.5%;
+  }
+  #chart-division-height-center{
+    height: 100%;
+    // margin-left:0%
+  }
+  #chart-division-height-right{
+    height: 100%;
+    margin-left:1%
+  }
+}
+@media(min-width:800px) {
+  #chart-division{
+    margin-top: -3%;
+  }
+  #chart-division-height-left{
+
+    margin-left: -4%;
+  }
+  #chart-division-height-center{
+
+    margin-left:0.5%
+  }
+  #chart-division-height-right{
+
+    margin-left:5%
+  }
+}
+@media(min-height:1280px) {
+  #day-text-sun{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-mon{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-tue{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #day-text-wed{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -3%;
+    position: absolute;
+  }
+  #day-text-thu{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -1%;
+    position: absolute;
+  }
+  #day-text-fri{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 1.75%;
+    position: absolute;
+  }
+  #day-text-sat{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #chart-division{
+    margin-top: -1%;
+  }
+  #chart-height{
+    height: 9.2rem;
+  }
+  #chart-background-height{
+    height: 9.5rem;
+  }
+  #chart-division-height-left{
+    height: 100%;
+    // margin-left: -2.5%;
+  }
+  #chart-division-height-center{
+    height: 100%;
+    // margin-left:0%
+  }
+  #chart-division-height-right{
+    height: 20.5rem;
+    margin-left:0.6%
+  }
+}
+@media(min-width:1024px) {
+  #chart-division{
+    margin-top: -3%;
+  }
+  #chart-division-height-left{
+
+    margin-left: -4%;
+  }
+  #chart-division-height-center{
+
+    margin-left:0.5%
+  }
+  #chart-division-height-right{
+
+    margin-left:5%
+  }
+}
+@media(min-height:1366px) {
+  #day-text-sun{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-mon{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 0%;
+    position: absolute;
+  }
+  #day-text-tue{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #day-text-wed{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -3%;
+    position: absolute;
+  }
+  #day-text-thu{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -1%;
+    position: absolute;
+  }
+  #day-text-fri{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: 1.75%;
+    position: absolute;
+  }
+  #day-text-sat{
+    float:left;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top:8%;
+    right: -0.5%;
+    position: absolute;
+  }
+  #chart-division{
+    margin-top: -1%;
+  }
+  #chart-height{
+    height: 9.2rem;
+  }
+  #chart-background-height{
+    height: 9.5rem;
+  }
+  #chart-division-height-left{
+    height: 100%;
+    // margin-left: -2.5%;
+  }
+  #chart-division-height-center{
+    height: 100%;
+    // margin-left:0%
+  }
+  #chart-division-height-right{
+    height: 100%;
+    margin-left:0%
+  }
+}

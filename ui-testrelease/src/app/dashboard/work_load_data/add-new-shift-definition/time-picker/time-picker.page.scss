@@ -1,0 +1,241 @@
+// $font: 'Work Sans', sans-serif;
+$color: rgb(23, 23, 77);
+$accent: #0194e3;
+#time-input-box{
+  padding:0%;text-align: right;margin: 0%;height: 32px;
+}
+.time-picker {
+  // display: flex;
+  flex-direction: column;
+  height: 100% auto;
+  width: 100%;
+  // border-radius: 4px;
+  background: white;
+  // box-shadow: 0 0 24px 0 rgba($color, 0.1), 0 24px 24px 0 rgba($color, 0.2);
+  // box-sizing: border-box;
+  --webkit-user-select: none;
+  --webkit-touch-callout: none;
+  --webkit-tap-highlight-color: transparent;
+
+  @media (pointer: coarse) {
+    zoom: 125%;
+  }
+
+  > header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 0% 0% 0%;
+    height: 80%;
+    width: 100%;
+    margin-left: auto;margin-right:auto;
+    border-radius: 15px;
+    margin-bottom: 5%;
+    border:2px solid $accent;
+    color:$accent;
+
+    > .time-hhmm {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font: 200 20px ;
+
+      > label {
+        // cursor: pointer;
+
+        > input[type=radio] {
+          display: none;
+
+          + span {
+            opacity: 0.6;
+          }
+
+          &:checked + span {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    > .time-ampm {
+      display: flex;
+      flex-direction: column;
+      font: 600 14px/16px ;
+
+      > label {
+        padding: 0 10px;
+        // cursor: pointer;
+
+        > input[type=radio] {
+          display: none;
+
+          + span {
+            opacity: 0.6;
+          }
+
+          &:checked + span {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  > article {
+    flex: 1;
+    display: flex;
+
+    > .time-dial {
+      padding-top: 0%;
+      // margin-top: 10%;
+      margin-top: 0%;
+      position: relative;
+      width: 190px;
+      height: 195px;
+      margin: auto;
+      border-radius: 50%;
+      // margin-bottom: 5%;
+      background: rgba($color, 0.04);
+      font-size: 10px ;
+
+      &::before {
+        margin: auto;
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background: $accent;
+      }
+
+      > label {
+        position: absolute;
+        // border:1px solid;
+
+        margin-top:5%;
+        margin-bottom: 5%;
+        > input[type=radio] {
+          display: none;
+          // border: 1px solid;
+          &:checked + div {
+            background: $accent;
+            color: white;
+          }
+        }
+
+        > div {
+          margin-top: -20%;
+          margin-left: auto;
+          margin-right: auto;
+          height: 20px;
+          width: 20px;
+          border-radius: 50%;
+          text-align: center;
+          cursor: pointer;
+
+          &:hover,
+          &:active {
+            background: rgba($color, 0.1);
+          }
+        }
+      }
+
+      > .hand {
+        position: relative;
+        height: 75px;
+        width: 2px;
+        top: 12%;
+        left: 49%;
+        transform-origin: bottom;
+        background: $accent;
+      }
+    }
+  }
+
+  > footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    border-top: 1px solid rgba($color, 0.1);
+
+    button {
+      height: 36px;
+      margin-right: 16px;
+      padding: 0 10px;
+      border-radius: 4px;
+      appearance: none;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: rgba($color, 0.6);
+      font: 600 16px/21px ;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      &:last-child {
+        color: $accent;
+      }
+
+      &:hover,
+      &:active {
+        background: rgba($color, 0.1);
+      }
+    }
+  }
+
+  // Suppress invalid global CSS
+  * {
+    color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+  }
+}
+// ion-col{
+//   height: 1%;
+// }
+// input[type=radio] {
+//   display: none;
+
+//   + span {
+//     opacity: 0.6;
+//   }
+
+//   &:checked + span {
+//     opacity: 1;
+//   }
+// }
+
+.time-ampm {
+  // display: flex;
+  // flex-direction: column;
+  font-size:  14px ;
+
+
+  > label {
+    width:80% ;
+    color: white;
+    border: none;
+    height: 110%;
+    bottom: 0%;
+    padding: 5%;
+    // cursor: pointer;
+
+    > input[type=radio] {
+      display: none;
+
+      + span {
+        padding: 10%;
+        opacity: 0.6;
+      }
+
+      &:checked + span {
+        opacity: 1;
+      }
+    }
+  }
+}
+

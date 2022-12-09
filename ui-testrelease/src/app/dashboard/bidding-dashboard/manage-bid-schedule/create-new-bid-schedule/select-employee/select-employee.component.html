@@ -1,0 +1,146 @@
+<ion-header>
+  <ion-row class="ion-no-margin-top ion-no-padding-top ion-no-margin-bottom ion-no-padding-bottom">
+    <!-- <ion-col size="1" class=" ion-text-center"> -->
+      <!-- <ion-label class="data"> -->
+      <!-- <div class="popup"  (click)="popUp()"><ion-icon name="information-circle" class="app-font-mercurius-primary-color popup" style="font-size: 16px;margin-left: 1px;" ></ion-icon>
+
+        <span class="popuptext" id="myPopup">
+          <ion-label > Name<sup>Rank</sup></ion-label>
+        </span>
+      </div> -->
+    <!-- </ion-label> -->
+    <!-- </ion-col> -->
+    <ion-col size="2"></ion-col>
+    <ion-col size="8" class=" ion-text-center">
+      <ion-label  class="app-font-primary-color app-font-size-14px ion-text-center" ><b>Employees</b></ion-label>
+    </ion-col>
+    <ion-col size="2">
+      <ion-label class="app-font-mercurius-secondary-color data ion-text-center" (click)="close()"><b>Close</b></ion-label>
+    </ion-col>
+  </ion-row>
+  <mat-divider class="app-background-mercurius-secondary-color"></mat-divider>
+</ion-header>
+<ion-content>
+  <ion-grid style="width: 100%;position: sticky !important;  position: -webkit-sticky !important;top: -1px;z-index: 2 !important;background: #fff;">
+
+    <ion-row>
+      <ion-col size="4">
+        <!-- <div class="container">
+
+          <li class="list-group-item"> -->
+            <label class="container">Select All
+              <input type="checkbox" [(ngModel)]="masterSelected" class="checkbox-round"  name="list_name" value="m1" style="border-radius:100% !important;"
+              (change)="checkUncheckAll()" /><span class="checkmark"></span>
+              <span class="checkmark"></span>
+            </label>
+
+          <!-- </li>
+</div> -->
+        <!-- <ion-checkbox [(ngModel)]="masterSelected" name="list_name" value="m1"
+                (ionChange)="checkUncheckAll()"  style="--size:16px;margin: 0px;"  class="data"  ></ion-checkbox> -->
+      </ion-col>
+      <ion-col size="4">
+          <div [class]="cssForTotalEmployee(totalSelectdEmployees)" ><b>{{totalSelectdEmployees}}</b></div>
+      </ion-col>
+      <ion-col size="4"></ion-col>
+    </ion-row>
+
+  <ion-item class=" ion-no-padding ion-no-margin data ion-text-center " style="width: 100%;">
+    <ion-row style="width: 100%; " class="ion-no-padding ion-no-margin">
+    <ion-col size="1" style="width: 100%;">
+    </ion-col>
+
+    <ion-col class="app-font-primary-color data text-align-left ion-no-margin ion-no-padding" size="4.3" style="width: 100%;padding-left: 5px;">
+      <ion-label ><b>Name</b> </ion-label>
+
+    </ion-col>
+    <ion-col class="app-font-primary-color data ion-no-margin ion-text-center ion-no-padding" size="2.7" style="width: 100%;">
+      <ion-label  ><b>Rank</b></ion-label>
+    </ion-col>
+    <ion-col class="app-font-primary-color data ion-no-margin ion-text-center ion-no-padding" size="4" style="width: 100%;">
+      <ion-label  ><b>Vacation (Hours)</b></ion-label>
+    </ion-col>
+    </ion-row>
+  </ion-item>
+</ion-grid>
+<ion-grid>
+
+<ion-grid style="width: 100%;">
+
+  <form [formGroup]="employeeListForm" >
+
+    <ion-item-sliding formArrayName="allEmployeeListData" *ngFor="let wD of allEmployeeListData.controls; let i=index"  class=" ion-no-padding ion-no-margin ion-text-center "  >
+        <ion-item  [class]="checkUpdatedEmployee(i) " style="width: 100%;width: 100%;" >
+          <ion-row [formGroupName]="i"  style="width: 100%;" class="ion-no-padding ion-no-margin">
+            <ion-col size="1" style="width: 100%;" class="ion-no-padding ion-no-margin">
+              <!-- <ion-checkbox (ionChange)="isAllSelected()" style="--size:16px;margin: 0px;"  class="data"  formControlName="selected" [checked]="wD.value.selected"  ></ion-checkbox> -->
+              <label class="container">  <input type="checkbox"  class="checkbox-round" class="data"  formControlName="selected" [checked]="wD.value.selected"  name="list_name" value="m1"
+              (change)="isAllSelected()" /><span class="checkmark"></span></label>
+            </ion-col>
+            <!-- <ion-col size="1" class="data">
+              <ion-label class="data">{{wD.value.empInitial | uppercase}} - {{wD.value.empfName|titlecase}} {{wD.value.emplName|titlecase}}</ion-label>
+            </ion-col> -->
+
+            <ion-col size="4.3" class="data text-align-left ion-no-margin ion-no-padding " style="width: 100%;">
+              <ion-label class="data" *ngIf="wD.value.role==1;else eldeEmp"><b >{{wD.value.empfName|titlecase}} {{wD.value.emplName|titlecase}} ({{wD.value.empInitial}})</b>
+                 </ion-label><ng-template #eldeEmp>{{wD.value.empfName|titlecase}} {{wD.value.emplName|titlecase}} ({{wD.value.empInitial}})</ng-template>
+            </ion-col>
+            <ion-col size="2.7" class="data ion-text-center ion-no-margin ion-no-padding " style="text-align: center !important;width: 100%;">
+              <ion-label class="data" *ngIf="wD.value.role==1;else eldeEmpR"><b >{{wD.value.empRank }}</b>
+              </ion-label><ng-template #eldeEmpR>{{wD.value.empRank }} </ng-template>
+
+            </ion-col>
+            <ion-col size="4" class="data ion-text-center ion-no-margin ion-no-padding " style="width: 100%;">
+              <ion-label class="data"> </ion-label>
+              <ion-label class="data" *ngIf="wD.value.role==1;else eldeEmpV"><b >{{wD.value.vacation }}</b>
+              </ion-label><ng-template #eldeEmpV>{{wD.value.vacation }} </ng-template>
+
+            </ion-col>
+            </ion-row>
+      </ion-item>
+      <ion-item-options side="end">
+        <button ion-button   (click)="edit(wD.value)" style="background-color:#0194e3;color:white"  class="app-background-mercurius-primary-color app-font-primary-color">Edit</button>
+        <button ion-button  (click)="deleteEmp(wD.value)" class="app-background-red-color app-font-primary-color">Delete</button>
+      </ion-item-options>
+      </ion-item-sliding>
+
+
+        </form>
+
+</ion-grid>
+</ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-grid>
+      <ion-row style="width: 100%;" class="ion-text-center">
+
+      <ion-col class="app-font-mercurius-secondary-color data " size="12" style="width: 100%;">
+        <ion-label class="app-font-mercurius-secondary-color data " (click)="addNewEmp()" >Add New Employee</ion-label>
+      </ion-col>
+      </ion-row>
+      <!-- <mat-divider class="app-background-mercurius-secondary-color" style="background-color: lightgray;"></mat-divider> -->
+    <ion-row style="margin-bottom: 2px;">
+      <ion-col class="ion-no-margin ion-no-padding data">
+        <ion-row class="ion-no-margin ion-no-padding data text-align-left">
+          <!-- <ion-col size="6"><ion-label>Total Selected Employees</ion-label></ion-col>
+          <ion-col size="5" class="text-align-right">{{totalSelectdEmployees}} <b class="font-normal" *ngIf="totalSelectdEmployees>1;else hourBlock"></b><ng-template #hourBlock><b class="font-normal"></b></ng-template></ion-col>
+          <ion-col size="1" class=" app-font-mercurius-secondary-color " style="padding-top: 5px;font-size: 16px;"><b></b></ion-col> -->
+          <ion-col size="6"><ion-label><b>Total Leave Accrued </b></ion-label></ion-col>
+          <ion-col size="6" class="text-align-right">{{totalRequiredHours}} <b class="font-normal" *ngIf="totalRequiredHours>1;else hourBlock">Hours</b><ng-template #hourBlock><b class="font-normal">Hour</b></ng-template></ion-col>
+          <!-- <ion-col size="1" class=" app-font-mercurius-secondary-color " style="padding-top: 5px;font-size: 16px;"><b><ion-icon name="information-circle-outline"></ion-icon></b></ion-col> -->
+
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-bottom: 2px;">
+      <ion-col size="2"></ion-col>
+      <ion-col size="8" class="ion-text-center">
+        <ion-button *ngIf="checkEditBidSchedule==false" [disabled]="totalSelectdEmployees<1"  shape="round"  class="app-button-primary" (click)="save()" >Save</ion-button>
+        <ion-button  *ngIf="checkEditBidSchedule==true" [disabled]="totalSelectdEmployees<1" shape="round"  class="app-button-primary" (click)="update()" >Save</ion-button>
+        <!-- <ion-button *ngIf="checkEditBidSchedule==true" [disabled]="disable==true"  shape="round"  class="app-button-primary" (click)="update()" >Update</ion-button> -->
+        </ion-col>
+        <ion-col size="2"></ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-footer>

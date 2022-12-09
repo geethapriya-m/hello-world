@@ -1,0 +1,585 @@
+#home-page-header-img{
+
+  height: 250px;
+  width: 250px;
+
+}
+
+// .text-i{
+//   position: absolute;
+//   top: 50px;
+//   right: 25px;
+//   transform: translate(-50%, -50%);
+// }
+.scroll-content {
+  padding-bottom: 0 !important;
+}
+#title-straightline{
+  padding-top:7px 0px 0px 0px;
+  font-size: 40px;
+  text-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+#content{
+//  --height: 100% !important;
+ --min-height: 100% !important;
+//  position: fixed;
+//  --overflow-y: scroll;
+ --overflow-x:scroll;
+ --overflow: scroll;
+
+}
+@media (min-width: 855px)  and (max-width: 900px) and (orientation: landscape){
+  .app-header-logo{
+    height: 135px;width: 135px;  margin: auto;opacity: 0.7;
+  }
+  #title-straightline{
+    padding-top: 65px;
+    margin-bottom: 20px;
+  }
+  .app-title{
+    margin-bottom: 10px;
+  }
+  .home-img-text{
+    font-size: 24px;
+  }
+  .text-i{
+    position: absolute;
+    top: 15%;
+    right: 8%;
+  }
+  #home-image{
+    margin-top: 5px;
+    width: 95% !important;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  #sign-in{
+    margin:5% 0% 5% 0%;
+
+  }
+  #sign-up{
+    padding-top: 9%;
+  }
+  #user-pass{
+    padding-top: 3%;
+  }
+  #save-username{
+    padding-top: 1%;
+  }
+  #triangle-up-left {
+    width: 102%;
+    height: 25%;
+
+    // position: absolute;
+    // position: fixed;
+    padding: 2% 0% 2% 0%;
+    margin: 6% 0% 0% -2%;
+    // bottom: 0% !important;
+    // background-image:
+    //   linear-gradient(to bottom left, transparent 100%, #ffaa00 0),
+    //   linear-gradient(to top left, #ffaa00 50%, transparent 0);
+  }
+}
+
+@media (min-width: 901px)  and (max-width: 999px) and (orientation: landscape){
+  .app-header-logo{
+    height: 135px;width: 135px;  margin: auto;opacity: 0.7;
+  }
+  #title-straightline{
+    padding-top: 65px;
+    margin-bottom: 20px;
+  }
+  .app-title{
+    margin-bottom: 10px;
+  }
+  #home-image{
+    margin-top: 5px;
+    width: 95% !important;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+  .home-img-text{
+    font-size: 24px;
+  }
+  .text-i{
+    position: absolute;
+    top: 15%;
+    right: 8%;
+  }
+  #sign-in{
+    margin:5% 0% 5% 0%;
+
+  }
+  #sign-up{
+    padding-top: 9%;
+  }
+  #user-pass{
+    padding-top: 4%;
+  }
+  #triangle-up-left {
+    width: 102%;
+    height: 30%;
+    // position: absolute;
+    // position: fixed;
+    padding: 5% 0% 5% 0%;
+
+    margin: 10% 0% 0% -2%;
+    // bottom: 0% !important;
+    // background-image:
+    // linear-gradient(to bottom left, transparent 100%, #ffaa00 0),
+    // linear-gradient(to top left, #ffaa00 50%, transparent 0);
+  }
+}
+
+@media (min-width: 801px)  and (max-width: 825px) and (orientation: landscape){
+  .app-header-logo{
+    height: 135px;width: 135px;  margin: auto;opacity: 0.7;
+  }
+  #title-straightline{
+    padding-top: 65px;
+    margin-bottom: 20px;
+  }
+  .app-title{
+    margin-bottom: 10px;
+  }
+  .home-img-text{
+    font-size: 24px;
+  }
+  .text-i{
+    position: absolute;
+    top: 15%;
+    right: 8%;
+  }
+  #home-image{
+    margin-top: 5px;
+    width: 95% !important;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 15px;
+  }
+  #sign-in{
+    margin:4% 0% 4% 0%;
+
+  }
+  #sign-up{
+    padding-top: 7%;
+  }
+  #user-pass{
+    padding-top: 3%;
+  }
+  #save-username{
+    padding-top: 1%;
+  }
+
+}
+@media (min-width: 826px)  and (max-width: 855px) and (orientation: landscape){
+  .app-header-logo{
+    height: 135px;width: 135px;  margin: auto;opacity: 0.7;
+  }
+  #title-straightline{
+    padding-top: 65px;
+    margin-bottom: 20px;
+  }
+  .app-title{
+    margin-bottom: 10px;
+  }
+  .home-img-text{
+    font-size: 24px;
+  }
+  .text-i{
+    position: absolute;
+    top: 15%;
+    right: 8%;
+  }
+  #home-image{
+    margin-top: 5px;
+    width: 95% !important;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 15px;
+  }
+  #sign-in{
+    margin:5% 0% 5% 0%;
+
+  }
+  #sign-up{
+    padding-top: 8%;
+  }
+  #user-pass{
+    padding-top: 3%;
+  }
+  #save-username{
+    padding-top: 1%;
+  }
+  #triangle-up-left {
+    width: 102%;
+    height: 25%;
+    // position: absolute;
+    // position: fixed;
+    padding: 2% 0% 2% 0%;
+    margin: 6% 0% 0% -2%;
+    // bottom: 0% !important;
+
+    // background-image:
+    // linear-gradient(to bottom left, transparent 100%, #ffaa00 0),
+    // linear-gradient(to top left, #ffaa00 50%, transparent 0);
+  }
+
+}
+@media (min-width: 700px) and (max-width: 800px) and (orientation: landscape){
+  .app-header-logo{
+    height: 110px;width: 110px;  margin: auto;opacity: 0.7;
+  }
+  #title-straightline{
+    padding-top: 50px;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  .home-img-text{
+    font-size: 24px;
+  }
+  .text-i{
+    position: absolute;
+    top: 11%;
+    right: 15%;
+  }
+  .app-title{
+    margin-bottom: 5px;
+  }
+  #home-image{
+    margin-top: 5px;
+    width: 93% !important;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 15px;
+  }
+  #sign-in{
+    margin:4% 0% 4% 0%;
+
+  }
+  #sign-up{
+    padding-top: 7%;
+  }
+  #user-pass{
+    padding-top: 3%;
+  }
+  #save-username{
+    padding-top: 1%;
+  }
+  #triangle-up-left {
+    width: 102%;
+    height: 25%;
+    // position: absolute;
+    // position: fixed;
+    padding: 0%;
+    margin: 5% 0% 0% -2%;
+    // bottom: 0% !important;
+    // background-image:
+    // linear-gradient(to bottom left, transparent 100%, #ffaa00 0),
+    // linear-gradient(to top left, #ffaa00 50%, transparent 0);
+  }
+}
+@media screen and (max-width: 700px) and (orientation: landscape){
+  .app-header-logo{
+    height: 92px;width: 92px;  margin: auto;opacity: 0.7;
+  }
+  #title-straightline{
+    padding-top: 10%;
+    font-size: 30px;
+    margin-bottom: 2px;
+  }
+  .home-img-text{
+    font-size: 20px;
+  }
+  .text-i{
+    position: absolute;
+    top: 11%;
+    right: 15%;
+  }
+  .app-title{
+    margin-bottom: 10px;
+  }
+  #home-image{
+    width: 90% !important;
+    height: 180px !important;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+
+  #sign-in{
+    margin:2% 0% 2% 0%;
+
+  }
+  #sign-up{
+    padding-top: 7%;
+  }
+  #user-pass{
+    padding-top: 3%;
+  }
+  #save-username{
+    padding-top: 1%;
+  }
+  #triangle-up-left {
+    width: 102%;
+    height: 25%;
+    // position: absolute;
+    // position: fixed;
+    padding: 0%;
+    margin: 6% 0% 0% 0%;
+    bottom: 0 !important;
+    // bottom: 0% !important;
+
+    // background-image:
+    // linear-gradient(to bottom left, transparent 100%, #ffaa00 0),
+    // linear-gradient(to top left, #ffaa00 50%, transparent 0);
+  }
+}
+@media screen and (max-height: 700px) and (orientation: portrait){
+.app-header-logo{
+    height: 95px;width: 95px;  margin: auto;opacity: 0.7;
+  }
+  #title-straightline{
+    padding-top: 45px;
+    font-size: 30px;
+    margin-bottom: 5px !important;
+  }
+  .app-title{
+    margin-bottom: 5px;
+  }
+  #home-image{
+    width: 98% !important;
+    height: 185px !important;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+  .home-img-text{
+    font-size: 20px;
+  }
+  .text-i{
+    position: absolute;
+    top: 11%;
+    right: 15%;
+  }
+  #sign-in{
+    margin:0% 0% 2% 0%;
+
+  }
+  #sign-up{
+    padding-top: 5px;
+  }
+
+  #save-username{
+    padding-top: 1%;
+  }
+
+}
+
+@media (min-height: 700px)  and (max-height: 800px) and (orientation: portrait){
+  .app-header-logo{
+    height: 110px;width: 110px;  margin: auto;opacity: 0.7;
+  }
+  #title-straightline{
+    padding-top: 50px;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  .app-title{
+    margin-bottom: 5px;
+  }
+  .home-img-text{
+    font-size: 24px;
+  }
+  .text-i{
+    position: absolute;
+    top: 11%;
+    right: 15%;
+  }
+  #home-image{
+    margin-top: 5px;
+    width: 95% !important;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 15px;
+  }
+
+  #sign-in{
+    margin:1% 0% 2% 0%;
+
+  }
+  #sign-up{
+    padding-top: 5px;
+  }
+
+  #save-username{
+    padding-top: 1%;
+  }
+
+}
+@media (min-height: 801px)  and (max-height: 825px) and (orientation: portrait){
+  .app-header-logo{
+    height: 135px;width: 135px;  margin: auto;opacity: 0.7;
+  }
+  #title-straightline{
+    padding-top: 65px;
+    margin-bottom: 20px;
+  }
+  .app-title{
+    margin-bottom: 10px;
+  }
+  .home-img-text{
+    font-size: 24px;
+  }
+  .text-i{
+    position: absolute;
+    top: 15%;
+    right: 8%;
+  }
+  #home-image{
+    margin-top: 5px;
+    width: 95% !important;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 15px;
+  }
+  #sign-in{
+    margin:4% 0% 4% 0%;
+
+  }
+  #sign-up{
+    padding-top: 7%;
+  }
+  #user-pass{
+    padding-top: 3%;
+  }
+  #save-username{
+    padding-top: 1%;
+  }
+
+}
+@media (min-height: 826px)  and (max-height: 855px) and (orientation: portrait){
+  .app-header-logo{
+    height: 135px;width: 135px;  margin: auto;opacity: 0.7;
+  }
+  #title-straightline{
+    padding-top: 65px;
+    margin-bottom: 20px;
+  }
+  .app-title{
+    margin-bottom: 10px;
+  }
+  .home-img-text{
+    font-size: 24px;
+  }
+  .text-i{
+    position: absolute;
+    top: 15%;
+    right: 8%;
+  }
+  #home-image{
+    margin-top: 5px;
+    width: 95% !important;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 15px;
+  }
+  #sign-in{
+    margin:5% 0% 5% 0%;
+
+  }
+  #sign-up{
+    padding-top: 8%;
+  }
+  #user-pass{
+    padding-top: 3%;
+  }
+  #save-username{
+    padding-top: 1%;
+  }
+
+}
+@media (min-height: 855px)  and (max-height: 900px) and (orientation: portrait){
+  .app-header-logo{
+    height: 135px;width: 135px;  margin: auto;opacity: 0.7;
+  }
+  #title-straightline{
+    padding-top: 65px;
+    margin-bottom: 20px;
+  }
+  .app-title{
+    margin-bottom: 10px;
+  }
+  .home-img-text{
+    font-size: 24px;
+  }
+  .text-i{
+    position: absolute;
+    top: 15%;
+    right: 8%;
+  }
+  #home-image{
+    margin-top: 5px;
+    width: 95% !important;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 25px;
+  }
+  #sign-in{
+    margin:5% 0% 5% 0%;
+
+  }
+  #sign-up{
+    padding-top: 9%;
+  }
+  #user-pass{
+    padding-top: 3%;
+  }
+  #save-username{
+    padding-top: 1%;
+  }
+
+}
+
+@media (min-height: 901px)  and (max-height: 999px) and (orientation: portrait){
+  .app-header-logo{
+    height: 135px;width: 135px;  margin: auto;opacity: 0.7;
+  }
+  #title-straightline{
+    padding-top: 65px;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .app-title{
+    margin-bottom: 10px;
+  }
+  .home-img-text{
+    font-size: 24px;
+  }
+  .text-i{
+    position: absolute;
+    top: 15%;
+    right: 8%;
+  }
+  #home-image{
+    margin-top: 5px;
+    width: 95% !important;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  #sign-in{
+    margin:5% 0% 5% 0%;
+
+  }
+  #sign-up{
+    padding-top: 9%;
+  }
+  #user-pass{
+    padding-top: 4%;
+  }
+
+}

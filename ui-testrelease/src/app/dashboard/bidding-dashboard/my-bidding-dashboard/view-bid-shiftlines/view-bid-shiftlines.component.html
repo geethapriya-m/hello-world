@@ -1,0 +1,85 @@
+<ion-grid  class="ion-text-center" *ngIf="spinner === true">
+  <ion-row>
+    <ion-col size="12">
+      <ion-spinner name="bubbles"></ion-spinner>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
+<ion-grid  *ngIf="spinner === false" (click)="popupDisable()">
+<ion-grid *ngIf="checkData==true;else elseBlock" id="all-shift-list-card" class=" app-font-primary-color   ion-no-margin" style="margin:0px 5px 5px 5px;padding-top: 10px;height: 100%;overflow-y: scroll;">
+
+  <ion-grid>
+    <ion-row class="content-data ion-no-margin ion-no-padding">
+      <ion-col size="1">
+      </ion-col>
+       <ion-col size="10" class="app-font-primary-color ion-text-center ion-no-margin ion-no-padding"><b style="font-weight: bolder;margin-right: 5px;">Bid Schedule:</b> {{bid_schedule_name}}</ion-col>
+      <ion-col size="1">
+        <ion-icon style="font-size: 18px;" (click)="download()" class="app-font-mercurius-secondary-color" name="download-outline"></ion-icon>
+      </ion-col>
+      <!-- <ion-col size="12" class="app-font-primary-color ion-text-center ion-no-margin ion-no-padding"><b>SHIFTLINES SCHEDULE</b></ion-col> -->
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngFor="let selectedSchedule of all_final_data;let i=index" style="z-index: -1;">
+  <ion-row   (click)="[expandBox(i),selectShiftLineSchedule(selectedSchedule)]"  class="app-border-mercurius-secondary-color  data ion-no-padding ion-no-margin">
+    <ion-col size="11" class="ion-no-margin ion-text-center">
+      <ion-label>Shiftline Schedule: <b style="font-weight: bolder;">{{selectedSchedule.schedulename}}</b></ion-label><br>
+    </ion-col>
+
+    <ion-col size="1" >
+      <!-- <ion-col size="1" style="padding-top: 12px;" > -->
+      <ion-label  >
+        <ion-icon class="app-font-mercurius-secondary-color" name="chevron-down-outline"></ion-icon>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-grid *ngIf="expand_id==i" style="height: 450px;overflow-y: scroll;">
+    <ion-grid  *ngFor="let sL of all_selected_schedule_shift_lines;let index=index;" class="app-background-mercurius-primary-color  ion-border-1px-ligth-gray-color" style="padding:5px 0px 0px 0px;margin:5px 0px 5px 0px;border:1px solid lightgray;margin-top: 10px;margin-bottom: 10px;">
+      <ion-item lines="none" style="--inner-padding-start:0px !important;--inner-padding-start:0px !important;--padding-start:0px !important;--inner-padding-end:0px !important">
+        <ion-row class="data  ion-no-margin ion-no-padding " style="width: 100%;">
+          <ion-col class="data ion-no-margin ion-no-padding  app-font-primary-color"  size="0.5" style="width: 100%;" ></ion-col>
+          <ion-col class="data ion-no-margin ion-no-padding text-align-left  app-font-primary-color"  size="4.5" style="width: 100%;" ><b>ShiftLine</b></ion-col>
+          <ion-col class="data ion-no-margin ion-no-padding  app-font-primary-color"  size="4" style="width: 100%;" ><b>Pattern</b></ion-col>
+          <!-- <ion-col class="data ion-no-margin ion-no-padding  app-font-primary-color"  size="3" style="width: 100%;"  ><b >Selected By</b></ion-col> -->
+          <ion-col class="data ion-no-margin ion-no-padding  app-font-primary-color"  size="3" style="width: 100%;"  ><b *ngIf="sL.selectedBy!==''">Selected By</b></ion-col>
+          <ion-col class="data ion-no-margin ion-no-padding"   size="0.5" style="width: 100%;" ></ion-col>
+          <ion-col class="data ion-no-margin ion-no-padding text-align-left"  size="4.5" style="width: 100%;" >
+
+              <div class="popup app-font-mercurius-secondary-color"  (click)="myFunction(index)">
+                <ion-label class="app-font-mercurius-secondary-color "><b>{{sL.shiftname}} - {{sL.edit_seq_id+1}}</b></ion-label>
+
+                <span class="popuptext" id="myPopup{{index}}">
+                  <ion-row class="ion-no-padding ion-no-margin">
+                      <ion-col class="ion-no-padding ion-no-margin" size="0.2"></ion-col>
+                      <ion-col class="ion-no-padding ion-no-margin" size="11.8">ShiftLine : <b>{{convertNineHourShiftLineIncorrectFormat(sL.sun,sL.shiftdurationc)}}{{convertNineHourShiftLineIncorrectFormat(sL.mon,sL.shiftdurationc)}}{{convertNineHourShiftLineIncorrectFormat(sL.tue,sL.shiftdurationc)}}{{convertNineHourShiftLineIncorrectFormat(sL.wed,sL.shiftdurationc)}}{{convertNineHourShiftLineIncorrectFormat(sL.thu,sL.shiftdurationc)}}{{convertNineHourShiftLineIncorrectFormat(sL.fri,sL.shiftdurationc)}}{{convertNineHourShiftLineIncorrectFormat(sL.sat,sL.shiftdurationc)}}</b>
+                        <b *ngIf="sL.shiftdurationc==9">{{convertNineHourShiftLineIncorrectFormat(sL.sunshift2,sL.shiftdurationc)}}{{convertNineHourShiftLineIncorrectFormat(sL.monshift2,sL.shiftdurationc)}}{{convertNineHourShiftLineIncorrectFormat(sL.tueshift2,sL.shiftdurationc)}}{{convertNineHourShiftLineIncorrectFormat(sL.wedshift2,sL.shiftdurationc)}}{{convertNineHourShiftLineIncorrectFormat(sL.thushift2,sL.shiftdurationc)}}{{convertNineHourShiftLineIncorrectFormat(sL.frishift2,sL.shiftdurationc)}}{{convertNineHourShiftLineIncorrectFormat(sL.satshift2,sL.shiftdurationc)}}</b>
+                      </ion-col>
+                      <!-- <ion-col class="ion-no-padding ion-no-margin" size="0.2"  ></ion-col> -->
+                      <!-- <ion-col class="ion-no-padding ion-no-margin" size="11.8"  >Shifts : <b *ngIf="bidData.status==2">3176M</b></ion-col> -->
+                  </ion-row>
+
+                </span>
+              </div>
+
+          </ion-col>
+
+            <ion-col class="data ion-no-margin ion-no-padding"  size="4" style="width: 100%;" >{{sL.pattern}}</ion-col>
+          <!-- <ion-col class="data ion-no-margin ion-no-padding ion-text-center app-font-mercurius-secondary-color"  size="3"  style="width: 100%;" ><b></b></ion-col> -->
+          <ion-col class="data ion-no-margin ion-no-padding ion-text-center app-font-mercurius-secondary-color"  size="3" style="width: 100%;" ><b *ngIf="sL.selectedBy!==''">{{sL.selectedBy}}</b></ion-col>
+        </ion-row>
+      </ion-item>
+  </ion-grid>
+</ion-grid>
+
+</ion-grid>
+</ion-grid>
+<ng-template #elseBlock>
+  <ion-grid>
+    <ion-row class="ion-text-center data">
+      <ion-col size="12">
+        <ion-label>Data Not Available</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ng-template>
+</ion-grid>

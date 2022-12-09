@@ -1,0 +1,1479 @@
+.special-date {
+  background: #ffaa00 !important;
+  margin: 2px;
+  border-radius: 100%;
+
+}
+.special-date-rdo{
+  background: lightgray !important;
+  margin: 2px;
+  border-radius: 100%;
+
+}
+
+
+@font-face {
+  font-family: 'PT Serif';
+  src: url('assets/font/PT_Serif/PTSerif-Regular.ttf');
+}
+@font-face {
+  font-family: 'source-sans-pro';
+  font-weight: normal !important;
+  src: url('assets/font/Source_Sans_Pro/SourceSansPro-Regular.ttf');
+}
+.scroll-content { padding-bottom: 0 !important; }
+.app-title{
+  font-family: "PT Serif";
+}
+ion-button{
+  text-transform: none !important;
+ }
+ ion-segment{
+  --color:black;
+  --background: rgb(241, 241, 242);
+  border-radius:10px !important;
+  padding-left:4px !important;
+  padding-top:4px !important;
+  padding-bottom:4px !important;
+  padding-right:4px !important;
+}
+ion-segment-button {
+  text-transform:none !important;
+  --background-checked: #ff6700;
+  --indicator-color:none;
+  --color-checked: white;
+  text-align: center;
+--width:100%
+  --color:black;
+  --background: transparent;
+  --border:none !important;
+  --border-checked:none !important;
+  --margin-top:5px !important;
+  --margin-bottom:5px !important;
+  /* --margin-start:15px !important;
+  --margin-end:15px !important; */
+  /* --padding-start:5px !important;
+  --padding-end:5px !important;
+  --padding-top:5px !important;
+  --padding-bottom:5px !important; */
+  min-height: 20px !important;
+  --border-style:none !important;
+  --border-radius:10px !important;
+}
+
+/* *{ */
+  /* font-family: "PT Serif"; */
+/* } */
+.content-data{
+  /* margin: 5px; */
+  font-size:  12px;
+  /* font-weight: bold; */
+
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 5px;
+  color:#000000;
+}
+.content-data-14px{
+  /* margin: 5px; */
+  font-size:  14px;
+  /* font-weight: bold; */
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* border-radius: 5px; */
+  color:#000000;
+}
+mat-icon{
+  color: #ff6700;
+}
+.picker-opt.picker-opt-selected, .picker-prefix, .picker-suffix {
+  color: #ff6700;
+}
+ion-picker>.picker-wrapper {
+  background-color: rgb(241, 241, 242)!important;
+  color: #ff6700  !important;
+}
+ion-picker>.picker-wrapper {
+  color: #000 !important;
+}
+.picker-opt {
+  color: #000 !important;
+}
+.picker-button.sc-ion-picker-md, .picker-button.activated.sc-ion-picker-md {
+  color: #ff6700;
+}
+.picker-button.sc-ion-picker-ios, .picker-button.activated.sc-ion-picker-ios {
+  color: #ff6700;
+}
+.font-size-12px{
+  font-size:  12px;
+}
+.font-size-16px{
+  font-size:  16px !important;
+}
+.font-size-18px{
+  font-size:  18px;
+}
+.font-size-20px{
+  font-size:  20px;
+}
+.content-data-black-color{
+
+  font-size:  12px;
+  font-weight: 550;
+  font-family: Arial, Helvetica, sans-serif;
+
+  color:#000000;
+}
+.content-data-primary-color{
+
+  font-size:  12px;
+  font-weight: 550;
+  font-family: Arial, Helvetica, sans-serif;
+
+  color:#000000;
+}
+
+.ion-no-padding-top{
+  padding-top: 0%;
+}
+
+.ion-no-padding-bottom{
+  padding-bottom: 0%;
+}
+
+.ion-no-padding-left{
+  padding-left: 0% !important;
+}
+
+.ion-no-padding-right{
+  padding-right: 0% !important;
+}
+.ion-no-margin-left{
+margin-left: 0px !important;
+}
+.ion-no-margin-right{
+  margin-right: 0px !important;
+  }
+.ion-no-margin-bottom{
+  margin-bottom: 0%;
+}
+.margin-top-10-per{
+  margin-top: 10%;
+}
+
+.ion-no-margin-top{
+  margin-top: 0%;
+}
+.data{
+  font-size:  12px;
+  /* font-weight: bold; */
+  font-family: Arial, Helvetica, sans-serif;
+  color:#000000;
+}
+.font-size{
+  font-size: 13px ;
+  /* font-weight: bold; */
+  font-family: Arial, Helvetica, sans-serif;
+}
+.font-bold-size{
+  font-weight:500;
+}.font-bold{
+  font-weight:bold;
+}
+.font-size-14px{
+  font-size: 14px;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+.ion-underline{
+  text-decoration-line: underline !important;
+  --text-decoration-thickness: 3px !important;
+}
+.horizontal-scroll {
+
+    overflow-x:scroll;
+    white-space: nowrap;
+  }
+  .horizontal-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  div.horizontal-scroll ion-grid {
+    display: inline-block;
+    text-align: center;
+    width: auto !important;
+    padding: 2px;
+    margin: 2px;
+    text-decoration: none;
+  }
+.ion-padding-top-5px{
+  padding-top: 5px;
+}
+.ion-padding-bottom-5px{
+  padding-bottom: 5px;
+}
+.app-font-primary-color{
+  color:#000000;
+}
+.app-font-secondary-color{
+  color:#000000;
+}
+.app-border-black-color{
+  border: 1px solid black;
+}
+.app-font-mercurius-primary-color{
+  color:#ffaa00;
+}
+.app-font-mercurius-secondary-color{
+  color:#ff6700;
+}
+.app-font-green-color {
+  color: #37F40B;
+}
+
+.app-font-disabled-color {
+  color: #D3D3D3;
+}
+.app-font-red-color {
+  color: red;
+}
+.app-font-white-color {
+  color: white;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+  border-color:#ff6700;
+}
+.mat-radio-button.mat-accent .mat-radio-outer-circle{
+  border-color:#ff6700;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle{
+  color:#ff6700;
+  background-color:#ff6700;
+}
+
+/* .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    background-color:rgb(255, 37, 37,.26);
+} */
+.border-2px-solid{
+  border: 2px solid #43425D;
+}
+
+.app-background-mercurius-primary-color{
+  background-color:#ffaa00;
+  color:#fff;
+}
+.app-background-mercurius-secondary-color{
+ color: #fff;
+  background-color:#ff6700;
+}
+.app-border-mercurius-secondary-color{
+   border:1px solid #ff6700;
+ }
+
+ .app-border-top-mercurius-secondary-color{
+  border-top:1px solid #ff6700;
+}
+.app-border-bottom-mercurius-secondary-color{
+  border-bottom:1px solid #ff6700;
+}
+.app-background-summary-box-expand-color{
+  background-color:#698F97;
+  color: white;
+}
+.app-green-background-color{
+ background-color: #37F40B;
+ color: white;
+}
+.app-background-red-color{
+  background-color: red;
+ color: white;
+}
+.ion-header-title{
+  font-size: 16px;
+  font-weight: 600;
+  /* color: black; */
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  /* color: black; */
+}
+/* .mat-select-arrow{
+  border: none;
+
+} */
+.padding-top-13px{
+  padding-top: 13px;
+}
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: unset;
+}
+::ng-deep .mat-select-arrow {
+  color: #ff6700 !important;
+}
+
+::ng-deep .mat-option-pseudo-checkbox.mat-pseudo-checkbox-checked {
+  background-color: #000000;
+}
+.app-font-style{
+  font-family: Arial, Helvetica, sans-serif;
+}
+.title-background-color{
+
+  background-color: rgb(241, 241, 242);
+}
+.app-triangel-background-color{
+  color: #fff;
+  background-color:  #57818A;
+}
+.ion-header-sub-title{
+  font-size: 14px;
+  font-weight: normal;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  /* color: black; */
+}
+.gray-background-color{
+  background-color:#EADBD3;
+  color:#000000;
+}
+
+.font-normal{
+  font-weight: normal;
+}
+.font-size-10{
+  font-size:10.5px;
+}
+.app-font-size-18px{
+  font-size: 18px;
+}
+.app-font-size-14px{
+  font-size: 14px;
+}
+.text-align-right{
+  text-align: right;
+}
+.text-align-left{
+  text-align: left;
+}
+
+.text-rotate-90-degree{
+  writing-mode: vertical-rl;
+  transform: rotate(0deg);
+  font-size-adjust: 0.58;
+  padding: 0%;
+  width: 100%;
+  font-weight: normal;
+  font-size: 10px;
+  color: white;
+}
+.numberCircle {
+  border-radius: 50%;
+
+  width: 12px;
+  height: 12px;
+  display: inline-flex;
+  background: #fff;
+  flex-grow: 0;
+  padding: 0;
+}
+
+.numberCircle span {
+  color: #666;
+  text-align: center;
+  font: 10px Arial, sans-serif;
+  width: 10px;
+  transform: rotate(-90deg) !important;
+  display: inline-block;
+  margin: auto;
+}
+.margin3{
+  margin-top: 2px !important;
+  margin-bottom: 3px !important;
+}
+.margin31{
+  margin-top: 2px !important;
+  margin-bottom: 5px !important;
+}
+.margin4{
+  margin-top: 1px !important;
+  margin-bottom: 2px !important;
+}
+.margin41{
+  margin-top: 1px !important;
+  margin-bottom: 2px !important;
+}
+.margin5{
+  margin-top:1px;
+  margin-bottom: 1px;
+}
+
+.margin6{
+  margin-top: 1px;
+
+  margin-bottom: 1px !important;
+}
+.margin61{
+  margin-top: 1px;
+  margin-bottom: 1px !important;
+}
+.margin7{
+  margin-top: 1px;
+  margin-bottom: 2px !important;
+}
+.expand3{
+
+  height: 58px !important;
+}
+.expand31{
+
+  height: 60px !important;
+}
+.expand4{
+  height: 64px !important;
+}
+.expand41{
+  height: 67px !important;
+}
+.expand5{
+  height: 70px !important;
+}
+.expand6{
+  height: 71px !important;
+}
+.expand61{
+  height: 73px !important;
+}
+.expand7{
+  height: 80px !important;
+}
+
+.text-rotate-270-degree{
+  transform: rotate(-270deg);
+  font-size: 14px;
+  color: black;
+}
+.selected-leave-background-color{
+  background-color: lightgreen !important;
+}
+.selected-leave-font-color{
+  color: lightgreen !important;
+}
+ion-header{
+  --border-style: none;
+}
+.ion-border-radius-15px{
+  border-radius: 15px;
+}
+.ion-border-radius-5px{
+  border-radius: 5px;
+}
+.ion-border-2px-primary-color{
+  border: 2px solid #43425D;
+}
+.ion-border-1px-ligth-gray-color{
+  border: 1px solid lightgray;
+}
+.ion-border-1px-primary-color{
+  border: 1px solid #43425D;
+}
+.ion-border-1px-mercurius-secondary-color{
+  border:1px solid #ff6700;;
+}
+.ion-border-round{
+  border-radius:100% ;border: 1px solid;width: 60%;margin-left: auto;margin-right: auto;
+}
+.ion-border-round-width-80{
+  border: 1px solid ;border-radius: 100%;width: 80%;margin-left: auto;margin-right: auto;margin-bottom: 0%;
+}
+.ion-border-round-width-75{
+  border: 1px solid ;border-radius: 100%;height:22px;width: 22px;padding-left:auto;padding-right:auto;margin-left: auto;margin-right: auto;margin-bottom: 0%;
+}
+.font-weight-500{
+  font-weight: 500;
+}
+.ion-border-round-width-100{
+  border-radius:100% ;border: 1px solid;width: 100%;margin-left: auto;margin-right: auto;
+}
+.week-day-title{
+  font-weight: bold;
+}
+.dashboard-button{
+  width: 50%;
+  font-size: 17px !important;
+  height: 50px;
+  margin: 0%;
+  padding: 0%;
+  color: #fff;
+  --background:  #57818A;
+  --box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
+}
+.go-back{
+
+  /* padding-left: 4%; */
+  height: 100%;
+  width: 100%;
+
+}
+
+
+.app-font-white-color{
+  color: #fff;
+}
+.app-font-black-color{
+  color:black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.app-white-background-color{
+  background-color: #fff;
+}
+.mat-calendar-body-today{
+  background: transparent;
+}
+.mat-calendar-body-cell-content.mat-calendar-body-selected{
+  background-color: #ff6700 !important;
+  color: white !important;
+}
+
+.mat-calendar-body-in-range::before {
+  background-color: #ff6700 !important;
+  opacity: 0.2;
+}
+
+
+/* .mat-calendar-body-cell-content.mat-calendar-body-today{
+  border: 0px;
+} */
+/* .app-primary-background-color{
+  color: #43425D;
+  background-color: #ffaa00;
+} */
+ion-select{
+  color: #43425D;
+}
+ion-select::part(icon) {
+  display: none !important;
+ }
+
+
+/* .app-secondary-background-color{
+  color: #fff;
+  background-color: #9dc3cc;
+} */
+select {
+	appearance: none;
+  text-align: center;
+	--padding: 0px;
+	/* background-color: #4834d4; */
+	/* color: white; */
+	/* border: none;
+	font-family: inherit;
+	outline: none; */
+}
+.password{
+  -webkit-text-security: disc;
+}
+/* ion-button{
+  --font-size:18px bold;
+  font-family: Arial, Helvetica, sans-serif;
+} */
+.app-button{
+  width: 50%;
+  font-size: 17px !important;
+  height: 38px;
+  margin: 0%;
+  padding: 0%;
+  color: #fff;
+  --background: #ff6700;
+  --box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+.app-button-secondary{
+  width: 50%;
+  font-size: 17px !important;
+  height: 38px;
+  margin: 0%;
+  padding: 0%;
+  color: #fff;
+  --background: #ffaa00;
+  --box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.app-button-primary{
+  width: 55%;
+  font-size: 18px !important;
+  height: 40px;
+  margin: 0%;
+  padding: 0%;
+  color: #fff;
+  /* border:1px solid #ffaa00 ; */
+  --background: #ff6700;
+  --box-shadow:1px 1px 1px 1px #ffaa00;
+}
+.app-button-danger{
+  width: 45%;
+
+  color: #fff;
+  --background:  red;
+  --box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+.green-border-color{
+  border: 1px solid #37F40B;
+  border-radius: 5px;
+}
+ion-checkbox{
+  --checkmark-color: white;
+  --background-checked: #ff6700;
+  --border-color: #ffaa00;
+  --border-color-checked: #ff6700;
+}
+.mat-checkbox-checked .mat-checkbox-checkmark {
+  background-color: #ff6700;
+  border-color:  #ff6700;
+}
+.mat-checkbox .mat-ripple-element{
+  background-color: #ff6700;
+  border-color: #ff6700;
+}
+
+.mat-checkbox .mat-checkbox-frame {
+  border-color: #ff6700;
+}
+
+.mat-checkbox-inner-container{
+  height: 14px;
+  width: 14px;
+}
+.mat-checkbox-checked.mat-checkbox-checkmark.mat-focus-indicator::after,
+.mat-focus-indicator::before{
+  background: none !important;opacity: 0 !important;
+}
+span.mat-ripple.mat-checkbox-ripple.mat-focus-indicator {background: none !important;opacity: 0 !important;}
+.mat-checkbox-checkmark.mat-focus-indicator {background: none !important;opacity: 0 !important;}
+.ion-margin-2{
+ margin: 2%;
+}
+
+.border-05-lightgray{
+  border:solid 0.1px lightgray; border-radius: 5px;margin: 1%;padding: 2%;
+}
+
+.colors-sat-sun{
+  background-color: #1EC29D  ;
+  color:white;
+}
+.colors-sun-mon{
+  background-color:  #FBB053 ;
+  color:white;
+}
+.colors-mon-tue{
+  background-color: #F5696C ;
+  color:white;
+}
+.colors-tue-wed{
+  background-color: #9A5FA5 ;
+  color:#FFFFFF;
+}
+.colors-wed-thu{
+  background-color:  #6160CE ;
+  color:white;
+}
+.colors-thu-fri{
+  background-color:  #0084FE;
+  color:white;
+}
+.colors-fri-sat{
+  background-color:  #5AC8FA ;
+  color:white;
+}
+.colors-nc-rdos{
+  background-color: rgb(26, 26, 26)  ;
+  color:white;
+}
+/* rgb(90, 89, 89) */
+
+
+
+.alert-button.sc-ion-alert-ios {
+  color: #ff6700;
+  font-weight: normal !important;
+}
+.alert-button.sc-ion-alert-md {
+  color: #ff6700;
+  font-weight: normal !important;
+}
+ion-toast.toast-scheme{
+  color: white;
+  --background:rgba(0,0,0,0.9);
+  --button-color: white;
+}
+/* ion-toast.toast-scheme .button-inner {
+  color: color(#555, danger);
+} */
+ion-modal.AddNewShiftDefintion{
+  --max-height:475px  ;
+    bottom: 0%;
+    padding: 3px;
+    position: absolute;
+    text-align: center;
+    --border-radius: 10px;
+    --backdrop-opacity:0.3;
+}
+ion-modal.action-sheet{
+  --max-height:300px  ;
+    bottom: 0;
+    padding: 0%;
+    position: absolute;
+    align-items: flex-end;
+    text-align: center;
+    padding-bottom: 2px;
+    --border-radius: 10px;
+    --backdrop-opacity:0.3;
+}
+ion-modal.SaveExportActionSheet{
+  --max-height:200px  ;
+    bottom: 0;
+    padding: 0%;
+    position: absolute;
+    align-items: flex-end;
+    text-align: center;
+    padding-bottom: 2px;
+    --border-radius: 10px;
+    --backdrop-opacity:0.3;
+}
+ion-modal.action-sheet-for-shiftline-schedule{
+  --max-height:250px  ;
+    bottom: 0;
+    padding: 0%;
+    position: absolute;
+    align-items: flex-end;
+    text-align: center;
+    padding-bottom: 2px;
+    --border-radius: 10px;
+    --backdrop-opacity:0.3;
+}
+ion-modal.BidSummaryCalendar{
+  --max-height:75%  ;
+    bottom: 0;
+    padding: 0%;
+    position: absolute;
+    align-items: flex-end;
+    text-align: center;
+    padding-bottom: 2px;
+    --border-radius: 10px;
+    --backdrop-opacity:0.3;
+}
+ion-modal.shiftlineSummaryForBidSchedule{
+  --max-height:300px  ;
+    bottom: 0;
+    padding: 0%;
+    position: absolute;
+    align-items: flex-end;
+    text-align: center;
+    --border-radius: 10px;
+    --backdrop-opacity:0.3;
+}
+ion-modal.bidVacation{
+  --max-height:450px  ;
+    bottom: 0%;
+    padding: 5px;
+
+
+    position: absolute;
+    text-align: center;
+    --border-radius: 15px;
+    --backdrop-opacity:0.3;
+}
+ion-modal.leaveSelectionConfirmation-ios{
+  --max-height:250px  ;
+    height:auto !important;
+    bottom: 0%;
+    --max-width: 270px;
+    position: absolute;
+    overflow: visible;
+    text-align: center;
+    --background: var(--ion-overlay-background-color, var(--ion-color-step-100, #f9f9f9));
+    --border-radius: 15px;
+    --backdrop-opacity:0.3;
+}
+ion-modal.leaveSelectionConfirmation{
+  --max-height:250px  ;
+    height:auto !important;
+    bottom: 0%;
+    --max-width: 270px;
+    position: absolute;
+    overflow: visible;
+    text-align: left;
+    /* text-align: center; */
+    --border-radius: 2px;
+    --backdrop-opacity:0.3;
+}
+ion-modal.bidShiftLineSchedule{
+  --max-height:300px  ;
+    bottom: 0%;
+    padding: 5px;
+    position: absolute;
+    /* text-align: center; */
+    --border-radius: 15px;
+    --backdrop-opacity:0.3;
+}
+ion-modal.bidRounds{
+  --max-height:90% ;
+    bottom: 0;
+    padding: 5px;
+
+    position: absolute;
+    text-align: center;
+    --border-radius: 15px;
+    --backdrop-opacity:0.3;
+}
+ion-modal.ImportScheduleModal{
+  --max-height:200px  ;
+  bottom: 0%;
+
+  position: absolute;
+  text-align: center;
+  padding: 2%;
+  --border-radius: 10px;
+  --backdrop-opacity:0.3;
+}
+ion-modal.skipBidLeave{
+  --max-height:400px  ;
+  bottom: 0%;
+
+  position: absolute;
+  text-align: center;
+  padding: 2%;
+  --border-radius: 10px;
+  --backdrop-opacity:0.3;
+}
+ion-modal.dayEditSummaryData{
+  /* --width: 1000%;*/
+    --max-height:325px  ;
+    bottom: 0%;
+    padding: 2%;
+    position: absolute;
+    text-align: center;
+    --border-radius: 10px;
+    --backdrop-opacity:0.3;
+}
+ion-modal.daySummaryData{
+  /* --width: 1000%;*/
+    --max-height:390px  ;
+    bottom: 0%;
+    padding: 2%;
+    position: absolute;
+    text-align: center;
+    --border-radius: 10px;
+    --backdrop-opacity:0.3;
+}
+ion-modal.weekSummaryData{
+  /* --width: 1000%;*/
+    --max-height:390px  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    text-align: center;
+    --border-radius: 0;
+    --backdrop-opacity:0.3;
+}
+ion-modal.straightlinesIoVideo{
+  --max-width:100%;
+    --max-height:225px ;
+    bottom: 0%;
+    padding: 0%;
+
+    position: absolute;
+    text-align: center;
+    --border-radius: 0;
+    --backdrop-opacity:0.3;
+}
+ion-loading.custom-loading {
+  /* transform: scale(); */
+  --spinner-color: #fff;
+  --background:  #ff6700;
+  color: #fff;
+    /* background-color: #0194e3; */
+    /* color: #0194e3; */
+    background: transparent;
+    /* box-shadow: #0194e3; */
+    /* --width:100%;
+    --max-height:100%;
+    --height:100%;
+    border-radius: 0px;
+    --max-width: 100%; */
+}
+ion-modal.add-emp{
+  bottom: 0%;
+  padding: 2%;
+  position: absolute;
+  --border-radius: 15px;
+  z-index: 1;
+  --max-height: 605px  ;
+--backdrop-opacity:0.3;
+}
+ion-modal.editSchedule {
+  --width: 100%;
+    --max-height: 400px  ;
+    /* bottom: 0%; */
+    padding: 2%;
+    position: absolute;
+    --border-radius: 10px;
+  --backdrop-opacity:0.3;
+}
+ion-modal.editWorkLoad {
+  --backdrop-opacity:0.3;
+}
+ion-modal.addNewShiftLine {
+
+  --width: 100%;
+    --max-height: 350px  ;
+    padding: 2%;
+    position: absolute;
+    --border-radius: 10px;
+  --backdrop-opacity:0.3;
+
+}
+ion-modal.viewShiftData {
+  --backdrop-opacity:0.3;
+
+}
+ion-modal.shiftCategoryInfo{
+  --width: 100%;
+    --max-height: 340px;
+    --background: transparent ;
+    --backdrop-opacity:0.3;
+    /* --min-height:0  ; */
+    --bottom: 0 ;
+    /* right: 0; */
+    /* position: ; */
+    padding: 2%;
+    --border-radius: 10px;
+    position: absolute;
+    /* overflow-y: auto; */
+    /* --border-radius: 0; */
+}
+ion-modal.setUpBidParametersPartOne{
+  --width: 100%;
+  --max-height:400px  ;
+  --backdrop-opacity:0.3;
+  /* --min-height:40%  ; */
+  /* bottom: 0%; */
+  padding: 2%;
+  --border-radius: 10px;
+  position: absolute;
+}
+ion-modal.saveBidSchedule{
+  --width: 100%;
+  --max-height:200px  ;
+  --backdrop-opacity:0.3;
+  /* --min-height:40%  ; */
+  /* bottom: 0%; */
+  padding: 2%;
+  --border-radius: 10px;
+  position: absolute;
+}
+ion-modal.saveSchedule{
+  --width: 100%;
+  --max-height:230px  ;
+  --backdrop-opacity:0.3;
+  /* --min-height:40%  ; */
+  /* bottom: 0%; */
+  padding: 2%;
+  --border-radius: 10px;
+  position: absolute;
+}
+ion-modal.editScheduleEditShiftLine {
+  --width: 100%;
+  --max-height:400px  ;
+  --backdrop-opacity:0.3;
+  /* --min-height:40%  ; */
+  /* bottom: 0%; */
+  padding: 2%;
+  --border-radius: 10px;
+  position: absolute;
+}
+ion-modal.shiftCategoryStartTimeInfo{
+  --width: 100%;
+  --max-height:425px  ;
+  --backdrop-opacity:0.3;
+  /* --min-height:40%  ; */
+  /* bottom: 0%; */
+  padding: 2%;
+  --border-radius: 10px;
+  position: absolute;
+}
+ion-modal.BL {
+  --width: 100%;
+
+  bottom: 0%;
+  padding: 0%;
+  position: absolute;
+  --border-radius: 0;
+}
+
+
+@media(min-height:568px){
+  /* ion-modal.editSchedule {
+    --width: 100%;
+    --max-height:69%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.editWorkLoad {
+    --width: 100%;
+    --max-height: 40%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  }
+  /* ion-modal.addNewShiftLine {
+    --width: 100%;
+    --max-height: 56.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.viewShiftData {
+    --width: 100%;
+    --max-height:40%  ;
+    bottom: 0%;
+    padding: 2%;
+    --border-radius: 10px;
+    position: absolute;
+
+  }
+}
+
+@media(min-height:640px){
+  /* ion-modal.editSchedule {
+    --width: 100%;
+    --max-height: 61%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.editWorkLoad {
+    --width: 100%;
+    --max-height: 36%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  }
+
+  /* ion-modal.addNewShiftLine {
+    --width: 100%;
+    --max-height: 50.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.viewShiftData {
+    --width: 100%;
+    --max-height:35%  ;
+    bottom: 0%;
+    padding: 2%;
+    --border-radius: 10px;
+    /* font-size: 11px; */
+    position: absolute;
+
+  }
+}
+
+@media(min-height:653px){
+  /* ion-modal.editSchedule {
+    --width: 100%;
+    --max-height: 58%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.editWorkLoad {
+    --width: 100%;
+    --max-height: 36%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  }
+  /* ion-modal.addNewShiftLine {
+    --width: 100%;
+    --max-height: 48.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.viewShiftData {
+    --width: 100%;
+    --max-height:25% auto ;
+    bottom: 0%;
+    padding: 2%;
+    --border-radius: 10px;
+    position: absolute;
+
+  }
+}
+@media(min-height:667px){
+  /* ion-modal.editSchedule {
+    --width: 100%;
+    --max-height: 58%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.editWorkLoad {
+    --width: 100%;
+    --max-height: 35%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  }
+  /* ion-modal.addNewShiftLine {
+    --width: 100%;
+    --max-height: 48.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.viewShiftData {
+    --width: 100%;
+    --max-height:31%  ;
+    bottom: 0%;
+    padding: 2%;
+    --border-radius: 10px;
+    position: absolute;
+
+  }
+}
+@media(min-height:720px){
+  /* ion-modal.editSchedule {
+    --width: 100%;
+    --max-height: 55.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.editWorkLoad {
+    --width: 100%;
+    --max-height: 33%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  }
+  /* ion-modal.addNewShiftLine {
+    --width: 100%;
+    --max-height: 45.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.viewShiftData {
+    --width: 100%;
+    --max-height:25%  ;
+    bottom: 0%;
+    padding: 2%;
+    --border-radius: 10px;
+    position: absolute;
+
+  }
+}
+
+
+@media(min-height:731px){
+  /* ion-modal.editSchedule {
+    --width: 100%;
+    --max-height: 53.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.editWorkLoad {
+    --width: 100%;
+    --max-height: 32%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  }
+  /* ion-modal.addNewShiftLine {
+    --width: 100%;
+    --max-height: 44.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.viewShiftData {
+    --width: 100%;
+    --max-height:28%  ;
+    bottom: 0%;
+    padding: 2%;
+    --border-radius: 10px;
+    position: absolute;
+
+  }
+}
+
+@media(min-height:812px){
+  /* ion-modal.editSchedule {
+    --width: 100%;
+    --max-height: 48%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.editWorkLoad {
+    --width: 100%;
+    --max-height: 27%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  }
+  /* ion-modal.addNewShiftLine {
+    --width: 100%;
+    --max-height: 39.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.viewShiftData {
+    --width: 100%;
+    --max-height:27%;
+    bottom: 0%;
+    padding: 2%;
+    --border-radius: 10px;
+    position: absolute;
+
+  }
+}
+
+@media(min-height:823px){
+  /* ion-modal.editSchedule {
+    --width: 100%;
+    --max-height: 47.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.editWorkLoad {
+    --width: 100%;
+    --max-height: 29%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  }
+  /* ion-modal.addNewShiftLine {
+    --width: 100%;
+    --max-height: 39.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.viewShiftData {
+    --width: 100%;
+    --max-height:25%  ;
+    bottom: 0%;
+    padding: 2%;
+    --border-radius: 10px;
+    position: absolute;
+
+  }
+}
+
+@media(min-height:844px){
+  /* ion-modal.editSchedule {
+    --width: 100%;
+    --max-height: 47.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.editWorkLoad {
+    --width: 100%;
+    --max-height: 29%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  }
+  /* ion-modal.addNewShiftLine {
+    --width: 100%;
+    --max-height: 38.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.viewShiftData {
+    --width: 100%;
+    --max-height:24%  ;
+    bottom: 0%;
+    padding: 2%;
+    --border-radius: 10px;
+    position: absolute;
+
+  }
+}
+
+@media(min-height:914px){
+  /* ion-modal.editSchedule {
+    --width: 100%;
+    --max-height: 43.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.editWorkLoad {
+    --width: 100%;
+    --max-height: 25%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  }
+  /* ion-modal.addNewShiftLine {
+    --width: 100%;
+    --max-height: 35.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.viewShiftData {
+    --width: 100%;
+    --max-height:23%  ;
+    bottom: 0%;
+    padding: 2%;
+    --border-radius: 10px;
+    position: absolute;
+    --border-radius: 0;
+  }
+}
+
+@media(min-height:1024px){
+  /* ion-modal.editSchedule {
+    --width: 100%;
+    --max-height: 40%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.editWorkLoad {
+    --width: 100%;
+    --max-height: 23%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  }
+  /* ion-modal.addNewShiftLine {
+    --width: 100%;
+    --max-height: 33%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.viewShiftData {
+    --width: 100%;
+    --max-height:25%  ;
+    bottom: 0%;
+    padding: 2%;
+    --border-radius: 10px;
+    position: absolute;
+    --border-radius: 0;
+  }
+}
+
+@media(min-height:1280px){
+  /* ion-modal.editSchedule {
+    --width: 100%;
+    --max-height: 32%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.editWorkLoad {
+    --width: 100%;
+    --max-height: 19%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  }
+  /* ion-modal.addNewShiftLine {
+    --width: 100%;
+    --max-height: 26.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.viewShiftData {
+    --width: 100%;
+    --max-height:19%  ;
+    bottom: 0%;
+    padding: 2%;
+    --border-radius: 10px;
+    position: absolute;
+
+  }
+}
+
+@media(min-height:1366px){
+  /* ion-modal.editSchedule {
+    --width: 100%;
+    --max-height: 31%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.editWorkLoad {
+    --width: 100%;
+    --max-height: 19%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  }
+  /* ion-modal.addNewShiftLine {
+    --width: 100%;
+    --max-height: 25.5%  ;
+    bottom: 0%;
+    padding: 0%;
+    position: absolute;
+    --border-radius: 0;
+  } */
+  ion-modal.viewShiftData {
+    --width: 100%;
+    --max-height:25%  ;
+    bottom: 0%;
+    padding: 2%;
+    --border-radius: 10px;
+    position: absolute;
+
+  }
+}

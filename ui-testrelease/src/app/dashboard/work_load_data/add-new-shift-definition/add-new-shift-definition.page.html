@@ -1,0 +1,37 @@
+<ion-header class="ion-no-border" style="height: 10%;">
+  <ion-toolbar class="header"  style="border-radius: 0% 0% 40% 40%;height: 100%;">
+    <ion-row style="margin-top: 3%;">
+      <ion-col size="1.5" >
+        <ion-img style="height:14px;width: 100%;animation-direction:reverse;" class="go-back" alt="Go Back" src="assets/img/go-back.png" (click)="goBack()"></ion-img>
+      </ion-col>
+      <ion-col>
+        <p class="ion-header-title app-font-style app-font-primary-color" style="text-align: center;">
+          New Shift
+        </p>
+      </ion-col>
+      <ion-col size="2" >
+        <!-- <ion-img class="go-back" *ngIf="hide" style="text-align: right;height: 14px;transform: rotate(180deg);" alt="Next" src="assets/img/go-back.png" (click)="forwardOldGeneratedShiftLines()"></ion-img> -->
+      </ion-col>
+  </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+
+  <!-- <ion-grid>
+  <ion-row> -->
+  <!-- <input [ngxTimepicker]="picker">
+  <ngx-material-timepicker #picker></ngx-material-timepicker> -->
+  <app-time-picker style="width: 100%;" [(ngModel)]="someDate"></app-time-picker>
+
+</ion-content>
+<ion-footer class="footer ion-no-border" >
+  <ion-toolbar class="footer ion-no-border" >
+
+  </ion-toolbar>
+
+</ion-footer>
+
+
+
+

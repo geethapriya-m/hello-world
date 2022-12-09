@@ -1,0 +1,223 @@
+
+<ion-content style="width: 100%;">
+
+  <ion-row  class="data font-size-14px" style="margin-top: 2%;">
+      <ion-col size="3"></ion-col>
+      <ion-col size="8"style="text-align: right;">
+        <ion-label >Shift Category Start Times </ion-label>
+      </ion-col>
+      <ion-col size="1" >
+        <ion-img  (click)="shiftCategoryStartTime()" style="height: 100%;width: 100%;"  class=" ion-no-margin-top ion-no-margin-bottom"  alt="clock" src="assets/img/clock.png" ></ion-img>
+      </ion-col>
+  </ion-row>
+
+  <ion-grid>
+<ion-row class="ion-no-padding ion-no-margin" >
+  <ion-col size="3" class="ion-no-padding ion-no-margin" >
+
+  </ion-col>
+  <ion-col class="ion-no-padding ion-no-margin" >
+    <section class="time-picker" ontouchstart>
+      <header>
+        <div class="time-hhmm">
+          <label>
+            <input type="radio" name="hhmm" value="hh" [(ngModel)]="hhmm" />
+            <span [innerText]="hour"></span>
+          </label>
+          <label>:</label>
+          <label>
+            <input type="radio" name="hhmm" value="mm" [(ngModel)]="hhmm" />
+            <span [innerText]="minute"></span>
+          </label>
+        </div>
+        <!-- <div><label><span></span></label></div> -->
+        <div style="padding-left: 2%;">
+          <!-- <label></label> -->
+          <label>
+          <span > {{ampm | uppercase}}</span>
+        </label>
+        </div>
+      </header></section>
+  </ion-col>
+  <ion-col size="3" class="ion-no-padding ion-no-margin" >
+
+  </ion-col>
+</ion-row>
+<ion-row class="ion-no-padding ion-no-margin">
+  <ion-col size="3" class="ion-no-padding ion-no-margin">
+    <div class="time-ampm" style="padding: 0% 5% 0% 5%;width: 100%;" >
+    <label style="float:left;" >
+      <input type="radio" (click)="changeAm()"  id="ampm"  name="ampm" value="am" [(ngModel)]="ampm" />
+      <span   class="ion-border-round  app-primary-background-color">AM</span>
+    </label>
+    </div>
+  </ion-col>
+  <ion-col>
+
+  </ion-col>
+  <ion-col size="3" class="ion-no-padding ion-no-margin">
+    <div class="time-ampm" style="padding: 0% 5% 0% 5%;">
+
+      <label style="float: right;text-align: right;">
+        <input type="radio" id="ampm" (click)="changePm()"   style="display: none;" value="pm" [(ngModel)]="ampm" />
+        <span class="ion-border-round app-primary-background-color">PM</span>
+      </label>
+    </div>
+  </ion-col>
+</ion-row>
+
+    <section class="time-picker"  ontouchstart>
+    <article>
+      <div class="time-dial">
+        <label *ngFor="let item of dialhr" [ngStyle]="item">
+          <!-- <input type="radio" name="time" [value]="item[hhmm]" [ngModel]="hhmm === 'hh' ? hour : minute" (ngModelChange)="timeChange($event)" /> -->
+          <input type="radio" name="time" [value]="item[hhmm]" [ngModel]="hhmm === 'hh' && hour " (ngModelChange)="timeChange($event)" />
+          <!-- <input type="radio" name="time" [value]="item[hhmm]" [ngModel]="hhmm === 'mm' && minute" (ngModelChange)="timeChange($event)" /> -->
+          <div *ngIf="hhmm=='hh'">
+
+            <div [innerText]="item[hhmm]" ></div>
+
+        </div>
+        </label>
+        <label *ngFor="let item of dial" [ngStyle]="item">
+          <!-- <input type="radio" name="time" [value]="item[hhmm]" [ngModel]="hhmm === 'hh' ? hour : minute" (ngModelChange)="timeChange($event)" /> -->
+          <input type="radio" name="time" [value]="item[hhmm]" [ngModel]="hhmm === 'mm' && minute" (ngModelChange)="timeChange($event)" />
+          <!-- <input type="radio" name="time" [value]="item[hhmm]" [ngModel]="hhmm === 'mm' && minute" (ngModelChange)="timeChange($event)" /> -->
+          <div *ngIf="hhmm=='mm'">
+          <div [innerText]="'00'"  *ngIf="(ConvertStringToNumber(item[hhmm]))==60  "></div>
+          <div [innerText]="'.'"  *ngIf="(((ConvertStringToNumber(item[hhmm]))%5)!==0 && (ConvertStringToNumber(item[hhmm]))!==60)   else elseblock"></div>
+          <ng-template #elseblock>
+            <div [innerText]="item[hhmm]" *ngIf="((ConvertStringToNumber(item[hhmm]))%5)==0  " ></div>
+            <!-- <div [innerText]="item[hhmm]" *ngIf="((ConvertStringToNumber(item[hhmm]))%5)==0  " ></div> -->
+          </ng-template>
+        </div>
+        </label>
+        <div class="hand" *ngIf="hhmm==='hh'" [style.transform]="rotateHand()"></div>
+        <div class="hand" *ngIf="hhmm==='mm'" [style.transform]="rotateHandMin()"></div>
+      </div>
+    </article>
+    <!-- <div>
+      <p style="float: left;">
+        <input  type="radio" id="radioAm"   value="AM" checked>
+        <label for="radioAm">AM</label>
+      </p><p></p><p style="float: right;" >
+        <input  type="radio" id="radioPm"  value="PM" >
+        <label for="radioPm">PM</label>
+      </p>
+    </div> -->
+    <!-- <div > -->
+
+    <!-- </div> -->
+  </section>
+
+  <!-- <form [formGroup]="addNewShiftDefinitionForm"> -->
+  <!-- <ion-row class="ion-no-padding ion-no-margin ion-text-center" style="padding: auto;">
+  <ion-item  lines="none" id="shift-alias" class="ion-no-padding" style="margin-left: auto;margin-right: auto;width: 80%;float: left;" >
+    <ion-label>Shift Length</ion-label>
+    <ion-select  name="shiftAlias"  [(ngModel)]="addnewShiftDefinition.sh_category"  interface="popover">
+      <ion-select-option value="A">8 hrs</ion-select-option> -->
+      <!-- <ion-select-option value="B">9 hrs</ion-select-option> -->
+      <!-- <ion-select-option value="C">10 hrs</ion-select-option> -->
+    <!-- </ion-select>
+    <ion-label>{{addnewShiftDefinition.sh_category}} <i style="color: rgb(175, 174, 174);">(Alias)</i></ion-label>
+  </ion-item>
+  <ion-item  lines="none" id="shift-alias" class="ion-no-padding" style="width: 10%;float: right;" >
+  <ion-label><ion-icon (click)="shiftCategoryInfo()"  name="information-circle-outline"></ion-icon></ion-label>
+  </ion-item>
+</ion-row> -->
+
+<ion-row class="ion-no-padding ion-no-margin ion-text-center" style="padding: auto;">
+  <ion-item  lines="none" id="shift-alias" class="ion-no-padding" style="margin-left: auto;margin-right: auto;width: 30%;float: left;" >
+    <ion-label>Alias</ion-label>
+    <ion-select  name="shiftAlias"  [(ngModel)]="addnewShiftDefinition.sh_category"  interface="popover">
+      <ion-select-option *ngFor="let s of allShiftName" value="{{s}}">{{s}}</ion-select-option>
+      <!-- <ion-select-option value="B">9 hrs</ion-select-option> -->
+      <!-- <ion-select-option value="C">10 hrs</ion-select-option> -->
+    </ion-select>
+    <!-- <ion-label>{{addnewShiftDefinition.sh_category}} <i style="color: rgb(175, 174, 174);">(Alias)</i></ion-label> -->
+  </ion-item>
+  <ion-item  lines="none" id="shift-alias" class="ion-no-padding" style="width: 10%;float: right;" >
+  <ion-label><ion-icon (click)="shiftCategoryInfo()"  name="information-circle-outline"></ion-icon></ion-label>
+  </ion-item>
+</ion-row>
+
+<ion-row class="ion-border-2px-primary-color" style="margin:0% 7% 0% 7% ;border-radius: 15px;">
+  <ion-col size="6">
+    <ion-row class="data ion-text-center ion-justify-content-center" >
+      <ion-label >Start</ion-label>
+    </ion-row>
+
+    <ion-row class="content-data-black-color font-size-14px font-normal ion-text-center ion-justify-content-center" >
+      <label>{{hour}}:{{minute}} {{ampm | uppercase}}</label>
+    </ion-row>
+  </ion-col>
+
+  <ion-col size="6">
+    <ion-row class="data ion-text-center font-size-14px  ion-justify-content-center" >
+      <ion-label >End</ion-label>
+      </ion-row>
+    <ion-row class=" content-data-black-color font-normal ion-text-center font-size-14px  ion-justify-content-center" >
+      <label>{{hour8}}:{{minute}} {{addampm8 | uppercase}}</label>
+      <!-- <label *ngIf="addnewShiftDefinition.sh_category=='B'">{{hour9}}:{{minute}} {{addampm9 | uppercase}}</label>
+      <label *ngIf="addnewShiftDefinition.sh_category=='C'">{{hour10}}:{{minute}} {{addampm10 | uppercase}}</label> -->
+  </ion-row>
+  </ion-col>
+  <ion-col size="6">
+    <ion-row class="data font-size-14px  ion-text-center ion-justify-content-center" >
+      <ion-label >Category</ion-label>
+    </ion-row>
+    <ion-row class="ion-text-center ">
+      <!-- <ion-img *ngIf="(ConvertStringToNumber(hour)>12  && ampm=='pm')||(ConvertStringToNumber(hour)<6 && ampm=='am')||(ConvertStringToNumber(hour)==12 && ampm=='am' ) " class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Mid" style="width: 13px;height: 13px;position:relative;margin:auto" src="assets/img/night.png"></ion-img>
+      <ion-img *ngIf="(ConvertStringToNumber(hour)>5 && ConvertStringToNumber(hour)<12  && ampm=='am')||(ConvertStringToNumber(hour)==12 && ampm=='pm') " class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Day" style="width: 13px;height: 13px;position:relative;margin:auto" src="assets/img/morning.png"></ion-img>
+      <ion-img *ngIf="ConvertStringToNumber(hour)<11 && ampm=='pm' " class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Eve" style="width: 13px;height: 13px;position:relative;margin:auto" src="assets/img/evening.png"></ion-img> -->
+
+        <ion-img *ngIf="s_category=='M'" class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Mid" style="width: 13px;height: 13px;position:relative;margin:auto" src="assets/img/night.png"></ion-img>
+          <ion-img *ngIf="s_category=='D'" class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Day" style="width: 13px;height: 13px;position:relative;margin:auto" src="assets/img/morning.png"></ion-img>
+          <ion-img *ngIf="s_category=='E'" class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Eve" style="width: 13px;height: 13px;position:relative;margin:auto" src="assets/img/evening.png"></ion-img>
+          <ion-img *ngIf="s_category=='DE'" class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Day-Eve" style="width: 16px;height: 18px;position:relative;margin:auto" src="assets/img/morning-evening.png"></ion-img>
+          <ion-img *ngIf="s_category=='EM'"class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Eve-Mid" style="width: 16px;height: 18px;position:relative;margin:auto" src="assets/img/evening-night.png"></ion-img>
+          <ion-img *ngIf="s_category=='MD'" class="ion-no-padding-top ion-no-padding-bottom ion-no-margin-bottom"  alt="Mid-Day" style="width: 16px;height: 18px;position:relative;margin:auto" src="assets/img/night-morning.png"></ion-img>
+    </ion-row>
+  </ion-col>
+  <ion-col size="6">
+    <ion-row class="data ion-text-center font-size-14px  ion-justify-content-center" >
+      <ion-label>Alias</ion-label>
+    </ion-row>
+    <ion-row class=" content-data-black-color ion-text-center font-size-14px  ion-justify-content-center" >
+      <label >
+        <!-- <b class="font-normal" *ngIf="ampm=='am'">{{hour}}{{addnewShiftDefinition.sh_category}}</b> -->
+        <b class="font-normal" >{{addnewShiftDefinition.sh_category}}</b>
+      </label>
+      <!-- <label *ngIf="addnewShiftDefinition.sh_category=='B'"> -->
+        <!-- <b class="font-normal" *ngIf="ampm=='am'">{{hour}}{{addnewShiftDefinition.sh_category}}</b> -->
+        <!-- <b class="font-normal" >{{addnewShiftDefinition.sh_category}}</b> -->
+      <!-- </label> -->
+      <!-- <label *ngIf="addnewShiftDefinition.sh_category=='C'"> -->
+        <!-- <b class="font-normal" *ngIf="ampm=='am'">{{hour}}{{addnewShiftDefinition.sh_category}}</b> -->
+        <!-- <b class="font-normal" >{{addnewShiftDefinition.sh_category}}</b> -->
+      <!-- </label> -->
+  </ion-row>
+  </ion-col>
+</ion-row>
+
+<!-- </form> -->
+</ion-grid>
+<!-- <ion-grid> -->
+  <!-- <ion-col> -->
+
+
+  <!-- </ion-col> -->
+<!-- </ion-grid> -->
+
+
+<ion-row  class="ion-justify-content-center ion-no-margin ion-no-padding" >
+  <ion-col class="ion-text-center" size="6">
+    <ion-button class="app-button" style="width: 60%;float:right;" shape="round"  (click)="cancel()">Cancel</ion-button>
+  </ion-col>
+  <ion-col class="ion-text-center"  size="6">
+    <ion-button class="app-button" style="width: 60%;float: left;" shape="round"  (click)="set()">Set</ion-button>
+  </ion-col>
+
+</ion-row>
+
+</ion-content>

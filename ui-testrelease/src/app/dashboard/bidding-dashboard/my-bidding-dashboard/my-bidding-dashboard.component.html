@@ -1,0 +1,72 @@
+<ion-grid class="ion-no-padding ion-no-margin" style="width: 100%;position: sticky !important;  position: -webkit-sticky !important;top: -1px;z-index: 10 !important;background: #fff;">
+<ion-grid class="app-font-primary-color content-data main" >
+  <!-- <mat-divider  style="border-top-width: 2px;width: 100%;" ></mat-divider> -->
+  <ion-row *ngIf="this.user_data.empid===undefined;else elseBlock">
+    <ion-col class="ion-text-center font-weight-500 app-font-primary-color ion-justify-content-center" size="6">
+
+      <!-- <input type="radio" name="change_ShiftToPlot" class="changeShiftToPlot" id="plot" value="2"/> -->
+      <ion-label  (click)="manageBidSchedul()" [class]="getUnderlineClassRoot(2)">MANAGE BID SCHEDULE</ion-label>
+    </ion-col>
+    <ion-col   class="ion-text-center font-weight-500 app-font-primary-color ion-justify-content-center" size="6">
+      <!-- <input type="radio" name="change_ShiftToPlot" class="changeShiftToPlot" checked id="shifts" value="1"/> -->
+      <ion-label (click)="myBidding()" [class]="getUnderlineClassRoot(1)">MY BIDDING</ion-label>
+    </ion-col>
+
+  </ion-row>
+  <ng-template #elseBlock>
+    <ion-row>
+      <ion-col  class="ion-text-center font-weight-500 app-font-primary-color ion-justify-content-center" size="6">
+
+        <!-- <input type="radio" name="change_ShiftToPlot" class="changeShiftToPlot" id="plot" value="2"/> -->
+        <ion-label class="change_Shift_To_Plot" for="plot" >MANAGE BID SCHEDULE</ion-label>
+      </ion-col>
+    <ion-col   class="ion-text-center font-weight-500 app-font-primary-color ion-justify-content-center" size="6">
+      <!-- <input type="radio" name="change_ShiftToPlot" class="changeShiftToPlot" checked id="shifts" value="1"/> -->
+
+      <ion-label class=" font-size-12px  app-font-mercurius-secondary-color ion-underline" for="shifts" (click)="home()" >MY BIDDING</ion-label>
+    </ion-col>
+
+  </ion-row>
+  </ng-template>
+  <!-- <mat-divider  style="border-top-width: 2px;width: 100%;" ></mat-divider> -->
+</ion-grid>
+
+<ion-grid class="app-background-mercurius-primary-color font-size-14px main" >
+<div class="horizontal-scroll">
+  <ion-grid style="padding-left: 25px;padding-right: 25px;">
+    <div [class]="getUnderlineClass(1)" (click)="viewSeniorityList()">Seniority List</div>
+  </ion-grid>
+  <ion-grid style="padding-left: 25px;padding-right: 25px;">
+    <div [class]="getUnderlineClass(2)"  (click)="viewBidWindow()"> Bid Windows</div>
+  </ion-grid>
+  <ion-grid style="padding-left: 25px;padding-right: 25px;">
+    <div [class]="getUnderlineClass(3)"  (click)="viewBidShiftlines()">Shiftlines Bid</div>
+  </ion-grid>
+  <ion-grid style="padding-left: 25px;padding-right: 25px;">
+    <div [class]="getUnderlineClass(4)" (click)="viewLeaveBid()" >Leave Bid </div>
+  </ion-grid>
+  <ion-grid style="padding-left: 25px;padding-right: 25px;">
+    <div [class]="getUnderlineClass(5)" (click)="viewScheduleLeaveSummary()" >Schedule-Leave Summary </div>
+  </ion-grid>
+</div>
+
+  <!-- <ion-slides [options]="slideOption" >
+    <ion-slide >
+        <div [class]="getUnderlineClass(1)" (click)="viewSeniorityList()">Seniority List</div>
+    </ion-slide>
+    <ion-slide >
+      <div [class]="getUnderlineClass(2)"  (click)="viewBidWindow()"> Bid Windows</div>
+    </ion-slide>
+    <ion-slide >
+      <div [class]="getUnderlineClass(3)"  (click)="viewBidShiftlines()">Shiftlines Bid</div>
+    </ion-slide>
+    <ion-slide >
+      <div [class]="getUnderlineClass(4)" (click)="viewLeaveBid()" >Leave Bid </div>
+    </ion-slide>
+    <ion-slide >
+      <div [class]="getUnderlineClass(5)" (click)="viewScheduleLeaveSummary()" >Schedule-Leave Summary </div>
+    </ion-slide>
+  </ion-slides> -->
+</ion-grid>
+</ion-grid>
+<router-outlet  (activate)="onActivate($event)"></router-outlet>

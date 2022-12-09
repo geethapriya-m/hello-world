@@ -1,0 +1,211 @@
+<ion-grid>
+
+
+  <ion-grid class="ion-text-center">
+    <ion-grid  *ngFor="let month of currentSource">
+      <ion-row>{{month[15].startTime|date:'MMM YYYY'}}</ion-row>
+      <ion-row  style="font-size: 12px;color: black;" class="ion-no-margin ion-no-padding">
+        <ion-col class="ion-no-margin ion-no-padding" size="1.7"  style="height: 40px;border: 1px solid lightgray;" >
+          <ion-label >
+            S
+          </ion-label>
+        </ion-col>
+        <ion-col class="ion-no-margin ion-no-padding" size="1.7"  style="height: 40px;border: 1px solid lightgray;" >
+          <ion-label >
+            M
+          </ion-label>
+        </ion-col>
+        <ion-col class="ion-no-margin ion-no-padding" size="1.7"  style="height: 40px; border: 1px solid lightgray;" >
+          <ion-label >
+            T
+          </ion-label>
+        </ion-col>
+        <ion-col class="ion-no-margin ion-no-padding" size="1.7"  style="height: 40px;border: 1px solid lightgray;" >
+          <ion-label >
+            W
+          </ion-label>
+        </ion-col>
+        <ion-col class="ion-no-margin ion-no-padding" size="1.7"  style="height: 40px;border: 1px solid lightgray;" >
+          <ion-label >
+            T
+          </ion-label>
+        </ion-col>
+        <ion-col class="ion-no-margin ion-no-padding" size="1.7"  style="height: 40px;border: 1px solid lightgray;" >
+          <ion-label >
+            F
+          </ion-label>
+        </ion-col>
+        <ion-col class="ion-no-margin ion-no-padding" size="1.7"  style="height: 40px;border: 1px solid lightgray;" >
+          <ion-label >
+            S
+          </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row  class="ion-no-margin ion-no-padding" style="font-size: 12px;color: black;">
+      <ion-col size="1.7" class="ion-no-margin ion-no-padding"   *ngFor="let da of month" style="border: 1px solid lightgray;">
+        <ion-grid *ngIf="da!=undefined "  class="ion-no-margin ion-no-padding">
+          <!-- {{da.startTime| date:'d'}} -->
+
+
+
+          <div class="ss"  (click)="test1(da)"  style="margin: 0%;padding: 0%;">
+
+            <!-- <div    *ngFor="let e of da.events"> -->
+
+            <!-- Sat Sun -->
+            <ion-grid *ngIf="da.title=='SS'" class="sat-sun">
+
+            <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="!(tempSelectedDate!=null&&da.selected!==true  && da===tempSelectedDate)&&da.selected!==true"><div style="padding-top: 5px;padding-bottom: 5px;">{{da.startTime| date:'d'}}</div></ion-row>
+            <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="da.selected===true"><div [class]="cssClassDouble()" >{{da.startTime| date:'d'}}</div></ion-row>
+            <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="tempSelectedDate!=null&&da.selected!==true  && da===tempSelectedDate"><div [class]="cssClassSingle()" >{{da.startTime| date:'d'}}</div></ion-row>
+            <ion-row  style="text-align: center;">
+              <div style="font-size:10px;background-color: transparent;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="da.slot === 0 && da.emp.length===0"> </div>
+              <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)>0"> {{da.slot - da.emp.length}}</div>
+                <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)>-1 && da.emp.length>0">{{da.emp.length}}</div>
+
+                <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)<0 && da.slot>0">{{da.slot }}</div>
+                <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)<0 ">{{da.emp.length}}</div>
+
+          </ion-row>
+            </ion-grid>
+        <!-- Sun Mon -->
+        <ion-grid *ngIf="da.title=='SM'" class="mon-tue">
+          <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="conditionOne(da)"><div style="padding-top: 5px;padding-bottom: 5px;">{{da.startTime| date:'d'}}</div></ion-row>
+          <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="conditionTwo(da)"><div [class]="cssClassDouble()" >{{da.startTime| date:'d'}}</div></ion-row>
+          <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="conditionThree(da)"><div [class]="cssClassSingle()" >{{da.startTime| date:'d'}}</div></ion-row>
+          <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="conditionFour(da)"><div style="background-color: yellow;" >{{da.startTime| date:'d'}}</div></ion-row>
+          <ion-row  style="text-align: center;">
+            <div style="font-size:10px;background-color: transparent;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="da.slot === 0 && da.emp.length===0"> </div>
+            <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)>0"> {{da.slot - da.emp.length}}</div>
+              <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)>-1 && da.emp.length>0">{{da.emp.length}}</div>
+
+              <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)<0 && da.slot>0">{{da.slot }}</div>
+              <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)<0 ">{{da.emp.length}}</div>
+
+          </ion-row>
+          </ion-grid>
+        <!-- Mon Tue -->
+            <ion-grid *ngIf="da.title=='MT'" class="mon-tue">
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="!(tempSelectedDate!=null&&da.selected!==true  && da===tempSelectedDate)&&da.selected!==true"><div style="padding-top: 5px;padding-bottom: 5px;">{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="da.selected===true"><div [class]="cssClassDouble()" >{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="tempSelectedDate!=null&&da.selected!==true  && da===tempSelectedDate"><div [class]="cssClassSingle()" >{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row  style="text-align: center;">
+                <div style="font-size:10px;background-color: transparent;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="da.slot === 0 && da.emp.length===0"> </div>
+                <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)>0"> {{da.slot - da.emp.length}}</div>
+                  <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)>-1 && da.emp.length>0">{{da.emp.length}}</div>
+
+                  <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)<0 && da.slot>0">{{da.slot }}</div>
+                  <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)<0 ">{{da.emp.length}}</div>
+
+              </ion-row>
+            </ion-grid>
+            <!--Tue Wed  -->
+            <ion-grid  class="tue-wed" *ngIf="da.title=='TW'">
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="!(tempSelectedDate!=null&&da.selected!==true  && da===tempSelectedDate)&&da.selected!==true"><div style="padding-top: 5px;padding-bottom: 5px;">{{da.startTime| date:'d'}}</div></ion-row>
+                  <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="da.selected===true"><div [class]="cssClassDouble()" >{{da.startTime| date:'d'}}</div></ion-row>
+                  <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="tempSelectedDate!=null&&da.selected!==true  && da===tempSelectedDate"><div [class]="cssClassSingle()" >{{da.startTime| date:'d'}}</div></ion-row>
+                  <ion-row  style="text-align: center;">
+                    <div style="font-size:10px;background-color: transparent;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="da.slot === 0 && da.emp.length===0"> </div>
+                    <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)>0"> {{da.slot - da.emp.length}}</div>
+                      <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)>-1 && da.emp.length>0">{{da.emp.length}}</div>
+
+                      <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)<0 && da.slot>0">{{da.slot }}</div>
+                      <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)<0 ">{{da.emp.length}}</div>
+
+                  </ion-row>
+            </ion-grid>
+            <!-- Wed Thu -->
+        <ion-grid  class="wed-thu" *ngIf="da.title=='WT'" >
+          <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="!(tempSelectedDate!=null&&da.selected!==true  && da===tempSelectedDate)&&da.selected!==true"><div style="padding-top: 5px;padding-bottom: 5px;">{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="da.selected===true"><div [class]="cssClassDouble()" >{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="tempSelectedDate!=null&&da.selected!==true  && da===tempSelectedDate"><div [class]="cssClassSingle()" >{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row  style="text-align: center;">
+                <div style="font-size:10px;background-color: transparent;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="da.slot === 0 && da.emp.length===0"> </div>
+                <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)>0"> {{da.slot - da.emp.length}}</div>
+                  <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)>-1 && da.emp.length>0">{{da.emp.length}}</div>
+
+                  <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)<0 && da.slot>0">{{da.slot }}</div>
+                  <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)<0 ">{{da.emp.length}}</div>
+
+              </ion-row>
+        </ion-grid>
+        <!-- Thu Fri -->
+        <ion-grid  class="thu-fri" *ngIf="da.title=='TF'" >
+          <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="!(tempSelectedDate!=null&&da.selected!==true  && da===tempSelectedDate)&&da.selected!==true"><div style="padding-top: 5px;padding-bottom: 5px;">{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="da.selected===true"><div [class]="cssClassDouble()" >{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="tempSelectedDate!=null&&da.selected!==true  && da===tempSelectedDate"><div [class]="cssClassSingle()" >{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row  style="text-align: center;">
+                <div style="font-size:10px;background-color: transparent;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="da.slot === 0 && da.emp.length===0"> </div>
+                <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)>0"> {{da.slot - da.emp.length}}</div>
+                  <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)>-1 && da.emp.length>0">{{da.emp.length}}</div>
+
+                  <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)<0 && da.slot>0">{{da.slot }}</div>
+                  <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)<0 ">{{da.emp.length}}</div>
+
+              </ion-row>
+        </ion-grid>
+        <!-- Fri Sat -->
+        <ion-grid  class="fri-sat" *ngIf="da.title=='FS'" >
+          <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="!(tempSelectedDate!=null&&da.selected!==true  && da===tempSelectedDate)&&da.selected!==true"><div style="padding-top: 5px;padding-bottom: 5px;">{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="da.selected===true"><div [class]="cssClassDouble()" >{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="tempSelectedDate!=null&&da.selected!==true  && da===tempSelectedDate"><div [class]="cssClassSingle()" >{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row  style="text-align: center;">
+                <div style="font-size:10px;background-color: transparent;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="da.slot === 0 && da.emp.length===0"> </div>
+                <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)>0"> {{da.slot - da.emp.length}}</div>
+                  <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)>-1 && da.emp.length>0">{{da.emp.length}}</div>
+
+                  <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)<0 && da.slot>0">{{da.slot }}</div>
+                  <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)<0 ">{{da.emp.length}}</div>
+
+              </ion-row>
+        </ion-grid>
+            <!-- Others -->
+
+            <ion-grid *ngIf="da.title=='' && (da.slot + - +da.emp.length)>0" >
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="conditionOne(da)"><div class="holiday"  *ngIf="conditionFour(da)">{{da.startTime| date:'d'}}</div><div class="regular-day" *ngIf="!conditionFour(da)">{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="conditionTwo(da)">
+                <div class="holiday" *ngIf="checkConditionTwoDoubleCLick(da) && conditionFour(da)">{{da.startTime| date:'d'}}</div>
+                <div class="double-click " *ngIf="checkConditionTwoDoubleCLick(da) && !conditionFour(da)">{{da.startTime| date:'d'}}</div>
+                <div class="double-click-one" *ngIf="!checkConditionTwoDoubleCLick(da) && !conditionFour(da)">{{da.startTime| date:'d'}}</div>
+                <div class="holiday" *ngIf="!checkConditionTwoDoubleCLick(da) && conditionFour(da)">{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="conditionThree(da)"><div [class]="cssClassSingle()" >{{da.startTime| date:'d'}}</div></ion-row>
+            <ion-row  >
+              <div style="font-size:10px;background-color: transparent;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="da.slot === 0 && da.emp.length===0"> </div>
+                <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)>0 "> {{da.slot - da.emp.length}}</div>
+                <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)>-1 && da.emp.length>0">{{da.emp.length}}</div>
+
+                <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)<0 && da.slot>0">{{da.slot }}</div>
+                <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)<0 ">{{da.emp.length}}</div>
+
+              </ion-row>
+            </ion-grid>
+
+            <ion-grid *ngIf="da.title=='' && (da.slot + - +da.emp.length)<1" style="background-color:white;">
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="conditionOne(da)"><div class="holiday"  *ngIf="conditionFour(da)">{{da.startTime| date:'d'}}</div><div class="regular-day" *ngIf="!conditionFour(da)">{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="conditionTwo(da)">
+                <div class="holiday" *ngIf="checkConditionTwoDoubleCLick(da) && conditionFour(da)">{{da.startTime| date:'d'}}</div>
+                <div class="double-click " *ngIf="checkConditionTwoDoubleCLick(da) && !conditionFour(da)">{{da.startTime| date:'d'}}</div>
+                <div class="double-click-one" *ngIf="!checkConditionTwoDoubleCLick(da) && !conditionFour(da)">{{da.startTime| date:'d'}}</div>
+                <div class="holiday" *ngIf="!checkConditionTwoDoubleCLick(da) && conditionFour(da)">{{da.startTime| date:'d'}}</div></ion-row>
+              <ion-row class="" style="padding-bottom: 3.5px;" *ngIf="conditionThree(da)"><div [class]="cssClassSingle()" >{{da.startTime| date:'d'}}</div></ion-row>
+            <ion-row  >
+                <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)>0"> {{da.slot - da.emp.length}}</div>
+                <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)>-1 && da.emp.length>0">{{da.emp.length}}</div>
+
+                <div style="border:0.5px solid lightgray;font-size:10px;background-color: white;color:black;width: 14px;height: 16px;margin: auto;padding: auto;" *ngIf="(da.slot + - +da.emp.length)<0 && da.slot>0">{{da.slot }}</div>
+                <div style="font-size:10px;background-color: #ff6700;color:white;width: 14px;height: 16px;margin-left:4px;margin: auto;"  *ngIf="(da.slot + - +da.emp.length)<0 ">{{da.emp.length}}</div>
+
+              </ion-row>
+            </ion-grid>
+            </div>
+
+        </ion-grid>
+        <ion-label *ngIf="da==undefined "  >
+        </ion-label>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+  </ion-grid>
+
+  </ion-grid>

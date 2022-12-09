@@ -1,0 +1,324 @@
+.btn-circle.btn-lg {
+  width: 80px;
+  height: 80px;
+  z-index: 1;
+  position: absolute;
+  --background:  transparent !important;
+  // background-color:none !important;
+  background-color: transparent !important;
+  color: black;
+  margin-top: 10px;
+  // padding: 10px 16px;
+  // font-size: 18px;
+  // line-height: 1.33;
+  padding: 0px;
+  margin-left: -4px;
+  // border-radius: 50%;
+}
+#footer {
+  position: absolute;
+  width: 100% !important;
+    // position: -webkit-sticky;
+  bottom: 0px !important;
+  z-index: -2 !important;
+//   bottom: 10px;
+//   width: 100%;
+//   justify-content : center;
+}
+.dashboard-button{
+  width: 50%;
+  font-size: 17px !important;
+  // height: 50px;
+  margin: 0px;
+  padding: 0px;
+  color: #fff;
+  --background:  #FF6700;
+  --box-shadow: 0px 2px 10px #F5AA41;
+}
+
+#button2{
+  margin-top: 15px !important;
+}
+#button1{
+  margin-top: 15px !important;
+}
+@media (min-width: 700px)  and (orientation: landscape){
+  #button2{
+    margin-top: 25px !important;
+  }
+  #button1{
+    margin-top: 25px !important;
+  }
+}
+@media (min-width: 750px)  and (orientation: landscape){
+  #button1{
+    margin-top: 50px !important;
+  }
+  #button2{
+    margin-top: 50px !important;
+  }
+  #button3{
+    margin-top: 15px !important;
+  }
+}
+@media (min-width: 800px) and (orientation: landscape){
+  #button1{
+    margin-top: 50px !important;
+  }
+  #button2{
+    margin-top: 50px !important;
+  }
+  #button3{
+    margin-top: 25px !important;
+  }
+}
+@media (min-width: 826px)  and (orientation: landscape){
+  #button1{
+    margin-top: 100px !important;
+  }
+  #button2{
+    margin-top: 50px !important;
+  }
+  #button3{
+    margin-top: 25px !important;
+  }
+}
+@media (min-width: 855px)  and (orientation: landscape){
+  #button1{
+    margin-top: 100px !important;
+  }
+  #button2{
+    margin-top: 50px !important;
+  }
+  #button3{
+    margin-top: 25px !important;
+  }
+}
+
+@media (min-width: 900px) and (orientation: landscape){
+  #button1{
+    margin-top: 100px !important;
+  }
+  #button2{
+    margin-top: 50px !important;
+  }
+  #button3{
+    margin-top: 25px !important;
+  }
+}
+
+
+
+
+@media (min-height: 700px)  and (orientation: portrait){
+  #button2{
+    margin-top: 25px !important;
+  }
+  #button1{
+    margin-top: 25px !important;
+  }
+}
+@media (min-height: 750px)  and (orientation: portrait){
+  #button1{
+    margin-top: 50px !important;
+  }
+  #button2{
+    margin-top: 50px !important;
+  }
+  #button3{
+    margin-top: 15px !important;
+  }
+}
+@media (min-height: 800px) and (orientation: portrait){
+  #button1{
+    margin-top: 50px !important;
+  }
+  #button2{
+    margin-top: 50px !important;
+  }
+  #button3{
+    margin-top: 25px !important;
+  }
+}
+@media (min-height: 826px)  and (orientation: portrait){
+  #button1{
+    margin-top: 100px !important;
+  }
+  #button2{
+    margin-top: 50px !important;
+  }
+  #button3{
+    margin-top: 25px !important;
+  }
+}
+@media (min-height: 855px)  and (orientation: portrait){
+  #button1{
+    margin-top: 100px !important;
+  }
+  #button2{
+    margin-top: 50px !important;
+  }
+  #button3{
+    margin-top: 25px !important;
+  }
+}
+
+@media (min-height: 900px) and (orientation: portrait){
+  #button1{
+    margin-top: 100px !important;
+  }
+  #button2{
+    margin-top: 50px !important;
+  }
+  #button3{
+    margin-top: 25px !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+// #button2{
+//   margin-top: 5px !important;
+// }
+// #button3{
+//   margin-top: 5px !important;
+// }
+// @media (min-width: 700px)  and (orientation: landscape){
+//   #button2{
+//     margin-top: 5px !important;
+//   }
+//   #button3{
+//     margin-top: 5px !important;
+//   }
+// }
+// @media (min-width: 750px)  and (orientation: landscape){
+//   #button1{
+//     margin-top: 15px !important;
+//   }
+//   #button2{
+//     margin-top: 15px !important;
+//   }
+//   #button3{
+//     margin-top: 15px !important;
+//   }
+// }
+// @media (min-width: 800px) and (orientation: landscape){
+//   #button1{
+//     margin-top: 25px !important;
+//   }
+//   #button2{
+//     margin-top: 25px !important;
+//   }
+//   #button3{
+//     margin-top: 25px !important;
+//   }
+// }
+// @media (min-width: 826px)  and (orientation: landscape){
+//   #button1{
+//     margin-top: 50px !important;
+//   }
+//   #button2{
+//     margin-top: 25px !important;
+//   }
+//   #button3{
+//     margin-top: 25px !important;
+//   }
+// }
+// @media (min-width: 855px)  and (orientation: landscape){
+//   #button1{
+//     margin-top: 50px !important;
+//   }
+//   #button2{
+//     margin-top: 25px !important;
+//   }
+//   #button3{
+//     margin-top: 25px !important;
+//   }
+// }
+
+// @media (min-width: 900px) and (orientation: landscape){
+//   #button1{
+//     margin-top: 75px !important;
+//   }
+//   #button2{
+//     margin-top: 25px !important;
+//   }
+//   #button3{
+//     margin-top: 25px !important;
+//   }
+// }
+
+
+
+
+// @media (min-height: 700px)  and (orientation: portrait){
+//   #button2{
+//     margin-top: 5px !important;
+//   }
+//   #button3{
+//     margin-top: 5px !important;
+//   }
+// }
+// @media (min-height: 750px)  and (orientation: portrait){
+//   #button1{
+//     margin-top: 15px !important;
+//   }
+//   #button2{
+//     margin-top: 15px !important;
+//   }
+//   #button3{
+//     margin-top: 15px !important;
+//   }
+// }
+// @media (min-height: 800px) and (orientation: portrait){
+//   #button1{
+//     margin-top: 25px !important;
+//   }
+//   #button2{
+//     margin-top: 25px !important;
+//   }
+//   #button3{
+//     margin-top: 25px !important;
+//   }
+// }
+// @media (min-height: 826px)  and (orientation: portrait){
+//   #button1{
+//     margin-top: 50px !important;
+//   }
+//   #button2{
+//     margin-top: 25px !important;
+//   }
+//   #button3{
+//     margin-top: 25px !important;
+//   }
+// }
+// @media (min-height: 855px)  and (orientation: portrait){
+//   #button1{
+//     margin-top: 50px !important;
+//   }
+//   #button2{
+//     margin-top: 25px !important;
+//   }
+//   #button3{
+//     margin-top: 25px !important;
+//   }
+// }
+
+// @media (min-height: 900px) and (orientation: portrait){
+//   #button1{
+//     margin-top: 75px !important;
+//   }
+//   #button2{
+//     margin-top: 25px !important;
+//   }
+//   #button3{
+//     margin-top: 25px !important;
+//   }
+// }
